@@ -24,4 +24,4 @@ jobs:
         run: |
           docker build . --file Dockerfile --tag my-image-name:your-tag
           docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-          docker push your-image-name:your-tag
+          docker push my-image-name:your-tag
