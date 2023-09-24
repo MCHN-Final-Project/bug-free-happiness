@@ -22,6 +22,6 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         run: |
-          docker build . --file Dockerfile --tag my-image-name:your-tag
+          docker build . --file Dockerfile --tag final_project_docker:tagname
           docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-          docker push my-image-name:your-tag
+          docker push simvelinov/final_project_docker:tagname
