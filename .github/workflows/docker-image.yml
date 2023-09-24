@@ -23,7 +23,7 @@ jobs:
         run: chmod +x Clean-WEare/app/gradlew
 
       - name: Build
-        run: ./app/gradelw build
+        run: ./app/gradlew build
 
       - name: Build & push Docker image
         uses: mr-smithers-excellent/docker-build-push@v6
