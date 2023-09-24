@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  client:
+    build: ../app
+    image: weare-app
+    container_name: weare-app
+    ports: 
+      - "8081:8081"
+    depends_on:
+      - maria_db
+    networks:
+      - app-network
+
+  maria_db:
+    build: ../database
+    image: weare-mariadb
+    container_name: weare-mariadb
+    ports:
+      - 3307:3306
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    name: project-weare
