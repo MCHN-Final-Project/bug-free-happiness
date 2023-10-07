@@ -1,4 +1,4 @@
-package api;
+package api.controllers;
 
 public class ConnectionController {
 }
