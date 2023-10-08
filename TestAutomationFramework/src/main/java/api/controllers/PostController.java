@@ -8,9 +8,8 @@ import org.junit.jupiter.api.Assertions;
 public class PostController extends BaseController {
     UserController userController = new UserController();
 
-    public String createPublicPost() {
-        String randomContent = BaseController.faker.lorem().sentence();
-        String randomPicture = BaseController.faker.internet().image();
+    public int postId;
+    public JsonPath createPublicPost(String randomContent, String randomPicture) {
 
         String postBody = "{\n" +
                 "  \"content\": \"" + randomContent + "\",\n" +
@@ -20,7 +19,8 @@ public class PostController extends BaseController {
 
         Response response = getRestAssured()
                 .auth()
-                .form(getLatestRegisteredUsername(userController.getAllUsers()), USER_PASSWORD, new FormAuthConfig("/authenticate", "username", "password"))
+                .form(getLatestRegisteredUsername(userController.getAllUsers()), USER_PASSWORD,
+                        new FormAuthConfig("/authenticate", "username", "password"))
                 .body(postBody)
                 .when()
                 .post("/api/post/auth/creator")
@@ -29,14 +29,39 @@ public class PostController extends BaseController {
 
         String responseBody = response.asString();
 
-        JsonPath jsonPath = response.jsonPath();
-        String content = jsonPath.getString("content");
-        String picture = jsonPath.getString("picture");
+        return response.jsonPath();
 
-        Assertions.assertEquals(content, randomContent, "Content does not match");
-        Assertions.assertEquals(picture, randomPicture, "Picture does not match");
+    }
 
-        return responseBody;
+    public void editPost(int postId) {
+        String randomContent = BaseController.faker.lorem().sentence();
+        String randomPicture = BaseController.faker.internet().image();
+
+        String postBody = "{\n" +
+                "  \"content\": \"" + randomContent + "\",\n" +
+                "  \"picture\": \"" + randomPicture + "\",\n" +
+                "  \"public\": true\n" +
+                "}";
+
+        getRestAssured()
+                .auth()
+                .form(getLatestRegisteredUsername(userController.getAllUsers()), USER_PASSWORD,
+                        new FormAuthConfig("/authenticate", "username", "password"))
+                .body(postBody)
+                .when()
+                .put(String.format("/api/post/auth/editor?postId=%d", postId))
+                .then().statusCode(200);
+    }
+
+    public Response likePost(int postId) {
+        return getRestAssured()
+                .auth()
+                .form(getLatestRegisteredUsername(userController.getAllUsers()), USER_PASSWORD,
+                        new FormAuthConfig("/authenticate", "username", "password"))
+                .when()
+                .post(String.format("/api/post/auth/likesUp?postId=%d", postId))
+                .then().statusCode(200)
+                .extract().response();
     }
 
     public Response getAllPost() {
@@ -48,7 +73,7 @@ public class PostController extends BaseController {
                 .extract().response();
     }
 
-    public Response getAllUsersPosts() {
+    public void getAllUsersPosts() {
 
         String requestBody = "{\n" +
                 "  \"index\": 0,\n" +
@@ -58,9 +83,10 @@ public class PostController extends BaseController {
                 "  \"size\": 200\n" +
                 "}";
 
-        return getRestAssured()
+        getRestAssured()
                 .auth()
-                .form(getLatestRegisteredUsername(userController.getAllUsers()), USER_PASSWORD, new FormAuthConfig("/authenticate", "username", "password"))
+                .form(getLatestRegisteredUsername(userController.getAllUsers()), USER_PASSWORD,
+                        new FormAuthConfig("/authenticate", "username", "password"))
                 .body(requestBody)
                 .when()
                 .get("/api/users/" + getUserId(userController.getAllUsers()) + "/posts")
@@ -69,10 +95,10 @@ public class PostController extends BaseController {
     }
 
     public void deletePost() {
-
         getRestAssured()
                 .auth()
-                .form(getLatestRegisteredUsername(userController.getAllUsers()), USER_PASSWORD, new FormAuthConfig("/authenticate", "username", "password"))
+                .form(getLatestRegisteredUsername(userController.getAllUsers()), USER_PASSWORD,
+                        new FormAuthConfig("/authenticate", "username", "password"))
                 .queryParam("postId", getLatestPost(getAllPost()))
                 .when()
                 .delete("/api/post/auth/manager?postId=" + getLatestPost(getAllPost()))

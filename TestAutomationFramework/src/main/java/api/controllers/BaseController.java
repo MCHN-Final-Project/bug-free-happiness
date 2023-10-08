@@ -12,7 +12,7 @@ import org.json.JSONArray;
 public class BaseController {
     public static final String USER_PASSWORD = "password";
     public static final String EDIT_CONTENT = "Good job";
-    static Faker faker = new Faker();
+    public static Faker faker = new Faker();
 
     public RequestSpecification getRestAssured() {
         Gson deserializer = new Gson();

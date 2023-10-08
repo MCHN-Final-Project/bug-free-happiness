@@ -1,5 +1,6 @@
 package test.cases.apiTests;
 
+import api.controllers.BaseController;
 import api.controllers.CommentController;
 import api.controllers.PostController;
 import api.controllers.UserController;
@@ -18,7 +19,7 @@ public class CommentControllerTests {
     public void createValidComment_when_UserIsLoggedIn() {
         userController.createUser();
         userController.authenticateUser();
-        postController.createPublicPost();
+        postController.createPublicPost(BaseController.faker.lorem().sentence(), BaseController.faker.internet().image());
         commentController.createComment();
         commentController.getCreatedComment();
     }
