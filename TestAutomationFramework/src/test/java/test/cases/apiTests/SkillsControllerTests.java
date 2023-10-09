@@ -21,8 +21,8 @@ public class SkillsControllerTests {
         step_createNewSkill_Successfully();
         step_getCreatedSkill_ToAssert_SkillCreatedSuccessfully();
         step_editCreatedSkillWithNewSkillText_Successfully();
-        step_getEditedSkillById_ToAssert_EditedSuccessfully();
-        step_deleteCreatedSkill_Successfully();
+        step_getEditedSkillById_ToAssert_SkillEditedSuccessfully();
+        step_deleteCreatedAndEditedSkill_Successfully();
         step_getSkills_ToAssert_SkillDeletedSuccessfully();
     }
 
@@ -79,7 +79,7 @@ public class SkillsControllerTests {
         System.out.println("Created skill is edited successfully");
     }
 
-    public void step_getEditedSkillById_ToAssert_EditedSuccessfully() {
+    public void step_getEditedSkillById_ToAssert_SkillEditedSuccessfully() {
         Response response = skillsController.getSkillById(createdNewSkillId);
 
         assertStatusCode(response, 200);
@@ -90,7 +90,7 @@ public class SkillsControllerTests {
     }
 
 
-    public void step_deleteCreatedSkill_Successfully() {
+    public void step_deleteCreatedAndEditedSkill_Successfully() {
         Response response = skillsController.deleteSkill(createdNewSkillId);
 
         assertStatusCode(response, 200);

@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import com.telerikacademy.testframework.PropertiesManager;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.json.JSONArray;
@@ -52,11 +53,17 @@ public class BaseController {
         return commentId;
     }
 
-    public int getUserId(Response response) {
+    public static int getUserId(Response response) {
         JSONArray jsonArray = new JSONArray(response.body().asString());
         int userId = jsonArray.getJSONObject(0).getInt("userId");
         return userId;
     }
+
+    public static int getRequestId(Response response) {
+        JsonPath jsonPath = response.getBody().jsonPath();
+        return jsonPath.getInt("[0].id");
+    }
+
     public static String getRandomSentence(){
         return faker.lorem().sentence(5);
     }
