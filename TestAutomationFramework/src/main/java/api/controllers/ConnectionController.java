@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class ConnectionController extends BaseController {
 
 
-    public Response createUser(String username, String password, String email) {
+    public Response createUserWithInitialParams(String username, String password, String email) {
 
         String requestBody = format(CREATE_USER_BODY, password, email, password, username);
 
@@ -29,7 +29,7 @@ public class ConnectionController extends BaseController {
                 .post(CREATE_USER_ENDPOINT);
     }
 
-    public Response sendConnectionRequest(String userName, String userPassword, int userId, String userName2) {
+    public Response sendConnectionRequest(String userName, String userPassword, int userId2, String userName2) {
 
         Cookies cookies = getRestAssured()
                 .contentType(ContentType.URLENC)
@@ -41,7 +41,7 @@ public class ConnectionController extends BaseController {
                 .extract().detailedCookies();
 
 
-        String requestBody = format(SEND_REQUEST_BODY, userId, userName2);
+        String requestBody = format(SEND_REQUEST_BODY, userId2, userName2);
 
         return getRestAssured()
                 .cookies(cookies)

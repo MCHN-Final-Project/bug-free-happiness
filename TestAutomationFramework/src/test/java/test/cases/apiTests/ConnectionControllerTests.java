@@ -34,7 +34,7 @@ public class ConnectionControllerTests {
         String randomEmail = getRandomEmail();
         String randomPassword = getRandomPassword();
 
-        Response response = connectionController.createUser(randomUsername, randomPassword, randomEmail);
+        Response response = connectionController.createUserWithInitialParams(randomUsername, randomPassword, randomEmail);
 
         assertStatusCode(response, 200);
         assertResponseBodyIsNotEmpty(response);
@@ -52,7 +52,7 @@ public class ConnectionControllerTests {
         String randomEmail = getRandomEmail();
         String randomPassword = getRandomPassword();
 
-        Response response = connectionController.createUser(randomUsername, randomPassword, randomEmail);
+        Response response = connectionController.createUserWithInitialParams(randomUsername, randomPassword, randomEmail);
 
         assertStatusCode(response, 200);
         assertResponseBodyIsNotEmpty(response);
