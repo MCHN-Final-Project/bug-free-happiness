@@ -53,7 +53,7 @@ public class BaseController {
         return commentId;
     }
 
-    public static int getUserId(Response response) {
+    public int getUserId(Response response) {
         JSONArray jsonArray = new JSONArray(response.body().asString());
         int userId = jsonArray.getJSONObject(0).getInt("userId");
         return userId;
