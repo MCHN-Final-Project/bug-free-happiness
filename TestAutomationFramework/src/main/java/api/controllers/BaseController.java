@@ -82,7 +82,7 @@ public class BaseController {
 
     public static void assertStatusCode(Response response, int expectedStatusCode) {
         int actualStatusCode = response.getStatusCode();
-        assertEquals(actualStatusCode, expectedStatusCode, "Incorrect status code.");
+        assertEquals(expectedStatusCode, actualStatusCode, "Incorrect status code.");
     }
 
     public static void assertResponseBodyIsNotEmpty(Response response) {
