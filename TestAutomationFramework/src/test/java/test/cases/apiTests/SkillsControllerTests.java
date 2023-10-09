@@ -95,7 +95,7 @@ public class SkillsControllerTests {
 
         assertStatusCode(response, 200);
 
-        System.out.println("Created and Edited skill is deleted successfully");
+        System.out.println("Edited skill is deleted successfully");
     }
 
     public void step_getSkills_ToAssert_SkillDeletedSuccessfully() {
