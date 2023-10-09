@@ -16,7 +16,7 @@ public class SkillsControllerTests {
     SkillsController skillsController = new SkillsController();
 
     @Test
-    public void CRUD_skills_Flow() {
+    public void CRUD_Skills_Flow_With_ValidData_Successfully() {
         step_getExistingSkills_Successfully();
         step_createNewSkill_Successfully();
         step_getCreatedSkill_ToAssert_SkillCreatedSuccessfully();
