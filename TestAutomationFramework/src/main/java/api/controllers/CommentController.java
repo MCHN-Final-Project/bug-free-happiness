@@ -1,5 +1,9 @@
 package api.controllers;
 
+import api.controllers.models.CommentModel;
+import api.controllers.models.PostModel;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.authentication.FormAuthConfig;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -9,7 +13,10 @@ public class CommentController extends BaseController {
     UserController userController = new UserController();
     PostController postController = new PostController();
 
-    public int createComment() {
+    CommentModel commentModel = new CommentModel();
+    ObjectMapper comment = new ObjectMapper();
+
+    public CommentModel createComment() {
         String randomCommentContent = BaseController.faker.lorem().sentence();
 
         String commentBody = "{\n" +
@@ -33,7 +40,11 @@ public class CommentController extends BaseController {
         String commentContent = jsonPath.getString("content");
         Assertions.assertEquals(commentContent, randomCommentContent, "Comment content does not match");
 
-        return response.jsonPath().getInt("commentId");
+        String responseBody = response.asString();
+        try {
+            commentModel = comment.readValue(responseBody, CommentModel.class);
+        } catch (JsonProcessingException ignored) {}
+        return commentModel;
     }
 
     public Response likeComment() {

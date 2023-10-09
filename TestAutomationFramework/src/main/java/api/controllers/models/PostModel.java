@@ -3,13 +3,8 @@ package api.controllers.models;
 import java.util.ArrayList;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class CreatePostModel {
-    public static class Category{
-        public int id;
-        public String name;
-    }
+public class PostModel {
 
-    public static class Root{
         public int postId;
         public String content;
         public String picture;
@@ -17,10 +12,8 @@ public class CreatePostModel {
         public ArrayList<Object> likes;
         public ArrayList<Object> comments;
         public int rank;
-        public boolean liked;
-        public Category category;
         @JsonProperty("public")
         public boolean mypublic;
-    }
-
+        public boolean liked;
+        public Object category;
 }
