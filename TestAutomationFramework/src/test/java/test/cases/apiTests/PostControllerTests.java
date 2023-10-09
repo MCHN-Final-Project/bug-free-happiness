@@ -6,6 +6,9 @@ import api.controllers.PostController;
 import api.controllers.UserController;
 import api.controllers.models.CommentModel;
 import api.controllers.models.PostModel;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import io.restassured.response.Response;
 import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
@@ -80,19 +83,24 @@ public class PostControllerTests {
 
     @Test
     public void View_All_Posts() {
-        create_Post_With_Valid_Data();
-        ArrayList<Object> comments = post.comments;
-        for (Object comment : comments) {
-            Assertions.assertNotNull(comment, "Post is empty");
-            System.out.println(comment);
+        ArrayList<Object> posts = postController.getAllPost().jsonPath().get("$");
+
+        for (Object instance : posts) {
+            try {
+            String json = new ObjectMapper().writeValueAsString(instance);
+            post = new ObjectMapper().readValue(json, PostModel.class);
+            } catch (JsonProcessingException ignored) {}
+            Assertions.assertNotNull(post.content, String.format("Post %d content is missing", post.postId));
+            Assertions.assertNotNull(post.picture, String.format("Post %d picture is missing", post.postId));
         }
     }
 
     @Test
     public void View_Comments_For_Post() {
-        create_Post_With_Valid_Data();
         comment = commentController.createComment();
+
         String commentId = String.format("[%d]", comment.commentId);
+
         Assertions.assertEquals(commentId, commentController.getAllCommentsInPost().jsonPath().get("commentId").toString(),
                 "Displayed comment does not match created comment");
     }
