@@ -3,6 +3,7 @@ package test.cases.apiTests;
 import api.controllers.ConnectionController;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
+
 import static api.controllers.BaseController.*;
 import static api.controllers.ConnectionController.*;
 

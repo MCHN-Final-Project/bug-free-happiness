@@ -64,7 +64,7 @@ public class BaseController {
         return jsonPath.getInt("[0].id");
     }
 
-    public static String getRandomSentence(){
+    public static String getRandomSentence() {
         return faker.lorem().sentence(5);
     }
 

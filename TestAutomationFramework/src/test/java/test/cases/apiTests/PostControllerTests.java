@@ -4,20 +4,13 @@ import api.controllers.BaseController;
 import api.controllers.CommentController;
 import api.controllers.PostController;
 import api.controllers.UserController;
-import com.google.gson.JsonArray;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.json.JSONString;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class PostControllerTests {
     BaseController baseController = new BaseController();
@@ -47,7 +40,7 @@ public class PostControllerTests {
     public void View_All_Posts() {
         create_Post_With_Valid_Data();
         ArrayList<Object> comments = postController.getAllPost().jsonPath().get();
-        for (Object comment:comments) {
+        for (Object comment : comments) {
             Assertions.assertNotNull(comment, "Post is empty");
             System.out.println(comment);
         }

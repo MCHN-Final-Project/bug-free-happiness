@@ -14,6 +14,7 @@ public class CommentControllerTests {
     PostController postController = new PostController();
     CommentController commentController = new CommentController();
     UserController userController = new UserController();
+
     @Test
     @Order(1)
     public void createValidComment_when_UserIsLoggedIn() {
@@ -23,18 +24,21 @@ public class CommentControllerTests {
         commentController.createComment();
         commentController.getCreatedComment();
     }
+
     @Test
     @Order(2)
     public void likeComment_which_CorrectlyCreated() {
         commentController.likeComment();
         commentController.getCreatedComment();
     }
+
     @Test
     @Order(3)
     public void editComment_which_CorrectlyCreated() {
         commentController.editComment();
         commentController.getCreatedComment();
     }
+
     @Test
     @Order(4)
     public void deleteCommentAndPost_which_CorrectlyCreated() {
