@@ -3,12 +3,12 @@ package api.controllers;
 import io.restassured.authentication.FormAuthConfig;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.Assertions;
 
 public class PostController extends BaseController {
     UserController userController = new UserController();
 
     public int postId;
+
     public JsonPath createPublicPost(String randomContent, String randomPicture) {
 
         String postBody = "{\n" +

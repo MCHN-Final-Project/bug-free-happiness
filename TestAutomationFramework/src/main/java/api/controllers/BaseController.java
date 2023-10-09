@@ -64,7 +64,7 @@ public class BaseController {
         return jsonPath.getInt("[0].id");
     }
 
-    public static String getRandomSentence(){
+    public static String getRandomSentence() {
         return faker.lorem().sentence(5);
     }
 
@@ -82,7 +82,7 @@ public class BaseController {
 
     public static void assertStatusCode(Response response, int expectedStatusCode) {
         int actualStatusCode = response.getStatusCode();
-        assertEquals(actualStatusCode, expectedStatusCode, "Incorrect status code.");
+        assertEquals(expectedStatusCode, actualStatusCode, "Incorrect status code.");
     }
 
     public static void assertResponseBodyIsNotEmpty(Response response) {
