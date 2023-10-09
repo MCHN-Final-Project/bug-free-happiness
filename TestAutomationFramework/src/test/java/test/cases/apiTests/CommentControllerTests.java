@@ -17,7 +17,7 @@ public class CommentControllerTests {
     @Test
     @Order(1)
     public void createValidComment_when_UserIsLoggedIn() {
-        userController.createUser();
+        userController.createUser(false);
         userController.authenticateUser();
         postController.createPublicPost(BaseController.faker.lorem().sentence(), BaseController.faker.internet().image());
         commentController.createComment();

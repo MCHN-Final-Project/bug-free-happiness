@@ -7,7 +7,10 @@ import java.util.regex.Pattern;
 
 public class UserController extends BaseController {
 
-    public String[] createUser() {
+    public String[] createUser(Boolean admin) {
+        String adm = "";
+        if (admin)
+            adm = "admin";
         String createUserBody = "{\n" +
                 "  \"authorities\": [\n" +
                 "    \"ROLE_USER\"\n" +
@@ -19,7 +22,7 @@ public class UserController extends BaseController {
                 "  \"confirmPassword\": \"password\",\n" +
                 "  \"email\": \"" + BaseController.faker.internet().emailAddress() + "\",\n" +
                 "  \"password\": \"password\",\n" +
-                "  \"username\": \"" + BaseController.faker.name().firstName() + "\"\n" +
+                "  \"username\": \"" + adm + BaseController.faker.name().firstName() + "\"\n" +
                 "}";
 
         Response response = getRestAssured()
@@ -79,5 +82,11 @@ public class UserController extends BaseController {
                 .post("/api/users")
                 .then().statusCode(200)
                 .extract().response();
+    }
+
+    public Response getUserById(int userId, String userName) {
+        return getRestAssured()
+                .when()
+                .get(String.format("/api/users/auth/%d?principal=%s", userId, userName));
     }
 }

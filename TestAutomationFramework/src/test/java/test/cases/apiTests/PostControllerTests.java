@@ -27,7 +27,7 @@ public class PostControllerTests {
 
     @BeforeAll
     public static void setup() {
-        userController.createUser();
+        userController.createUser(false);
         userController.authenticateUser();
     }
 
@@ -47,15 +47,17 @@ public class PostControllerTests {
     public void View_All_Posts() {
         create_Post_With_Valid_Data();
         ArrayList<Object> comments = postController.getAllPost().jsonPath().get();
-        for (Object comment:comments)
+        for (Object comment:comments) {
             Assertions.assertNotNull(comment, "Post is empty");
+            System.out.println(comment);
+        }
     }
 
     @Test
     public void View_Comments_For_Post() {
         create_Post_With_Valid_Data();
-        int commentId = commentController.createComment();
-        Assertions.assertEquals(commentId, Integer.parseInt(commentController.getAllCommentsInPost().jsonPath().get("commentId")),
+        String commentId = String.format("[%d]", commentController.createComment());
+        Assertions.assertEquals(commentId, commentController.getAllCommentsInPost().jsonPath().get("commentId").toString(),
                 "Displayed comment does not match created comment");
     }
 
