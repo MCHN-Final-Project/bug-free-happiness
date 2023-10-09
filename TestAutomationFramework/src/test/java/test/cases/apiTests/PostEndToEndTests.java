@@ -1,8 +1,10 @@
 package test.cases.apiTests;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-public class PostEndToEndTests extends PostControllerTests{
+@Disabled ("Currently not implemented E2E test")
+public class PostEndToEndTests extends PostControllerTests {
 
     @Test
     public void CRUD_Post_Flow_With_Valid_Data_Successfully() {

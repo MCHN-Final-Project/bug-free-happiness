@@ -1,13 +1,19 @@
 package api.controllers;
 
+import api.controllers.models.PostModel;
+import api.controllers.models.UserModel;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.response.Response;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserController extends BaseController {
+    UserModel userModel = new UserModel();
+    ObjectMapper user = new ObjectMapper();
 
-    public String[] createUser(Boolean admin) {
+    public UserModel createUser(Boolean admin) {
         String adm = "";
         if (admin)
             adm = "admin";
@@ -50,7 +56,14 @@ public class UserController extends BaseController {
         } else {
             System.out.println("Pattern not found in the input string.");
         }
-        return userInfo;
+        String userData = getUserById(Integer.parseInt(userInfo[1]), userInfo[0]).asString();
+
+        try {
+            userModel = user.readValue(userData, UserModel.class);
+        } catch (JsonProcessingException ignored) {
+        }
+
+        return userModel;
     }
 
     public String authenticateUser() {

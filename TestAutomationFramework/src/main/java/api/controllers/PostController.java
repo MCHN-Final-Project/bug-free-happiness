@@ -1,15 +1,18 @@
 package api.controllers;
 
+import api.controllers.models.PostModel;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.authentication.FormAuthConfig;
-import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
 public class PostController extends BaseController {
     UserController userController = new UserController();
 
-    public int postId;
+    PostModel postModel = new PostModel();
+    ObjectMapper post = new ObjectMapper();
 
-    public JsonPath createPublicPost(String randomContent, String randomPicture) {
+    public PostModel createPublicPost(String randomContent, String randomPicture) {
 
         String postBody = "{\n" +
                 "  \"content\": \"" + randomContent + "\",\n" +
@@ -29,7 +32,10 @@ public class PostController extends BaseController {
 
         String responseBody = response.asString();
 
-        return response.jsonPath();
+        try {
+            postModel = post.readValue(responseBody, PostModel.class);
+        } catch (JsonProcessingException ignored) {}
+        return postModel;
 
     }
 

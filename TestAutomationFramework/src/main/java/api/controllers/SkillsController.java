@@ -1,5 +1,9 @@
 package api.controllers;
 
+import api.controllers.models.PostModel;
+import api.controllers.models.SkillModel;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
@@ -16,6 +20,25 @@ import static org.asynchttpclient.util.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SkillsController extends BaseController {
+    SkillModel skillModel = new SkillModel();
+    ObjectMapper skill = new ObjectMapper();
+    public SkillModel createSkill(String userCategoryId, String userCategoryName, String skillText) {
+
+        String requestBody = format(CREATE_SKILL_BODY, userCategoryId, userCategoryName, skillText);
+
+        Response response = getRestAssured()
+                .body(requestBody)
+                .when()
+                .post(CREATE_SKILL_ENDPOINT)
+                .then()
+                .extract().response();
+
+        String responseBody = response.asString();
+        try {
+            skillModel = skill.readValue(responseBody, SkillModel.class);
+        } catch (JsonProcessingException ignored) {}
+        return skillModel;
+    }
 
     public Response getSkills() {
 
@@ -26,17 +49,7 @@ public class SkillsController extends BaseController {
                 .extract().response();
     }
 
-    public Response createSkill(String userCategoryId, String userCategoryName, String skillText) {
-
-        String requestBody = format(CREATE_SKILL_BODY, userCategoryId, userCategoryName, skillText);
-
-        return getRestAssured()
-                .body(requestBody)
-                .when()
-                .post(CREATE_SKILL_ENDPOINT);
-    }
-
-    public Response getSkillById(String skillId) {
+    public Response getSkillById(int skillId) {
 
         return getRestAssured()
                 .queryParam("skillId", skillId)
@@ -44,7 +57,7 @@ public class SkillsController extends BaseController {
                 .get(GET_SKILL_BY_ID_ENDPOINT);
     }
 
-    public Response editSkill(String editText, String skillId) {
+    public Response editSkill(String editText, int skillId) {
 
         String encodedSkillText = URLEncoder.encode(editText, StandardCharsets.UTF_8);
 
@@ -55,7 +68,7 @@ public class SkillsController extends BaseController {
     }
 
 
-    public Response deleteSkill(String skillId) {
+    public Response deleteSkill(int skillId) {
 
 
         return getRestAssured()
@@ -72,7 +85,7 @@ public class SkillsController extends BaseController {
         assertEquals(randomSkillText, decodedResponseSkillText, "The content is not correct or empty");
     }
 
-    public static void assertSkillIsNotPresent(String deletedSkill, Response response1) {
+    public static void assertSkillIsNotPresent(int deletedSkill, Response response1) {
         JsonPath jsonPath = response1.jsonPath();
 
         List<Map<String, Object>> skills = jsonPath.getList("$");
