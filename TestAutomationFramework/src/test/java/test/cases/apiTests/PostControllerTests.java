@@ -1,17 +1,28 @@
 package test.cases.apiTests;
 
 import api.controllers.BaseController;
+import api.controllers.CommentController;
 import api.controllers.PostController;
 import api.controllers.UserController;
+import com.google.gson.JsonArray;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.json.JSONString;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class PostControllerTests {
     BaseController baseController = new BaseController();
     PostController postController = new PostController();
+    CommentController commentController = new CommentController();
     static UserController userController = new UserController();
 
     @BeforeAll
@@ -30,6 +41,22 @@ public class PostControllerTests {
         System.out.println("Post liked successfully");
         delete_Post_When_Post_Exists();
         System.out.println("Post deleted successfully");
+    }
+
+    @Test
+    public void View_All_Posts() {
+        create_Post_With_Valid_Data();
+        ArrayList<Object> comments = postController.getAllPost().jsonPath().get();
+        for (Object comment:comments)
+            Assertions.assertNotNull(comment, "Post is empty");
+    }
+
+    @Test
+    public void View_Comments_For_Post() {
+        create_Post_With_Valid_Data();
+        int commentId = commentController.createComment();
+        Assertions.assertEquals(commentId, Integer.parseInt(commentController.getAllCommentsInPost().jsonPath().get("commentId")),
+                "Displayed comment does not match created comment");
     }
 
     public void create_Post_With_Valid_Data() {
