@@ -1,100 +1,82 @@
 package test.cases.apiTests;
 
+import api.controllers.BaseController;
 import api.controllers.ConnectionController;
+import api.controllers.UserController;
+import api.controllers.models.UserModel;
 import io.restassured.response.Response;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-
-import static api.controllers.BaseController.*;
-import static api.controllers.ConnectionController.*;
+import org.junit.jupiter.api.TestInfo;
 
 
 public class ConnectionControllerTests {
+    BaseController baseController = new BaseController();
     ConnectionController connectionController = new ConnectionController();
+    UserController userController = new UserController();
+    UserModel sender;
+    UserModel receiver;
+    private String senderUsername;
+    private String senderPassword;
+    private String receiverUsername;
+    private String receiverPassword;
+    private int receiverId;
+    private int requestId;
 
-    private static Integer userId2;
-    private static String userName1;
-    private static String userName2;
-    private static String userPassword1;
-    private static String userPassword2;
-    private static Integer requestId;
+
+    @BeforeEach
+    public void local_setup(TestInfo testInfo) {
+        sender = userController.createUser(false);
+        receiver = userController.createUser(false);
+        senderUsername = sender.username;
+        senderPassword = "password";
+        receiverUsername = receiver.username;
+        receiverPassword = "password";
+        receiverId = receiver.id;
+
+        if (testInfo.getTags().contains("InitialSetup")) return;
+        connectionController.sendConnectionRequest
+                (senderUsername, senderPassword, receiverId, receiverUsername);
+
+        if (testInfo.getTags().contains("PartialSetup")) return;
+        Response response = connectionController.getUserConnectionRequest
+                (receiverUsername, receiverPassword, receiverId);
+        requestId = baseController.getRequestId(response);
+    }
+
+    @Test
+    @Tag("InitialSetup")
+    public void sendConnectionRequest_toExistingUser_successfully() {
+
+        Response response = connectionController.sendConnectionRequest
+                (senderUsername, senderPassword, receiverId, receiverUsername);
+
+        connectionController.assertSenderReceiverAndRequestAreExisting(response, senderUsername, receiverUsername);
+        System.out.println("Connection request is sent successfully");
+    }
 
 
     @Test
-    public void Send_Receive_Accept_FriendConnectionRequest_Flow_Successfully() {
-        step_createSender_toSendConnectionRequest_Successfully();
-        step_createReceiver_toReceiveConnectionRequest_Successfully();
-        step_Sender_sendsConnectionRequest_toReceiver_Successfully();
-        step_Receiver_GetsConnectionRequest_SentBySender_Successfully();
-        step_Receiver_ApprovesConnectionRequest_SentBySender_Successfully();
+    @Tag("PartialSetup")
+    public void getConnectionRequests_whenExisting_successfully() {
+
+        Response response = connectionController.getUserConnectionRequest
+                (receiverUsername, receiverPassword, receiverId);
+
+        connectionController.assertResponseIsArrayAndNotEmpty(response);
+        connectionController.assertResponseContainsRequestId(response);
+        System.out.println("Connection requests are got successfully");
     }
 
+    @Test
+    public void approveConnectionRequest_whenExisting_successfully() {
 
-    public void step_createSender_toSendConnectionRequest_Successfully() {
+        Response response = connectionController.approveConnectionRequest
+                (receiverUsername, receiverPassword, receiverId, requestId);
 
-        String randomUsername = getRandomUsername();
-        String randomEmail = getRandomEmail();
-        String randomPassword = getRandomPassword();
-
-        Response response = connectionController.createUserWithInitialParams(randomUsername, randomPassword, randomEmail);
-
-        assertStatusCode(response, 200);
-        assertResponseBodyIsNotEmpty(response);
-        assertResponseUsernameIsCorrect(randomUsername, response);
-
-        userName1 = randomUsername;
-        userPassword1 = randomPassword;
-
-        System.out.println("Sender of connection request is created successfully");
-    }
-
-    public void step_createReceiver_toReceiveConnectionRequest_Successfully() {
-
-        String randomUsername = getRandomUsername();
-        String randomEmail = getRandomEmail();
-        String randomPassword = getRandomPassword();
-
-        Response response = connectionController.createUserWithInitialParams(randomUsername, randomPassword, randomEmail);
-
-        assertStatusCode(response, 200);
-        assertResponseBodyIsNotEmpty(response);
-        assertResponseUsernameIsCorrect(randomUsername, response);
-
-        userName2 = randomUsername;
-        userPassword2 = randomPassword;
-        userId2 = getUserIdFromStringResponse(response);
-
-        System.out.println("Receiver of connection request is created successfully");
-    }
-
-    public void step_Sender_sendsConnectionRequest_toReceiver_Successfully() {
-
-        Response response = connectionController.sendConnectionRequest(userName1, userPassword1, userId2, userName2);
-
-        assertStatusCode(response, 200);
-        assertSenderReceiverAndRequestSent(response, userName1, userName2);
-
-        System.out.println("Sender sends connection request to Receiver successfully");
-    }
-
-    public void step_Receiver_GetsConnectionRequest_SentBySender_Successfully() {
-
-        Response response = connectionController.getUserConnectionRequest(userName2, userPassword2, userId2);
-
-        assertStatusCode(response, 200);
-        assertResponseIsArrayAndNotEmpty(response);
-        assertResponseContainsRequestId(response);
-
-        requestId = getRequestId(response);
-
-        System.out.println("Receiver gets the sent connection request successfully");
-    }
-
-    public void step_Receiver_ApprovesConnectionRequest_SentBySender_Successfully() {
-        Response response = connectionController.approveConnectionRequest(userName2, userPassword2, userId2, requestId);
-
-        assertStatusCode(response, 200);
-        assertConnectionRequestIsApproved(response);
-
-        System.out.println("Receiver approves the connection request successfully");
+        connectionController.assertConnectionRequestIsApproved(response);
+        connectionController.assertSenderAndReceiverAreCorrect(response, receiverUsername, senderUsername);
+        System.out.println("Connection request is approved successfully");
     }
 }

@@ -4,7 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8ade3cc-33df-4545-8155-099a4fe9017b" name="Changes" comment="" />
+    <list default="true" id="b8ade3cc-33df-4545-8155-099a4fe9017b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/api/controllers/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/api/controllers/BaseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/apiTests/ConnectionControllerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/apiTests/ConnectionControllerTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/apiTests/SkillsControllerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/apiTests/SkillsControllerTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/target/classes/api/controllers/BaseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/target/classes/api/controllers/BaseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/target/classes/api/controllers/CommentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/target/classes/api/controllers/CommentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/target/classes/api/controllers/ConnectionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/target/classes/api/controllers/ConnectionController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/target/classes/api/controllers/PostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/target/classes/api/controllers/PostController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/target/classes/api/controllers/SkillsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/target/classes/api/controllers/SkillsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/target/classes/api/controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/target/classes/api/controllers/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/target/classes/api/controllers/models/CommentModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/target/classes/api/controllers/models/CommentModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/target/classes/api/controllers/models/PostModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/target/classes/api/controllers/models/PostModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/target/classes/api/controllers/models/SkillModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/target/classes/api/controllers/models/SkillModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/target/classes/api/controllers/models/UserModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/target/classes/api/controllers/models/UserModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/target/test-classes/test/cases/apiTests/CommentControllerTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/target/test-classes/test/cases/apiTests/CommentControllerTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/target/test-classes/test/cases/apiTests/ConnectionControllerTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/target/test-classes/test/cases/apiTests/ConnectionControllerTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/target/test-classes/test/cases/apiTests/PostControllerTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/target/test-classes/test/cases/apiTests/PostControllerTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/target/test-classes/test/cases/apiTests/PostEndToEndTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/target/test-classes/test/cases/apiTests/PostEndToEndTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/target/test-classes/test/cases/apiTests/SkillsControllerTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/target/test-classes/test/cases/apiTests/SkillsControllerTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/target/test-classes/test/cases/apiTests/UserControllerTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/target/test-classes/test/cases/apiTests/UserControllerTests.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,20 +44,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Final Project/TestAutomationFramework&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/Final Project/TestAutomationFramework",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="JUnit.apiTests in test-automation-framework">
     <configuration name="PostControllerTests.View_All_Posts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="test-automation-framework" />
@@ -116,6 +137,7 @@
       <workItem from="1696847157593" duration="4112000" />
       <workItem from="1696857297167" duration="656000" />
       <workItem from="1696869208638" duration="598000" />
+      <workItem from="1696925876769" duration="50000" />
     </task>
     <servers />
   </component>

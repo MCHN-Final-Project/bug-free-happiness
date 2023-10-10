@@ -9,8 +9,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static api.controllers.helpers.Endpoints.*;
-import static api.controllers.helpers.JSONBodies.CREATE_USER_BODY;
 import static api.controllers.helpers.JSONBodies.SEND_REQUEST_BODY;
+import static api.controllers.helpers.QueryParams.REQUEST_ID_PARAM;
 import static java.lang.String.format;
 import static org.asynchttpclient.util.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -18,16 +18,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ConnectionController extends BaseController {
 
-
-    public Response createUserWithInitialParams(String username, String password, String email) {
-
-        String requestBody = format(CREATE_USER_BODY, password, email, password, username);
-
-        return getRestAssured()
-                .body(requestBody)
-                .when()
-                .post(CREATE_USER_ENDPOINT);
-    }
 
     public Response sendConnectionRequest(String userName, String userPassword, int userId2, String userName2) {
 
@@ -38,8 +28,8 @@ public class ConnectionController extends BaseController {
                 .when()
                 .post(AUTHENTICATE_ENDPOINT)
                 .then()
+                .statusCode(302)
                 .extract().detailedCookies();
-
 
         String requestBody = format(SEND_REQUEST_BODY, userId2, userName2);
 
@@ -59,6 +49,7 @@ public class ConnectionController extends BaseController {
                 .when()
                 .post(AUTHENTICATE_ENDPOINT)
                 .then()
+                .statusCode(302)
                 .extract().detailedCookies();
 
         return getRestAssured()
@@ -76,6 +67,7 @@ public class ConnectionController extends BaseController {
                 .when()
                 .post(AUTHENTICATE_ENDPOINT)
                 .then()
+                .statusCode(302)
                 .extract().detailedCookies();
 
         return getRestAssured()
@@ -83,43 +75,14 @@ public class ConnectionController extends BaseController {
                 .queryParam("requestId", requestId)
                 .when()
                 .post(format(GET_USERS_REQUESTS_ENDPOINT, userId)
-                        + format(APPROVE_REQUEST_ENDPOINT, requestId));
+                        + APPROVE_REQUEST_ENDPOINT + "?" + REQUEST_ID_PARAM + requestId)
+                .then()
+                .statusCode(200)
+                .extract().response();
     }
 
-    public static void assertResponseUsernameIsCorrect(String randomUsername, Response response) {
-        assertEquals(extractUserName(response), randomUsername,
-                "The response username is not correct");
-    }
 
-    private static String extractUserName(Response response) {
-        String responseBody = response.getBody().asString();
-        Pattern pattern = Pattern.compile("User with name (.*?) and id");
-        Matcher matcher = pattern.matcher(responseBody);
-
-        String responseUserName = "";
-        if (matcher.find()) {
-            responseUserName = matcher.group(1);
-        } else {
-            System.out.println("User name was not found.");
-        }
-        return responseUserName;
-    }
-
-    public static int getUserIdFromStringResponse(Response response) {
-        String responseBody = response.getBody().asString();
-        Pattern pattern = Pattern.compile(".*id (\\d+) was created.*");
-        Matcher matcher = pattern.matcher(responseBody);
-
-        int userId = -1;
-        if (matcher.find()) {
-            userId = Integer.parseInt(matcher.group(1));
-        } else {
-            System.out.println("User id was not found.");
-        }
-        return userId;
-    }
-
-    public static void assertSenderReceiverAndRequestSent(Response response, String userName, String userName2) {
+    public void assertSenderReceiverAndRequestAreExisting(Response response, String userName, String userName2) {
 
         String responseText = response.getBody().asString();
 
@@ -140,13 +103,34 @@ public class ConnectionController extends BaseController {
         assertTrue(responseText.contains("send friend request to"), "The request is not sent.");
     }
 
-    public static void assertResponseContainsRequestId(Response response) {
+    public void assertResponseContainsRequestId(Response response) {
         JsonPath jsonPath = response.getBody().jsonPath();
         assertNotNull(jsonPath.get("[0].id"), "The 'id' property does not exist in the response.");
     }
 
-    public static void assertConnectionRequestIsApproved(Response response) {
+    public void assertConnectionRequestIsApproved(Response response) {
         String responseBody = response.getBody().asString();
         assertTrue(responseBody.contains("approved request of"));
+    }
+
+    public void assertSenderAndReceiverAreCorrect(Response response, String userName, String userName2) {
+
+        String responseText = response.getBody().asString();
+
+        Pattern pattern = Pattern.compile("(\\w+) approved request of (\\w+)");
+        Matcher matcher = pattern.matcher(responseText);
+
+        String user1 = "";
+        String user2 = "";
+
+        if (matcher.find()) {
+            user1 = matcher.group(1);
+            user2 = matcher.group(2);
+        } else {
+            System.out.println("No match found in the response.");
+        }
+        assertEquals(user1, userName, "Receiver is not correct.");
+        assertEquals(user2, userName2, "Sender is not correct.");
+        assertTrue(responseText.contains("approved request of"), "The request was not approved.");
     }
 }
