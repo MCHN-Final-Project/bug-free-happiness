@@ -44,8 +44,6 @@ public class ConnectionControllerTests {
         Response response = connectionController.getUserConnectionRequest
                 (receiverUsername, receiverPassword, receiverId);
         requestId = getRequestId(response);
-
-
     }
 
     @Test
@@ -55,8 +53,7 @@ public class ConnectionControllerTests {
         Response response = connectionController.sendConnectionRequest
                 (senderUsername, senderPassword, receiverId, receiverUsername);
 
-        assertStatusCode(response, 200);
-        assertSenderReceiverAndRequestSent(response, senderUsername, receiverUsername);
+        assertSenderReceiverAndRequestAreExisting(response, senderUsername, receiverUsername);
         System.out.println("Connection request is sent successfully");
     }
 
@@ -68,7 +65,6 @@ public class ConnectionControllerTests {
         Response response = connectionController.getUserConnectionRequest
                 (receiverUsername, receiverPassword, receiverId);
 
-        assertStatusCode(response, 200);
         assertResponseIsArrayAndNotEmpty(response);
         assertResponseContainsRequestId(response);
         System.out.println("Connection requests are got successfully");
@@ -80,8 +76,8 @@ public class ConnectionControllerTests {
         Response response1 = connectionController.approveConnectionRequest
                 (receiverUsername, receiverPassword, receiverId, requestId);
 
-        assertStatusCode(response1, 200);
         assertConnectionRequestIsApproved(response1);
+        assertSenderAndReceiverAreCorrect(response1, receiverUsername, senderUsername);
         System.out.println("Connection request is approved successfully");
     }
 }

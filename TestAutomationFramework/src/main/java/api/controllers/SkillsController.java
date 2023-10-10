@@ -15,6 +15,8 @@ import java.util.Map;
 
 import static api.controllers.helpers.Endpoints.*;
 import static api.controllers.helpers.JSONBodies.CREATE_SKILL_BODY;
+import static api.controllers.helpers.QueryParams.SKILL_ID_PARAM;
+import static api.controllers.helpers.QueryParams.SKILL_PARAM;
 import static java.lang.String.format;
 import static org.asynchttpclient.util.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.*;
@@ -56,7 +58,7 @@ public class SkillsController extends BaseController {
         return getRestAssured()
                 .queryParam("skillId", skillId)
                 .when()
-                .get(GET_SKILL_BY_ID_ENDPOINT)
+                .get(GET_SKILL_BY_ID_ENDPOINT + "?" + SKILL_ID_PARAM)
                 .then()
                 .statusCode(200).
                 extract().response();
@@ -69,7 +71,7 @@ public class SkillsController extends BaseController {
         return getRestAssured()
                 .queryParam("skillId", skillId)
                 .when()
-                .put(format("%s%s%s", EDIT_SKILL_TEXT_ENDPOINT, encodedSkillText, EDIT_SKILL_ID_ENDPOINT))
+                .put( EDIT_SKILL_TEXT_ENDPOINT +"?" + SKILL_PARAM + encodedSkillText + "&" + SKILL_ID_PARAM)
                 .then()
                 .statusCode(200)
                 .extract().response();
@@ -82,7 +84,7 @@ public class SkillsController extends BaseController {
         return getRestAssured()
                 .queryParam("skillId", skillId)
                 .when()
-                .put(DELETE_SKILL_ENDPOINT)
+                .put(DELETE_SKILL_ENDPOINT + "?" + SKILL_ID_PARAM)
                 .then()
                 .statusCode(200)
                 .extract().response();

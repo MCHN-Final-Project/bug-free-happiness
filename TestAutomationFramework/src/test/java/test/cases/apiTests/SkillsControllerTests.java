@@ -19,6 +19,7 @@ public class SkillsControllerTests {
 
     @BeforeEach
     public void local_setup(TestInfo testInfo) {
+
         if (testInfo.getTags().contains("NoSetup")) return;
         Response response = skillsController.getSkills();
         userCategoryId = response.getBody().jsonPath().getString("[0].category.id");
