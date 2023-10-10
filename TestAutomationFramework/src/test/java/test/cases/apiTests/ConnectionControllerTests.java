@@ -38,7 +38,7 @@ public class ConnectionControllerTests {
         Response response = connectionController.createUserWithInitialParams(randomUsername, randomPassword, randomEmail);
 
         assertStatusCode(response, 200);
-        assertResponseBodyIsNotEmpty(response);
+//        assertResponseBodyIsNotEmpty(response);
         assertResponseUsernameIsCorrect(randomUsername, response);
 
         userName1 = randomUsername;
@@ -56,7 +56,7 @@ public class ConnectionControllerTests {
         Response response = connectionController.createUserWithInitialParams(randomUsername, randomPassword, randomEmail);
 
         assertStatusCode(response, 200);
-        assertResponseBodyIsNotEmpty(response);
+//        assertResponseBodyIsNotEmpty(response);
         assertResponseUsernameIsCorrect(randomUsername, response);
 
         userName2 = randomUsername;

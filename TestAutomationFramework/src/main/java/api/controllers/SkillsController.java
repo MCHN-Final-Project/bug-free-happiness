@@ -31,6 +31,7 @@ public class SkillsController extends BaseController {
                 .when()
                 .post(CREATE_SKILL_ENDPOINT)
                 .then()
+                .statusCode(200)
                 .extract().response();
 
         String responseBody = response.asString();
@@ -46,6 +47,7 @@ public class SkillsController extends BaseController {
                 .when()
                 .get(GET_SKILLS_ENDPOINT)
                 .then()
+                .statusCode(200)
                 .extract().response();
     }
 
@@ -54,7 +56,10 @@ public class SkillsController extends BaseController {
         return getRestAssured()
                 .queryParam("skillId", skillId)
                 .when()
-                .get(GET_SKILL_BY_ID_ENDPOINT);
+                .get(GET_SKILL_BY_ID_ENDPOINT)
+                .then()
+                .statusCode(200).
+                extract().response();
     }
 
     public Response editSkill(String editText, int skillId) {
@@ -64,7 +69,10 @@ public class SkillsController extends BaseController {
         return getRestAssured()
                 .queryParam("skillId", skillId)
                 .when()
-                .put(format("%s%s%s", EDIT_SKILL_TEXT_ENDPOINT, encodedSkillText, EDIT_SKILL_ID_ENDPOINT));
+                .put(format("%s%s%s", EDIT_SKILL_TEXT_ENDPOINT, encodedSkillText, EDIT_SKILL_ID_ENDPOINT))
+                .then()
+                .statusCode(200)
+                .extract().response();
     }
 
 
@@ -74,7 +82,10 @@ public class SkillsController extends BaseController {
         return getRestAssured()
                 .queryParam("skillId", skillId)
                 .when()
-                .put(DELETE_SKILL_ENDPOINT);
+                .put(DELETE_SKILL_ENDPOINT)
+                .then()
+                .statusCode(200)
+                .extract().response();
     }
 
 

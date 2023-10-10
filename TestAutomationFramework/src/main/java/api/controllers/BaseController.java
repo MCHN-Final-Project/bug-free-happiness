@@ -1,5 +1,6 @@
 package api.controllers;
 
+import api.controllers.models.SkillModel;
 import com.github.javafaker.Faker;
 import com.google.gson.Gson;
 import com.telerikacademy.testframework.PropertiesManager;
