@@ -47,7 +47,7 @@ public class ConnectionControllerTests {
 
     @Test
     @Tag("InitialSetup")
-    public void sendConnectionRequest_toExistingUser_Successfully() {
+    public void sendConnectionRequest_toExistingUser_successfully() {
 
         Response response = connectionController.sendConnectionRequest
                 (senderUsername, senderPassword, receiverId, receiverUsername);
