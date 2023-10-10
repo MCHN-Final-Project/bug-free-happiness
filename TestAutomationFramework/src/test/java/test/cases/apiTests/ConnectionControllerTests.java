@@ -10,9 +10,6 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 
-import static api.controllers.BaseController.*;
-import static api.controllers.ConnectionController.*;
-
 
 public class ConnectionControllerTests {
     BaseController baseController = new BaseController();
@@ -20,12 +17,12 @@ public class ConnectionControllerTests {
     UserController userController = new UserController();
     UserModel sender;
     UserModel receiver;
-    String senderUsername;
-    String senderPassword;
-    String receiverUsername;
-    String receiverPassword;
-    int receiverId;
-    int requestId;
+    private String senderUsername;
+    private String senderPassword;
+    private String receiverUsername;
+    private String receiverPassword;
+    private int receiverId;
+    private int requestId;
 
 
     @BeforeEach

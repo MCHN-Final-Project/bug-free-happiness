@@ -6,18 +6,15 @@ import api.controllers.models.SkillModel;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.*;
 
-import static api.controllers.BaseController.*;
-import static api.controllers.SkillsController.*;
-
 public class SkillsControllerTests {
-    private static String userCategoryId;
-    private static String userCategoryName;
-    private static int createdSkillId;
-    private static String textToCreateSkill;
-    private static String responseText;
-    static SkillsController skillsController = new SkillsController();
-    BaseController baseController = new BaseController();
 
+    SkillsController skillsController = new SkillsController();
+    BaseController baseController = new BaseController();
+    private String userCategoryId;
+    private String userCategoryName;
+    private int createdSkillId;
+    private String textToCreateSkill;
+    private String responseText;
 
     @BeforeEach
     public void local_setup(TestInfo testInfo) {
@@ -26,9 +23,9 @@ public class SkillsControllerTests {
         Response response = skillsController.getSkills();
         userCategoryId = response.getBody().jsonPath().getString("[0].category.id");
         userCategoryName = response.getBody().jsonPath().getString("[0].category.name");
+        textToCreateSkill = "Created skill: " + baseController.getRandomSentence();
 
         if (testInfo.getTags().contains("PartialSetup")) return;
-        textToCreateSkill = "Created skill: " + baseController.getRandomSentence();
         SkillModel response1 = skillsController.createSkill(userCategoryId, userCategoryName, textToCreateSkill);
         createdSkillId = response1.skillId;
         responseText = response1.skill;
