@@ -103,7 +103,8 @@ public class PostControllerTests {
     @Test
     @DisplayName("Get all comments for a post")
     public void view_Comments_For_Post() {
-        comment = commentController.createComment();
+        String randomCommentContent = BaseController.faker.lorem().sentence();
+        comment = commentController.createComment(randomCommentContent);
 
         String commentId = String.format("[%d]", comment.commentId);
 
