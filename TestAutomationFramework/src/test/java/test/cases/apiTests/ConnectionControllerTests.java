@@ -17,11 +17,6 @@ public class ConnectionControllerTests {
     UserController userController = new UserController();
     UserModel sender;
     UserModel receiver;
-    private String senderUsername;
-    private String senderPassword;
-    private String receiverUsername;
-    private String receiverPassword;
-    private int receiverId;
     private int requestId;
 
 
@@ -29,19 +24,14 @@ public class ConnectionControllerTests {
     public void local_setup(TestInfo testInfo) {
         sender = userController.createUser(false);
         receiver = userController.createUser(false);
-        senderUsername = sender.username;
-        senderPassword = "password";
-        receiverUsername = receiver.username;
-        receiverPassword = "password";
-        receiverId = receiver.id;
 
         if (testInfo.getTags().contains("InitialSetup")) return;
         connectionController.sendConnectionRequest
-                (senderUsername, senderPassword, receiverId, receiverUsername);
+                (sender.username, "password", receiver.id, receiver.username);
 
         if (testInfo.getTags().contains("PartialSetup")) return;
         Response response = connectionController.getUserConnectionRequest
-                (receiverUsername, receiverPassword, receiverId);
+                (receiver.username, "password", receiver.id);
         requestId = baseController.getRequestId(response);
     }
 
@@ -50,9 +40,9 @@ public class ConnectionControllerTests {
     public void sendConnectionRequest_toExistingUser_successfully() {
 
         Response response = connectionController.sendConnectionRequest
-                (senderUsername, senderPassword, receiverId, receiverUsername);
+                (sender.username, "password", receiver.id, receiver.username);
 
-        connectionController.assertSenderReceiverAndRequestAreExisting(response, senderUsername, receiverUsername);
+        connectionController.assertSenderReceiverAndRequestAreExisting(response, sender.username, receiver.username);
         System.out.println("Connection request is sent successfully");
     }
 
@@ -62,7 +52,7 @@ public class ConnectionControllerTests {
     public void getConnectionRequests_whenExisting_successfully() {
 
         Response response = connectionController.getUserConnectionRequest
-                (receiverUsername, receiverPassword, receiverId);
+                (receiver.username, "password", receiver.id);
 
         connectionController.assertResponseIsArrayAndNotEmpty(response);
         connectionController.assertResponseContainsRequestId(response);
@@ -73,10 +63,10 @@ public class ConnectionControllerTests {
     public void approveConnectionRequest_whenExisting_successfully() {
 
         Response response = connectionController.approveConnectionRequest
-                (receiverUsername, receiverPassword, receiverId, requestId);
+                (receiver.username, "password", receiver.id, requestId);
 
         connectionController.assertConnectionRequestIsApproved(response);
-        connectionController.assertSenderAndReceiverAreCorrect(response, receiverUsername, senderUsername);
+        connectionController.assertSenderAndReceiverAreCorrect(response, receiver.username, sender.username);
         System.out.println("Connection request is approved successfully");
     }
 }
