@@ -62,7 +62,6 @@ public class UserController extends BaseController {
             userModel = user.readValue(userData, UserModel.class);
         } catch (JsonProcessingException ignored) {
         }
-
         return userModel;
     }
 

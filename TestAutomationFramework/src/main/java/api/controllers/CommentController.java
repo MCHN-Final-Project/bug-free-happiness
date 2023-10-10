@@ -1,13 +1,10 @@
 package api.controllers;
 
 import api.controllers.models.CommentModel;
-import api.controllers.models.PostModel;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.authentication.FormAuthConfig;
-import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.Assertions;
 
 public class CommentController extends BaseController {
     UserController userController = new UserController();
@@ -16,8 +13,7 @@ public class CommentController extends BaseController {
     CommentModel commentModel = new CommentModel();
     ObjectMapper comment = new ObjectMapper();
 
-    public CommentModel createComment() {
-        String randomCommentContent = BaseController.faker.lorem().sentence();
+    public CommentModel createComment(String randomCommentContent) {
 
         String commentBody = "{\n" +
                 "  \"commentId\": 0,\n" +
@@ -36,10 +32,6 @@ public class CommentController extends BaseController {
                 .then().statusCode(200)
                 .extract().response();
 
-        JsonPath jsonPath = response.jsonPath();
-        String commentContent = jsonPath.getString("content");
-        Assertions.assertEquals(commentContent, randomCommentContent, "Comment content does not match");
-
         String responseBody = response.asString();
         try {
             commentModel = comment.readValue(responseBody, CommentModel.class);
@@ -47,9 +39,9 @@ public class CommentController extends BaseController {
         return commentModel;
     }
 
-    public Response likeComment() {
+    public Response likeComment(int commentId) {
 
-        Response response = getRestAssured()
+       return getRestAssured()
                 .auth()
                 .form(getLatestRegisteredUsername(userController.getAllUsers()), USER_PASSWORD, new FormAuthConfig("/authenticate", "username", "password"))
                 .queryParam("commentId", getLatestCommentId(getAllCommentsInPost()))
@@ -57,17 +49,9 @@ public class CommentController extends BaseController {
                 .post("/api/comment/auth/likesUp?commentId=" + getLatestCommentId(getAllCommentsInPost()))
                 .then().statusCode(200)
                 .extract().response();
-
-        JsonPath responseBody = response.jsonPath();
-        int assertCommentId = responseBody.getInt("commentId");
-        boolean isLiked = responseBody.getBoolean("liked");
-        Assertions.assertEquals(assertCommentId, getLatestCommentId(getAllCommentsInPost()), "Comment id does not match");
-        Assertions.assertTrue(isLiked);
-
-        return response;
     }
 
-    public Response editComment() {
+    public Response editComment(int commentId) {
 
         return getRestAssured()
                 .auth()

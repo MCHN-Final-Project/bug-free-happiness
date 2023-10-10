@@ -107,7 +107,7 @@ public class PostController extends BaseController {
                         new FormAuthConfig("/authenticate", "username", "password"))
                 .queryParam("postId", getLatestPost(getAllPost()))
                 .when()
-                .delete("/api/post/auth/manager?postId=" + getLatestPost(getAllPost()))
+                .delete("/api/post/auth/manager")
                 .then().statusCode(200)
                 .extract().response();
     }
