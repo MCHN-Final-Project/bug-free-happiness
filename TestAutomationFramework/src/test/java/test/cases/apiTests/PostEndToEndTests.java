@@ -8,13 +8,13 @@ public class PostEndToEndTests extends PostControllerTests {
 
     @Test
     public void CRUD_Post_Flow_With_Valid_Data_Successfully() {
-        create_Post_With_Valid_Data();
+        create_Post_With_Valid_Data_Success();
         System.out.println("Post created successfully");
-        edit_Post_With_Valid_Data();
+        edit_Post_With_Valid_Data_Success();
         System.out.println("Post edited successfully");
-        like_Post_When_Post_Exists();
+        like_Post_When_Post_Exists_Success();
         System.out.println("Post liked successfully");
-        delete_Post_When_Post_Exists();
+        delete_Post_When_Post_Exists_Success();
         System.out.println("Post deleted successfully");
     }
 }
