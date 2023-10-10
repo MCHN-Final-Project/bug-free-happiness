@@ -8,7 +8,6 @@ import api.controllers.models.CommentModel;
 import api.controllers.models.PostModel;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.restassured.response.Response;
 import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
@@ -27,22 +26,23 @@ public class PostControllerTests {
     }
 
     @BeforeEach
-    public void local_setup(TestInfo testInfo) {
+    public void local_Setup(TestInfo testInfo) {
         if (testInfo.getTags().contains("NoSetup"))
             return;
-        create_Post_With_Valid_Data();
+        create_Post_With_Valid_Data_Success();
     }
 
     @AfterEach
-    public void local_cleanup(TestInfo testInfo) {
+    public void local_Cleanup(TestInfo testInfo) {
         if (testInfo.getTags().contains("NoCleanup"))
             return;
-        delete_Post_When_Post_Exists();
+        delete_Post_When_Post_Exists_Success();
     }
 
     @Test
     @Tag("NoSetup")
-    public void create_Post_With_Valid_Data() {
+    @DisplayName("Create post successfully")
+    public void create_Post_With_Valid_Data_Success() {
         String randomContent = BaseController.faker.lorem().sentence();
         String randomPicture = BaseController.faker.internet().image();
 
@@ -56,7 +56,8 @@ public class PostControllerTests {
     }
 
     @Test
-    public void edit_Post_With_Valid_Data() {
+    @DisplayName("Edit a post successfully")
+    public void edit_Post_With_Valid_Data_Success() {
         String content = postController.getAllPost().jsonPath().get("[0].content");
 
         postController.editPost(post.postId);
@@ -66,7 +67,8 @@ public class PostControllerTests {
     }
 
     @Test
-    public void like_Post_When_Post_Exists() {
+    @DisplayName("Like a post successfully")
+    public void like_Post_When_Post_Exists_Success() {
         postController.likePost(post.postId);
 
         Assertions.assertNotNull(post.likes, "Post has no likes");
@@ -74,7 +76,8 @@ public class PostControllerTests {
 
     @Test
     @Tag("NoCleanup")
-    public void delete_Post_When_Post_Exists() {
+    @DisplayName("Delete a post successfully")
+    public void delete_Post_When_Post_Exists_Success() {
         postController.deletePost();
 
         Assertions.assertNotEquals
@@ -82,21 +85,24 @@ public class PostControllerTests {
     }
 
     @Test
-    public void View_All_Posts() {
+    @DisplayName("Get all existing posts")
+    public void view_All_Posts() {
         ArrayList<Object> posts = postController.getAllPost().jsonPath().get("$");
 
         for (Object instance : posts) {
             try {
-            String json = new ObjectMapper().writeValueAsString(instance);
-            post = new ObjectMapper().readValue(json, PostModel.class);
-            } catch (JsonProcessingException ignored) {}
+                String json = new ObjectMapper().writeValueAsString(instance);
+                post = new ObjectMapper().readValue(json, PostModel.class);
+            } catch (JsonProcessingException ignored) {
+            }
             Assertions.assertNotNull(post.content, String.format("Post %d content is missing", post.postId));
             Assertions.assertNotNull(post.picture, String.format("Post %d picture is missing", post.postId));
         }
     }
 
     @Test
-    public void View_Comments_For_Post() {
+    @DisplayName("Get all comments for a post")
+    public void view_Comments_For_Post() {
         comment = commentController.createComment();
 
         String commentId = String.format("[%d]", comment.commentId);

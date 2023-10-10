@@ -5,10 +5,7 @@ import api.controllers.PostController;
 import api.controllers.UserController;
 import api.controllers.models.UserModel;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInfo;
+import org.junit.jupiter.api.*;
 
 public class UserControllerTests {
     static UserController userController = new UserController();
@@ -29,7 +26,8 @@ public class UserControllerTests {
 
     }
     @Test
-    public void findUser_UpdateExpertise_UpdateProfile_Flow() {
+    @DisplayName ("Update user expertise info with valid data")
+    public void findUser_Update_Expertise_With_Valid_Data_Successfully() {
         Response response  = userController.getUserById(user.id, user.username);
 
         Assertions.assertEquals(String.valueOf(user.id), response.jsonPath().get("id").toString(),
