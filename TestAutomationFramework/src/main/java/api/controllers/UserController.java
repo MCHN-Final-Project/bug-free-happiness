@@ -1,6 +1,5 @@
 package api.controllers;
 
-import api.controllers.models.PostModel;
 import api.controllers.models.UserModel;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

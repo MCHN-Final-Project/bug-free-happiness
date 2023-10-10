@@ -3,6 +3,7 @@ package api.controllers.models;
 import java.util.ArrayList;
 
 public class UserModel {
+
     public int id;
     public String username;
     public ArrayList<String> authorities;
@@ -16,3 +17,4 @@ public class UserModel {
     public String expertise;
     public ArrayList<String> skills;
 }
+
