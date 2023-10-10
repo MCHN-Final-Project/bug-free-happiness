@@ -4,8 +4,10 @@ import api.controllers.BaseController;
 import api.controllers.CommentController;
 import api.controllers.PostController;
 import api.controllers.UserController;
+import api.controllers.helpers.SqlMethods;
 import api.controllers.models.CommentModel;
 import api.controllers.models.PostModel;
+import api.controllers.models.UserModel;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.*;
@@ -16,12 +18,13 @@ public class PostControllerTests {
     PostController postController = new PostController();
     CommentController commentController = new CommentController();
     static UserController userController = new UserController();
+    static UserModel user;
     PostModel post;
     CommentModel comment;
 
     @BeforeAll
     public static void setup() {
-        userController.createUser(false);
+        user = userController.createUser(false);
         userController.authenticateUser();
     }
 
@@ -37,6 +40,11 @@ public class PostControllerTests {
         if (testInfo.getTags().contains("NoCleanup"))
             return;
         delete_Post_When_Post_Exists_Success();
+    }
+
+    @AfterAll
+    public static void cleanup() {
+        SqlMethods.deleteUserById("user_id", user.id);
     }
 
     @Test

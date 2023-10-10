@@ -4,6 +4,7 @@ import api.controllers.BaseController;
 import api.controllers.CommentController;
 import api.controllers.PostController;
 import api.controllers.UserController;
+import api.controllers.helpers.SqlMethods;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
