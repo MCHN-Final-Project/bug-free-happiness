@@ -11,8 +11,8 @@ import static api.controllers.SkillsController.*;
 public class SkillsControllerTests {
     private static String userCategoryId;
     private static String userCategoryName;
-    private static int createdNewSkillId;
-    private static String randomSkillText_Create;
+    private static int createdSkillId;
+    private static String textToCreateSkill;
     private static String responseText;
     static SkillsController skillsController = new SkillsController();
 
@@ -23,19 +23,18 @@ public class SkillsControllerTests {
         Response response = skillsController.getSkills();
         userCategoryId = response.getBody().jsonPath().getString("[0].category.id");
         userCategoryName = response.getBody().jsonPath().getString("[0].category.name");
-        randomSkillText_Create = "Created skill: " + getRandomSentence();
 
         if (testInfo.getTags().contains("PartialSetup")) return;
-        SkillModel response1 = skillsController.createSkill(userCategoryId, userCategoryName, randomSkillText_Create);
-        createdNewSkillId = response1.skillId;
+        textToCreateSkill = "Created skill: " + getRandomSentence();
+        SkillModel response1 = skillsController.createSkill(userCategoryId, userCategoryName, textToCreateSkill);
+        createdSkillId = response1.skillId;
         responseText = response1.skill;
-
     }
 
     @AfterEach
     public void local_cleanup(TestInfo testInfo) {
         if (testInfo.getTags().contains("NoCleanup")) return;
-        skillsController.deleteSkill(createdNewSkillId);
+        skillsController.deleteSkill(createdSkillId);
     }
 
     @Test
@@ -47,7 +46,6 @@ public class SkillsControllerTests {
 
         assertResponseIsArrayAndNotEmpty(response);
         assertSkillIdIsNotNullAndSkillIsNotEmpty(response);
-
         System.out.println("Get skills request is successful");
     }
 
@@ -55,45 +53,36 @@ public class SkillsControllerTests {
     @Tag("PartialSetup")
     public void createSkill_withValidData_successfully() {
 
-        String userCategoryIdToCreateIn = userCategoryId;
-        String userCategoryNameToCreateIn = userCategoryName;
-        String textToCreateSkill = randomSkillText_Create;
-
         SkillModel response = skillsController.createSkill
-                (userCategoryIdToCreateIn, userCategoryNameToCreateIn, textToCreateSkill);
+                (userCategoryId, userCategoryName, textToCreateSkill);
 
         Assertions.assertTrue(response.skillId > -1);
-        Assertions.assertEquals(randomSkillText_Create, response.skill);
+        Assertions.assertEquals(textToCreateSkill, response.skill);
         System.out.println("Create skill request is successful");
 
-        createdNewSkillId = response.skillId;
+        createdSkillId = response.skillId;
     }
 
     @Test
     @Tag("NoCleanup")
     public void getSkill_byId_whenExisting_successfully() {
 
-        int skillIdToGet = createdNewSkillId;
-        String createdSkillText = randomSkillText_Create;
-        String responseSkillText = responseText;
+        skillsController.getSkillById(createdSkillId);
 
-        skillsController.getSkillById(skillIdToGet);
-
-        Assertions.assertEquals(createdSkillText, responseSkillText);
+        Assertions.assertEquals(textToCreateSkill, responseText);
         System.out.println("Get skill by Id request is successful");
     }
 
     @Test
     public void editSkill_withNewSkillText_successfully() {
 
-        int skillIdToEdit = createdNewSkillId;
-        String randomSkillText_Edit = "Edited Skill: " + getRandomSentence();
+        String textToEditSkill = "Edited Skill: " + getRandomSentence();
 
-        skillsController.editSkill(randomSkillText_Edit, skillIdToEdit);
+        skillsController.editSkill(textToEditSkill, createdSkillId);
 
-        Response response1 = skillsController.getSkillById(skillIdToEdit);
-        assertResponseBodyIsNotEmpty(response1);
-        assertNewSkillContentIsCorrect(randomSkillText_Edit, response1);
+        Response response = skillsController.getSkillById(createdSkillId);
+        assertResponseBodyIsNotEmpty(response);
+        assertNewSkillContentIsCorrect(textToEditSkill, response);
         System.out.println("Edit skill request is successful");
     }
 
@@ -101,14 +90,12 @@ public class SkillsControllerTests {
     @Tag("NoCleanup")
     public void deleteSkill_whenExisting_successfully() {
 
-        int skillIdToDelete = createdNewSkillId;
+        skillsController.deleteSkill(createdSkillId);
 
-        skillsController.deleteSkill(skillIdToDelete);
-
-        Response response1 = skillsController.getSkills();
-        assertResponseIsArrayAndNotEmpty(response1);
-        assertSkillIdIsNotNullAndSkillIsNotEmpty(response1);
-        assertSkillIsNotPresent(skillIdToDelete, response1);
+        Response response = skillsController.getSkills();
+        assertResponseIsArrayAndNotEmpty(response);
+        assertSkillIdIsNotNullAndSkillIsNotEmpty(response);
+        assertSkillIsNotPresent(createdSkillId, response);
         System.out.println("Delete skill request is successful");
     }
 }
