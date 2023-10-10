@@ -10,36 +10,28 @@ public class SkillsControllerTests {
 
     SkillsController skillsController = new SkillsController();
     BaseController baseController = new BaseController();
-    private String userCategoryId;
-    private String userCategoryName;
     private int createdSkillId;
     private String textToCreateSkill;
     private String responseText;
 
     @BeforeEach
     public void local_setup(TestInfo testInfo) {
-
         if (testInfo.getTags().contains("NoSetup")) return;
-        Response response = skillsController.getSkills();
-        userCategoryId = response.getBody().jsonPath().getString("[0].category.id");
-        userCategoryName = response.getBody().jsonPath().getString("[0].category.name");
-        textToCreateSkill = "Created skill: " + baseController.getRandomSentence();
 
-        if (testInfo.getTags().contains("PartialSetup")) return;
-        SkillModel response1 = skillsController.createSkill(userCategoryId, userCategoryName, textToCreateSkill);
-        createdSkillId = response1.skillId;
-        responseText = response1.skill;
+        textToCreateSkill = "Created skill: " + baseController.getRandomSentence();
+        SkillModel response = skillsController.createSkill(textToCreateSkill);
+        createdSkillId = response.skillId;
+        responseText = response.skill;
     }
 
     @AfterEach
     public void local_cleanup(TestInfo testInfo) {
         if (testInfo.getTags().contains("NoCleanup")) return;
+
         skillsController.deleteSkill(createdSkillId);
     }
 
     @Test
-    @Tag("NoSetup")
-    @Tag("NoCleanup")
     public void getSkills_whenExisting_successfully() {
 
         Response response = skillsController.getSkills();
@@ -50,11 +42,13 @@ public class SkillsControllerTests {
     }
 
     @Test
-    @Tag("PartialSetup")
+    @Tag("NoSetup")
     public void createSkill_withValidData_successfully() {
 
+        textToCreateSkill = "Created skill: " + baseController.getRandomSentence();
+
         SkillModel response = skillsController.createSkill
-                (userCategoryId, userCategoryName, textToCreateSkill);
+                (textToCreateSkill);
 
         Assertions.assertTrue(response.skillId > -1);
         Assertions.assertEquals(textToCreateSkill, response.skill);
@@ -64,7 +58,6 @@ public class SkillsControllerTests {
     }
 
     @Test
-    @Tag("NoCleanup")
     public void getSkill_byId_whenExisting_successfully() {
 
         skillsController.getSkillById(createdSkillId);

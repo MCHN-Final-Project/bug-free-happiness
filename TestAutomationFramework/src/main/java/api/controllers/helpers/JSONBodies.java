@@ -4,8 +4,8 @@ public class JSONBodies {
 
     public static final String CREATE_SKILL_BODY = "{\n" +
             "    \"category\": {\n" +
-            "        \"id\": %s,\n" +
-            "        \"name\": \"%s\"\n" +
+            "        \"id\": 100,\n" +
+            "        \"name\": \"All\"\n" +
             "    },\n" +
             "    \"skill\": \"%s\",\n" +
             "    \"skillId\": 0\n" +

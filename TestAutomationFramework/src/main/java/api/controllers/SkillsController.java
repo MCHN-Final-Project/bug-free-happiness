@@ -1,6 +1,5 @@
 package api.controllers;
 
-import api.controllers.models.PostModel;
 import api.controllers.models.SkillModel;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -24,9 +23,10 @@ import static org.junit.jupiter.api.Assertions.*;
 public class SkillsController extends BaseController {
     SkillModel skillModel = new SkillModel();
     ObjectMapper skill = new ObjectMapper();
-    public SkillModel createSkill(String userCategoryId, String userCategoryName, String skillText) {
 
-        String requestBody = format(CREATE_SKILL_BODY, userCategoryId, userCategoryName, skillText);
+    public SkillModel createSkill(String skillText) {
+
+        String requestBody = format(CREATE_SKILL_BODY, skillText);
 
         Response response = getRestAssured()
                 .body(requestBody)
@@ -39,7 +39,8 @@ public class SkillsController extends BaseController {
         String responseBody = response.asString();
         try {
             skillModel = skill.readValue(responseBody, SkillModel.class);
-        } catch (JsonProcessingException ignored) {}
+        } catch (JsonProcessingException ignored) {
+        }
         return skillModel;
     }
 
@@ -64,24 +65,23 @@ public class SkillsController extends BaseController {
                 extract().response();
     }
 
-    public Response editSkill(String editText, int skillId) {
+    public void editSkill(String editText, int skillId) {
 
         String encodedSkillText = URLEncoder.encode(editText, StandardCharsets.UTF_8);
 
-        return getRestAssured()
+        getRestAssured()
                 .queryParam("skillId", skillId)
                 .when()
-                .put( EDIT_SKILL_TEXT_ENDPOINT +"?" + SKILL_PARAM + encodedSkillText + "&" + SKILL_ID_PARAM)
+                .put(EDIT_SKILL_TEXT_ENDPOINT + "?" + SKILL_PARAM + encodedSkillText + "&" + SKILL_ID_PARAM)
                 .then()
                 .statusCode(200)
                 .extract().response();
     }
 
 
-    public Response deleteSkill(int skillId) {
+    public void deleteSkill(int skillId) {
 
-
-        return getRestAssured()
+        getRestAssured()
                 .queryParam("skillId", skillId)
                 .when()
                 .put(DELETE_SKILL_ENDPOINT + "?" + SKILL_ID_PARAM)
