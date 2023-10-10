@@ -91,14 +91,14 @@ public class SkillsController extends BaseController {
     }
 
 
-    public static void assertNewSkillContentIsCorrect(String randomSkillText, Response response) {
+    public void assertNewSkillContentIsCorrect(String randomSkillText, Response response) {
         String responseSkillText = response.getBody().jsonPath().get("skill");
         String decodedResponseSkillText = URLDecoder.decode(responseSkillText, StandardCharsets.UTF_8);
 
         assertEquals(randomSkillText, decodedResponseSkillText, "The content is not correct or empty");
     }
 
-    public static void assertSkillIsNotPresent(int deletedSkill, Response response1) {
+    public void assertSkillIsNotPresent(int deletedSkill, Response response1) {
         JsonPath jsonPath = response1.jsonPath();
 
         List<Map<String, Object>> skills = jsonPath.getList("$");
@@ -109,7 +109,7 @@ public class SkillsController extends BaseController {
         assertTrue(isCreatedSkillNotPresent);
     }
 
-    public static void assertSkillIdIsNotNullAndSkillIsNotEmpty(Response response) {
+    public void assertSkillIdIsNotNullAndSkillIsNotEmpty(Response response) {
         JsonPath jsonPath = response.getBody().jsonPath();
 
         int numberOfSkills = jsonPath.getList("$").size();

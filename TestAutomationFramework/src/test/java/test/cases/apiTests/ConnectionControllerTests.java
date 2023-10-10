@@ -1,5 +1,6 @@
 package test.cases.apiTests;
 
+import api.controllers.BaseController;
 import api.controllers.ConnectionController;
 import api.controllers.UserController;
 import api.controllers.models.UserModel;
@@ -14,6 +15,7 @@ import static api.controllers.ConnectionController.*;
 
 
 public class ConnectionControllerTests {
+    BaseController baseController = new BaseController();
     ConnectionController connectionController = new ConnectionController();
     UserController userController = new UserController();
     UserModel sender;
@@ -43,7 +45,7 @@ public class ConnectionControllerTests {
         if (testInfo.getTags().contains("PartialSetup")) return;
         Response response = connectionController.getUserConnectionRequest
                 (receiverUsername, receiverPassword, receiverId);
-        requestId = getRequestId(response);
+        requestId = baseController.getRequestId(response);
     }
 
     @Test
@@ -53,7 +55,7 @@ public class ConnectionControllerTests {
         Response response = connectionController.sendConnectionRequest
                 (senderUsername, senderPassword, receiverId, receiverUsername);
 
-        assertSenderReceiverAndRequestAreExisting(response, senderUsername, receiverUsername);
+        connectionController.assertSenderReceiverAndRequestAreExisting(response, senderUsername, receiverUsername);
         System.out.println("Connection request is sent successfully");
     }
 
@@ -65,19 +67,19 @@ public class ConnectionControllerTests {
         Response response = connectionController.getUserConnectionRequest
                 (receiverUsername, receiverPassword, receiverId);
 
-        assertResponseIsArrayAndNotEmpty(response);
-        assertResponseContainsRequestId(response);
+        connectionController.assertResponseIsArrayAndNotEmpty(response);
+        connectionController.assertResponseContainsRequestId(response);
         System.out.println("Connection requests are got successfully");
     }
 
     @Test
     public void approveConnectionRequest_whenExisting_successfully() {
 
-        Response response1 = connectionController.approveConnectionRequest
+        Response response = connectionController.approveConnectionRequest
                 (receiverUsername, receiverPassword, receiverId, requestId);
 
-        assertConnectionRequestIsApproved(response1);
-        assertSenderAndReceiverAreCorrect(response1, receiverUsername, senderUsername);
+        connectionController.assertConnectionRequestIsApproved(response);
+        connectionController.assertSenderAndReceiverAreCorrect(response, receiverUsername, senderUsername);
         System.out.println("Connection request is approved successfully");
     }
 }

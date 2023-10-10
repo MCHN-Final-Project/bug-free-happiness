@@ -1,5 +1,6 @@
 package test.cases.apiTests;
 
+import api.controllers.BaseController;
 import api.controllers.SkillsController;
 import api.controllers.models.SkillModel;
 import io.restassured.response.Response;
@@ -15,6 +16,7 @@ public class SkillsControllerTests {
     private static String textToCreateSkill;
     private static String responseText;
     static SkillsController skillsController = new SkillsController();
+    BaseController baseController = new BaseController();
 
 
     @BeforeEach
@@ -26,7 +28,7 @@ public class SkillsControllerTests {
         userCategoryName = response.getBody().jsonPath().getString("[0].category.name");
 
         if (testInfo.getTags().contains("PartialSetup")) return;
-        textToCreateSkill = "Created skill: " + getRandomSentence();
+        textToCreateSkill = "Created skill: " + baseController.getRandomSentence();
         SkillModel response1 = skillsController.createSkill(userCategoryId, userCategoryName, textToCreateSkill);
         createdSkillId = response1.skillId;
         responseText = response1.skill;
@@ -45,8 +47,8 @@ public class SkillsControllerTests {
 
         Response response = skillsController.getSkills();
 
-        assertResponseIsArrayAndNotEmpty(response);
-        assertSkillIdIsNotNullAndSkillIsNotEmpty(response);
+        baseController.assertResponseIsArrayAndNotEmpty(response);
+        skillsController.assertSkillIdIsNotNullAndSkillIsNotEmpty(response);
         System.out.println("Get skills request is successful");
     }
 
@@ -77,13 +79,13 @@ public class SkillsControllerTests {
     @Test
     public void editSkill_withNewSkillText_successfully() {
 
-        String textToEditSkill = "Edited Skill: " + getRandomSentence();
+        String textToEditSkill = "Edited Skill: " + baseController.getRandomSentence();
 
         skillsController.editSkill(textToEditSkill, createdSkillId);
 
         Response response = skillsController.getSkillById(createdSkillId);
-        assertResponseBodyIsNotEmpty(response);
-        assertNewSkillContentIsCorrect(textToEditSkill, response);
+        baseController.assertResponseBodyIsNotEmpty(response);
+        skillsController.assertNewSkillContentIsCorrect(textToEditSkill, response);
         System.out.println("Edit skill request is successful");
     }
 
@@ -94,9 +96,9 @@ public class SkillsControllerTests {
         skillsController.deleteSkill(createdSkillId);
 
         Response response = skillsController.getSkills();
-        assertResponseIsArrayAndNotEmpty(response);
-        assertSkillIdIsNotNullAndSkillIsNotEmpty(response);
-        assertSkillIsNotPresent(createdSkillId, response);
+        baseController.assertResponseIsArrayAndNotEmpty(response);
+        skillsController.assertSkillIdIsNotNullAndSkillIsNotEmpty(response);
+        skillsController.assertSkillIsNotPresent(createdSkillId, response);
         System.out.println("Delete skill request is successful");
     }
 }

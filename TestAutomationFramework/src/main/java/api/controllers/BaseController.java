@@ -60,38 +60,38 @@ public class BaseController {
         return userId;
     }
 
-    public static int getRequestId(Response response) {
+    public int getRequestId(Response response) {
         JsonPath jsonPath = response.getBody().jsonPath();
         return jsonPath.getInt("[0].id");
     }
 
-    public static String getRandomSentence() {
+    public String getRandomSentence() {
         return faker.lorem().sentence(5);
     }
 
-    public static String getRandomEmail() {
+    public String getRandomEmail() {
         return faker.internet().emailAddress();
     }
 
-    public static String getRandomUsername() {
+    public String getRandomUsername() {
         return faker.name().firstName();
     }
 
-    public static String getRandomPassword() {
+    public String getRandomPassword() {
         return faker.internet().password();
     }
 
-    public static void assertStatusCode(Response response, int expectedStatusCode) {
+    public void assertStatusCode(Response response, int expectedStatusCode) {
         int actualStatusCode = response.getStatusCode();
         assertEquals(expectedStatusCode, actualStatusCode, "Incorrect status code.");
     }
 
-    public static void assertResponseBodyIsNotEmpty(Response response) {
+    public void assertResponseBodyIsNotEmpty(Response response) {
         String responseBody = response.getBody().asString();
         assertNotNull(responseBody, "Response body is empty.");
     }
 
-    public static void assertResponseIsArrayAndNotEmpty(Response response) {
+    public void assertResponseIsArrayAndNotEmpty(Response response) {
         assertTrue(response.getBody().jsonPath().getList("$").size() > 0,
                 "The response is not an array, or the array is empty.");
     }

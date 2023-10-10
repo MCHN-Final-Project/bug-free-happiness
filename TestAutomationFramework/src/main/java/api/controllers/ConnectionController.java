@@ -82,7 +82,7 @@ public class ConnectionController extends BaseController {
     }
 
 
-    public static void assertSenderReceiverAndRequestAreExisting(Response response, String userName, String userName2) {
+    public void assertSenderReceiverAndRequestAreExisting(Response response, String userName, String userName2) {
 
         String responseText = response.getBody().asString();
 
@@ -103,17 +103,17 @@ public class ConnectionController extends BaseController {
         assertTrue(responseText.contains("send friend request to"), "The request is not sent.");
     }
 
-    public static void assertResponseContainsRequestId(Response response) {
+    public void assertResponseContainsRequestId(Response response) {
         JsonPath jsonPath = response.getBody().jsonPath();
         assertNotNull(jsonPath.get("[0].id"), "The 'id' property does not exist in the response.");
     }
 
-    public static void assertConnectionRequestIsApproved(Response response) {
+    public void assertConnectionRequestIsApproved(Response response) {
         String responseBody = response.getBody().asString();
         assertTrue(responseBody.contains("approved request of"));
     }
 
-    public static void assertSenderAndReceiverAreCorrect(Response response, String userName, String userName2) {
+    public void assertSenderAndReceiverAreCorrect(Response response, String userName, String userName2) {
 
         String responseText = response.getBody().asString();
 
