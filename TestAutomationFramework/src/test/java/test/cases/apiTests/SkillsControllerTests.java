@@ -16,9 +16,10 @@ public class SkillsControllerTests {
 
     @BeforeEach
     public void local_setup(TestInfo testInfo) {
-        if (testInfo.getTags().contains("NoSetup")) return;
 
         textToCreateSkill = "Created skill: " + baseController.getRandomSentence();
+        if (testInfo.getTags().contains("PartialSetup")) return;
+
         SkillModel response = skillsController.createSkill(textToCreateSkill);
         createdSkillId = response.skillId;
         responseText = response.skill;
@@ -42,10 +43,8 @@ public class SkillsControllerTests {
     }
 
     @Test
-    @Tag("NoSetup")
+    @Tag("PartialSetup")
     public void createSkill_withValidData_successfully() {
-
-        textToCreateSkill = "Created skill: " + baseController.getRandomSentence();
 
         SkillModel response = skillsController.createSkill
                 (textToCreateSkill);
