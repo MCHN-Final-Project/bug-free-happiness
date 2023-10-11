@@ -11,23 +11,22 @@ public class CreatePostPage extends BasePage {
     }
 
     public void clickOnNewPostButton(){
-        actions.clickElement("page.newPostButton");
+        actions.clickElement("post.newPostButton");
     }
-
     public void clickOnPostVisibilityButton(){
-        actions.clickElement("page.choosePostVisibilityButton");
+        actions.clickElement("post.clickPostVisibilityButton");
     }
 
     public void enterPostBody(String postBody){
-        actions.clickElement(postBody, "page.postContent");
+        actions.clickElement(postBody, "post.postContent");
     }
 
     public void clickOnImageButton(){
-        actions.clickElement("page.imageFileButton");
+        actions.clickElement("post.imageFileButton");
     }
 
     public void clickOnSaveButton(){
-        actions.clickElement("page.saveButton");
+        actions.clickElement("post.saveButton");
     }
 
 }

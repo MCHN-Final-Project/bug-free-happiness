@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class LatestPostPage extends BasePage {
 
     public LatestPostPage(WebDriver driver) {
-        super(driver, "weAreSocialNetwork.latestPosts");
+        super(driver, "weAreSocialNetwork.latestPost");
         navigateToPage();
         assertPageNavigated();
     }
