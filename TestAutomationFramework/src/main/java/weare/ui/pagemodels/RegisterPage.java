@@ -22,16 +22,16 @@ public class RegisterPage extends BasePage {
     }
 
     public void enterUsername(String username) {
-        actions.typeValueInField(username, Utils.getUIMappingByKey("register.username"));
+        actions.typeValueInField(username, "register.username");
     }
 
     public void enterEmail(String email) {
-        actions.typeValueInField(email, Utils.getUIMappingByKey("register.email"));
+        actions.typeValueInField(email, "register.email");
     }
 
     public void enterPassword(String password) {
-        actions.typeValueInField(password, Utils.getUIMappingByKey("register.password"));
-        actions.typeValueInField(password, Utils.getUIMappingByKey("register.confirmPassword"));
+        actions.typeValueInField(password, "register.password");
+        actions.typeValueInField(password, "register.confirmPassword");
     }
 
     public UserModelForUi assertUserExists(String username) {

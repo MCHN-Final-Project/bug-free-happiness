@@ -33,7 +33,7 @@ public class RegisterTests {
         registerPage.enterUsername(userData.username);
         registerPage.enterEmail(userData.email);
         registerPage.enterPassword(userData.password);
-        actions.clickElement(Utils.getUIMappingByKey("register.registerButton"));
+        actions.clickElement("register.registerButton");
         userModel = registerPage.assertUserExists(userData.username);
 
         Assertions.assertNotNull(userModel,
