@@ -3,6 +3,7 @@ package test.cases.apiTests;
 import api.controllers.BaseController;
 import api.controllers.PostController;
 import api.controllers.UserController;
+import api.controllers.helpers.SqlMethods;
 import api.controllers.models.PostModel;
 import api.controllers.models.UserModel;
 import io.restassured.response.Response;
@@ -25,6 +26,9 @@ public class UserControllerTests {
         user = userController.createUser(userData.username, userData.password, userData.email,false);
         userController.authenticateUser(userData.username, userData.password);
     }
+    @AfterAll
+    public static void cleanup(){
+        SqlMethods.deleteUserById("user_id", user.id);}
 
     @Test
     @DisplayName("Get all existing users in app.")

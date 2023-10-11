@@ -8,7 +8,6 @@ import io.restassured.response.Response;
 
 public class PostController extends BaseController {
     UserController userController = new UserController();
-
     PostModel postModel = new PostModel();
     ObjectMapper post = new ObjectMapper();
 
