@@ -41,17 +41,17 @@ public class CommentControllerTests {
     }
 
     @BeforeEach
-    public void local_Setup(TestInfo testInfo) {
+    public void localSetup(TestInfo testInfo) {
         if (testInfo.getTags().contains("NoSetup"))
             return;
 
-        create_Comment_With_Valid_Data_Success();
+        createCommentWithValidDataSuccessfully();
     }
     @AfterEach
-    public void local_Cleanup(TestInfo testInfo) {
+    public void localCleanup(TestInfo testInfo) {
         if (testInfo.getTags().contains("NoCleanup"))
             return;
-        delete_Comment_And_Post_When_Post_Exist_Successfully();
+        deleteCommentAndPostWhenPostExistSuccessfully();
     }
 
     @AfterAll
@@ -59,8 +59,8 @@ public class CommentControllerTests {
 
     @Test
     @Tag("NoSetup")
-    @DisplayName("Create comment successfully.")
-    public void create_Comment_With_Valid_Data_Success() {
+    @DisplayName("Create comment successfully")
+    public void createCommentWithValidDataSuccessfully() {
         post = postController.createPublicPost(BaseController.faker.lorem().sentence(), BaseController.faker.internet().image(),
                 userData.username, userData.password);
 
@@ -72,8 +72,8 @@ public class CommentControllerTests {
     }
 
     @Test
-    @DisplayName("Get last created comment.")
-    public void view_Created_SuccessfullyComment(){
+    @DisplayName("Get last created comment")
+    public void viewCreatedCommentSuccessfully(){
         Response response = commentController.getCreatedComment(userData.username, userData.password);
 
         JsonPath responseBody = response.jsonPath();
@@ -82,8 +82,8 @@ public class CommentControllerTests {
     }
 
     @Test
-    @DisplayName("Get all comments in post.")
-    public void view_All_Comments_InPost() {
+    @DisplayName("Get all comments in post")
+    public void viewAllCommentsInPost() {
         Response response = commentController.getAllCommentsInPost(userData.username, userData.password);
 
         JsonPath responseBody = response.jsonPath();
@@ -94,8 +94,8 @@ public class CommentControllerTests {
         Assertions.assertEquals(comment.commentId, actualCommentId, "Comment id does not match");
     }
     @Test
-    @DisplayName("Get all comments in app.")
-    public void view_All_Comments_InApp() {
+    @DisplayName("Get all comments in app")
+    public void viewAllCommentsInApp() {
         Response response = commentController.getAllCommentsInApp();
 
         JsonPath responseBody = response.jsonPath();
@@ -116,7 +116,7 @@ public class CommentControllerTests {
 
     @Test
     @DisplayName("Like a comment successfully")
-    public void likeComment_When_Comment_Exists_Successfully() {
+    public void likeCommentWhenCommentExistsSuccessfully() {
 
         Response response = commentController.likeComment(comment.commentId, userData.username, userData.password);
         boolean isLiked = response.jsonPath().getBoolean("liked");
@@ -126,7 +126,7 @@ public class CommentControllerTests {
 
     @Test
     @DisplayName("Edit a comment successfully")
-    public void editComment_When_Comment_Exists_Successfully() {
+    public void editCommentWhenCommentExistsSuccessfully() {
         String commentContent = commentController.getAllCommentsInPost(userData.username, userData.password).jsonPath().get("[0].content");
         commentController.editComment(comment.commentId, userData.username, userData.password);
 
@@ -137,7 +137,7 @@ public class CommentControllerTests {
     @Test
     @Tag("NoCleanup")
     @DisplayName("Delete a post successfully")
-    public void delete_Comment_And_Post_When_Post_Exist_Successfully(){
+    public void deleteCommentAndPostWhenPostExistSuccessfully(){
 
         if (comment == null) {
             comment = new CommentModel();

@@ -3,7 +3,6 @@ package test.cases.uiTests;
 import api.controllers.BaseController;
 import api.controllers.helpers.SqlMethods;
 import com.telerikacademy.testframework.UserActions;
-import com.telerikacademy.testframework.Utils;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.NoSuchElementException;
 import weare.ui.pagemodels.RegisterPage;
@@ -31,7 +30,7 @@ public class RegisterTests {
 
     @Test
     @DisplayName("Register a new user")
-    void register_User_With_Valid_Data_Successfully() {
+    void registerUserWithValidDataSuccessfully() {
         registerPage.enterUsername(userData.username);
         registerPage.enterEmail(userData.email);
         registerPage.enterPassword(userData.password);
