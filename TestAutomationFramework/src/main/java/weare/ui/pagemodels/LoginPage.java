@@ -12,11 +12,11 @@ public class LoginPage extends BasePage {
     }
 
     public void enterUsername(String username) {
-        actions.typeValueInField(username, Utils.getUIMappingByKey("login.username"));
+        actions.typeValueInField(username,"login.username");
     }
 
     public void enterPassword(String password) {
-        actions.typeValueInField(password, Utils.getUIMappingByKey("login.password"));
+        actions.typeValueInField(password,"login.password");
     }
 
     public void submitLoginForm() {

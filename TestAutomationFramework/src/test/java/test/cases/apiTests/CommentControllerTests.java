@@ -5,8 +5,8 @@ import api.controllers.CommentController;
 import api.controllers.PostController;
 import api.controllers.UserController;
 import api.controllers.helpers.SqlMethods;
+import api.controllers.models.UserModel;
 import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import api.controllers.models.CommentModel;
@@ -22,12 +22,13 @@ import java.util.List;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class CommentControllerTests {
-    static PostController postController = new PostController();
+    PostController postController = new PostController();
     CommentController commentController = new CommentController();
     static UserController userController = new UserController();
     static BaseController baseController = new BaseController();
     static UserData userData = new UserData();
     CommentModel comment;
+    static UserModel user;
     PostModel post;
 
     @BeforeAll
@@ -35,16 +36,15 @@ public class CommentControllerTests {
         userData.username = baseController.getRandomUsername();
         userData.password = baseController.getRandomPassword();
         userData.email = baseController.getRandomEmail();
-        userController.createUser(userData.username, userData.password, userData.email, false);
+        user = userController.createUser(userData.username, userData.password, userData.email, false);
         userController.authenticateUser(userData.username, userData.password);
     }
+
     @BeforeEach
     public void local_Setup(TestInfo testInfo) {
-        if (testInfo.getTags().contains("NoSetup") && !testInfo.getDisplayName().contains("Create comment successfully."))
+        if (testInfo.getTags().contains("NoSetup"))
             return;
 
-        postController.createPublicPost(BaseController.faker.lorem().sentence(), BaseController.faker.internet().image(),
-                userData.username, userData.password);
         create_Comment_With_Valid_Data_Success();
     }
     @AfterEach
@@ -52,13 +52,16 @@ public class CommentControllerTests {
         if (testInfo.getTags().contains("NoCleanup"))
             return;
         delete_Comment_And_Post_When_Post_Exist_Successfully();
-
     }
+
+    @AfterAll
+    public static void cleanup(){SqlMethods.deleteUserById("user_id", user.id);}
+
     @Test
     @Tag("NoSetup")
     @DisplayName("Create comment successfully.")
     public void create_Comment_With_Valid_Data_Success() {
-        postController.createPublicPost(BaseController.faker.lorem().sentence(), BaseController.faker.internet().image(),
+        post = postController.createPublicPost(BaseController.faker.lorem().sentence(), BaseController.faker.internet().image(),
                 userData.username, userData.password);
 
         String randomCommentContent = BaseController.faker.lorem().sentence();
