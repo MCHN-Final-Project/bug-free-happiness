@@ -22,4 +22,10 @@ public class LoginPage extends BasePage {
     public void submitLoginForm() {
         actions.clickElement("login.loginButton");
     }
+
+    public void login(String username, String password) {
+        enterUsername(username);
+        enterPassword(password);
+        submitLoginForm();
+    }
 }

@@ -16,6 +16,7 @@ public abstract class BasePage {
         this.driver = driver;
         this.url = pageUrl;
         actions = new UserActions();
+        navigateToPage();
     }
 
     public String getUrl() {

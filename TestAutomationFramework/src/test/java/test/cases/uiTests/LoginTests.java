@@ -4,7 +4,9 @@ import api.controllers.BaseController;
 import api.controllers.UserController;
 import api.controllers.models.UserModel;
 import com.telerikacademy.testframework.UserActions;
+import com.telerikacademy.testframework.pages.BasePage;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import weare.ui.pagemodels.LoginPage;
 import weare.ui.pagemodels.models.UserData;
 
@@ -22,6 +24,10 @@ public class LoginTests {
         userData.password = baseController.getRandomPassword();
         userData.email = baseController.getRandomEmail();
         userModel = userController.createUser(userData.username, userData.password, userData.email, false);
+    }
+    @Test
+    public void test() {
+        loginPage.login(userData.username, userData.password);
     }
 
 }
