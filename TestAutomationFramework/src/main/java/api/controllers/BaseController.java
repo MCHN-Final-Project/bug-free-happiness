@@ -16,7 +16,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class BaseController {
-    public static final String USER_PASSWORD = "password";
     public static final String EDIT_CONTENT = "Good job";
     public static Faker faker = new Faker();
 

@@ -31,8 +31,8 @@ public class UserControllerTests {
         SqlMethods.deleteUserById("user_id", user.id);}
 
     @Test
-    @DisplayName("Get all existing users in app.")
-    public void view_All_Users_In_App() {
+    @DisplayName("Get all existing users in app")
+    public void viewAllUsersInApp() {
         Response response = userController.getAllUsers();
         int finalUserId = baseController.getUserId(response);
         Assertions.assertEquals(user.id, finalUserId, "User ID does not match");
@@ -40,7 +40,7 @@ public class UserControllerTests {
 
     @Test
     @DisplayName("Get all users posts")
-    public void view_All_Users_Posts() {
+    public void viewAllUsersPosts() {
         String randomContent = BaseController.faker.lorem().sentence();
         String randomPicture = BaseController.faker.internet().image();
 
@@ -64,7 +64,7 @@ public class UserControllerTests {
 
     @Test
     @DisplayName("Update user expertise info with valid data")
-    public void findUser_Update_Expertise_With_Valid_Data_Successfully() {
+    public void findUserUpdateExpertiseWithValidDataSuccessfully() {
         Response response = userController.getUserById(user.id, user.username);
 
         Assertions.assertEquals(String.valueOf(user.id), response.jsonPath().get("id").toString(),

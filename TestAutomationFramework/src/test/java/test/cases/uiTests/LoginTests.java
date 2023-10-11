@@ -2,9 +2,11 @@ package test.cases.uiTests;
 
 import api.controllers.BaseController;
 import api.controllers.UserController;
+import api.controllers.helpers.SqlMethods;
 import api.controllers.models.UserModel;
 import com.telerikacademy.testframework.UserActions;
 import com.telerikacademy.testframework.pages.BasePage;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import weare.ui.pagemodels.LoginPage;
@@ -24,6 +26,11 @@ public class LoginTests {
         userData.password = baseController.getRandomPassword();
         userData.email = baseController.getRandomEmail();
         userModel = userController.createUser(userData.username, userData.password, userData.email, false);
+    }
+    @AfterAll
+    public static void cleanup() {
+        UserActions.quitDriver();
+        SqlMethods.deleteUserById("user_id", userModel.id);
     }
     @Test
     public void test() {

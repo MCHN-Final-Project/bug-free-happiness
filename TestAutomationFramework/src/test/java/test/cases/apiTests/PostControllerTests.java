@@ -36,17 +36,17 @@ public class PostControllerTests {
     }
 
     @BeforeEach
-    public void local_Setup(TestInfo testInfo) {
+    public void localSetup(TestInfo testInfo) {
         if (testInfo.getTags().contains("NoSetup"))
             return;
-        create_Post_With_Valid_Data_Success();
+        createPostWithValidDataSuccessfully();
     }
 
     @AfterEach
-    public void local_Cleanup(TestInfo testInfo) {
+    public void localCleanup(TestInfo testInfo) {
         if (testInfo.getTags().contains("NoCleanup"))
             return;
-        delete_Post_When_Post_Exists_Success();
+        deletePostWhenPostExistsSuccessfully();
     }
 
     @AfterAll
@@ -57,7 +57,7 @@ public class PostControllerTests {
     @Test
     @Tag("NoSetup")
     @DisplayName("Create post successfully")
-    public void create_Post_With_Valid_Data_Success() {
+    public void createPostWithValidDataSuccessfully() {
         String randomContent = BaseController.faker.lorem().sentence();
         String randomPicture = BaseController.faker.internet().image();
 
@@ -73,7 +73,7 @@ public class PostControllerTests {
 
     @Test
     @DisplayName("Edit a post successfully")
-    public void edit_Post_With_Valid_Data_Success() {
+    public void editPostWithValidDataSuccessfully() {
         String content = postController.getAllPost().jsonPath().get("[0].content");
 
         postController.editPost(post.postId, userData.username, userData.password);
@@ -84,7 +84,7 @@ public class PostControllerTests {
 
     @Test
     @DisplayName("Like a post successfully")
-    public void like_Post_When_Post_Exists_Success() {
+    public void likePostWhenPostExistsSuccessfully() {
         postController.likePost(post.postId, userData.username, userData.password);
 
         Assertions.assertNotNull(post.likes, "Post has no likes");
@@ -93,7 +93,7 @@ public class PostControllerTests {
     @Test
     @Tag("NoCleanup")
     @DisplayName("Delete a post successfully")
-    public void delete_Post_When_Post_Exists_Success() {
+    public void deletePostWhenPostExistsSuccessfully() {
         postController.deletePost(userData.username, userData.password);
 
         Assertions.assertNotEquals
@@ -102,7 +102,7 @@ public class PostControllerTests {
 
     @Test
     @DisplayName("Get all existing posts")
-    public void view_All_Posts() {
+    public void viewAllPosts() {
         ArrayList<Object> posts = postController.getAllPost().jsonPath().get("$");
 
         for (Object instance : posts) {
@@ -118,7 +118,7 @@ public class PostControllerTests {
 
     @Test
     @DisplayName("Get all comments for a post")
-    public void view_Comments_For_Post() {
+    public void viewCommentsForPost() {
         String randomCommentContent = BaseController.faker.lorem().sentence();
         comment = commentController.createComment(randomCommentContent, userData.username, userData.password);
 

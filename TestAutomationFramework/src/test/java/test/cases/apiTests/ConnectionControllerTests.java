@@ -34,7 +34,7 @@ public class ConnectionControllerTests {
     }
 
     @BeforeEach
-    public void local_setup(TestInfo testInfo) {
+    public void localSetup(TestInfo testInfo) {
         if (testInfo.getTags().contains("InitialSetup")) return;
         connectionController.sendConnectionRequest
                 (sender.username, senderCred.password, receiver.id, receiver.username);
@@ -46,7 +46,7 @@ public class ConnectionControllerTests {
     }
 
     @AfterEach
-    public void local_cleanup(){
+    public void localCleanup(){
         SqlMethods.deleteRequestById("id", requestId);
     }
 
@@ -59,7 +59,7 @@ public class ConnectionControllerTests {
     @Test
     @Tag("InitialSetup")
     @DisplayName("Send connection request successfully")
-    public void sendConnectionRequest_toExistingUser_successfully() {
+    public void sendConnectionRequestToExistingUserSuccessfully() {
 
         Response response = connectionController.sendConnectionRequest
                 (sender.username, senderCred.password, receiver.id, receiver.username);
@@ -76,7 +76,7 @@ public class ConnectionControllerTests {
     @Test
     @Tag("PartialSetup")
     @DisplayName("Get connection requests successfully")
-    public void getConnectionRequests_whenExisting_successfully() {
+    public void getConnectionRequestsWhenExistingSuccessfully() {
 
         Response response = connectionController.getUserConnectionRequest
                 (receiver.username, receiverCred.password, receiver.id);
@@ -88,7 +88,7 @@ public class ConnectionControllerTests {
 
     @Test
     @DisplayName("Approve connection request successfully")
-    public void approveConnectionRequest_whenExisting_successfully() {
+    public void approveConnectionRequestWhenExistingSuccessfully() {
 
         Response response = connectionController.approveConnectionRequest
                 (receiver.username, receiverCred.password, receiver.id, requestId);
