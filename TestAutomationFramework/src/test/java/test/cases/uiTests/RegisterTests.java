@@ -29,7 +29,7 @@ public class RegisterTests {
 
     @Test
     @DisplayName("Register a new user")
-    void register_User() {
+    void register_User_With_Valid_Data_Successfully() {
         registerPage.enterUsername(userData.username);
         registerPage.enterEmail(userData.email);
         registerPage.enterPassword(userData.password);
