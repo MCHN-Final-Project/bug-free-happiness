@@ -1,5 +1,6 @@
 package weare.ui.pagemodels;
 
+import api.controllers.BaseController;
 import api.controllers.UserController;
 import api.controllers.models.UserModel;
 import com.telerikacademy.testframework.Utils;
@@ -24,5 +25,18 @@ UserModel userModel;
                 (Utils.getConfigPropertyByKey("weAreSocialNetwork.profile"), userModel.id);
         navigateToPage();
         assertPageNavigated();
+    }
+
+    public void navigateToProfileEdit() {
+        actions.clickElement("profile.editButton");
+    }
+    public void enterFirstName() {
+        actions.typeValueInField(BaseController.faker.name().firstName(),"profile.inputFirstName");
+    }
+    public void enterLastName() {
+        actions.typeValueInField(BaseController.faker.name().lastName(),"profile.inputLastName");
+    }
+    public void enterBirthDay() {
+        actions.typeValueInField(BaseController.faker.date().birthday().toString(), "profile.inputBirthDay");
     }
 }

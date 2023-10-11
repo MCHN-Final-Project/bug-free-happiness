@@ -1,6 +1,7 @@
 package test.cases.uiTests;
 
 import api.controllers.BaseController;
+import api.controllers.helpers.SqlMethods;
 import com.telerikacademy.testframework.UserActions;
 import com.telerikacademy.testframework.Utils;
 import org.junit.jupiter.api.*;
@@ -11,7 +12,7 @@ import weare.ui.pagemodels.models.UserModelForUi;
 
 public class RegisterTests {
     static BaseController baseController = new BaseController();
-    UserModelForUi userModel = new UserModelForUi();
+    static UserModelForUi userModel = new UserModelForUi();
     UserActions actions = new UserActions();
     RegisterPage registerPage = new RegisterPage(actions.getDriver());
     static UserData userData = new UserData();
@@ -25,6 +26,7 @@ public class RegisterTests {
     @AfterAll
     public static void cleanup() {
         UserActions.quitDriver();
+        SqlMethods.deleteUserById("user_id", userModel.userId);
     }
 
     @Test
