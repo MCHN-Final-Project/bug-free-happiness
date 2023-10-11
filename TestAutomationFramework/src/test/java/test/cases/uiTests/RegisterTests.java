@@ -1,19 +1,26 @@
 package test.cases.uiTests;
 
+import api.controllers.BaseController;
 import com.telerikacademy.testframework.UserActions;
 import com.telerikacademy.testframework.Utils;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.NoSuchElementException;
 import weare.ui.pagemodels.RegisterPage;
+import weare.ui.pagemodels.models.UserData;
 import weare.ui.pagemodels.models.UserModelForUi;
 
 public class RegisterTests {
+    static BaseController baseController = new BaseController();
     UserModelForUi userModel = new UserModelForUi();
     UserActions actions = new UserActions();
     RegisterPage registerPage = new RegisterPage(actions.getDriver());
+    static UserData userData = new UserData();
+    @BeforeAll
+    public static void setup() {
+        userData.username = baseController.getRandomUsername();
+        userData.password = baseController.getRandomPassword();
+        userData.email = baseController.getRandomEmail();
+    }
 
     @AfterAll
     public static void cleanup() {
@@ -23,15 +30,15 @@ public class RegisterTests {
     @Test
     @DisplayName("Register a new user")
     void register_User() {
-        registerPage.enterUsername("casc");
-        registerPage.enterEmail("mail@mail.com");
-        registerPage.enterPassword("password");
+        registerPage.enterUsername(userData.username);
+        registerPage.enterEmail(userData.email);
+        registerPage.enterPassword(userData.password);
         actions.clickElement(Utils.getUIMappingByKey("register.registerButton"));
-        userModel = registerPage.assertSuccessfulRegistration("casc");
+        userModel = registerPage.assertUserExists(userData.username);
 
         Assertions.assertNotNull(userModel,
                 "User was not found in the database");
-        Assertions.assertEquals(userModel.username, "casc");
+        Assertions.assertEquals(userModel.username, userData.username);
         try {
             actions.assertElementPresent("register.loginButton");
         } catch (NoSuchElementException e) {

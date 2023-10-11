@@ -13,7 +13,7 @@ public class CommentController extends BaseController {
     CommentModel commentModel = new CommentModel();
     ObjectMapper comment = new ObjectMapper();
 
-    public CommentModel createComment(String randomCommentContent) {
+    public CommentModel createComment(String randomCommentContent, String username, String password) {
 
         String commentBody = "{\n" +
                 "  \"commentId\": 0,\n" +
@@ -25,7 +25,7 @@ public class CommentController extends BaseController {
 
         Response response = getRestAssured()
                 .auth()
-                .form(getLatestRegisteredUsername(userController.getAllUsers()), USER_PASSWORD, new FormAuthConfig("/authenticate", "username", "password"))
+                .form(username, password, new FormAuthConfig("/authenticate", "username", "password"))
                 .body(commentBody)
                 .when()
                 .post("/api/comment/auth/creator")
@@ -39,47 +39,49 @@ public class CommentController extends BaseController {
         return commentModel;
     }
 
-    public Response likeComment(int commentId) {
+    public Response likeComment(int commentId, String username, String password) {
 
        return getRestAssured()
                 .auth()
-                .form(getLatestRegisteredUsername(userController.getAllUsers()), USER_PASSWORD, new FormAuthConfig("/authenticate", "username", "password"))
-                .queryParam("commentId", getLatestCommentId(getAllCommentsInPost()))
+                .form(username, password,
+                        new FormAuthConfig("/authenticate", "username", "password"))
+                .queryParam("commentId", commentId)
                 .when()
-                .post("/api/comment/auth/likesUp?commentId=" + getLatestCommentId(getAllCommentsInPost()))
+                .post("/api/comment/auth/likesUp?commentId=" + commentId)
                 .then().statusCode(200)
                 .extract().response();
     }
 
-    public Response editComment(int commentId) {
+    public Response editComment(int commentId, String username, String password) {
 
         return getRestAssured()
                 .auth()
-                .form(getLatestRegisteredUsername(userController.getAllUsers()), USER_PASSWORD, new FormAuthConfig("/authenticate", "username", "password"))
-                .queryParam("commentId", getLatestCommentId(getAllCommentsInPost()))
+                .form(username, password,
+                        new FormAuthConfig("/authenticate", "username", "password"))
+                .queryParam("commentId", commentId)
                 .queryParam("content", EDIT_CONTENT)
                 .accept("application/json")
                 .when()
-                .put("/api/comment/auth/editor?commentId=" + getLatestCommentId(getAllCommentsInPost()) + "&content=" + EDIT_CONTENT)
+                .put("/api/comment/auth/editor?commentId=" + commentId + "&content=" + EDIT_CONTENT)
                 .then().statusCode(200)
                 .extract().response();
     }
 
-    public Response getCreatedComment() {
+    public Response getCreatedComment(String username, String password) {
 
         return getRestAssured()
-                .queryParam("commentId", getLatestCommentId(getAllCommentsInPost()))
+                .queryParam("commentId", getLatestCommentId(getAllCommentsInPost(username, password)))
                 .when()
-                .get("/api/comment/single?commentId=" + getLatestCommentId(getAllCommentsInPost()))
+                .get("/api/comment/single?commentId=" + getLatestCommentId(getAllCommentsInPost(username, password)))
                 .then().statusCode(200)
                 .extract().response();
     }
 
-    public Response getAllCommentsInPost() {
+    public Response getAllCommentsInPost(String username, String password) {
 
         return getRestAssured()
                 .auth()
-                .form(getLatestRegisteredUsername(userController.getAllUsers()), USER_PASSWORD, new FormAuthConfig("/authenticate", "username", "password"))
+                .form(username, password, new FormAuthConfig("/authenticate", "username", "password"))
                 .queryParam("postId", getLatestPost(postController.getAllPost()))
                 .when()
                 .get("/api/comment/byPost?postId=" + getLatestPost(postController.getAllPost()))
@@ -96,14 +98,15 @@ public class CommentController extends BaseController {
                 .extract().response();
     }
 
-    public Response deleteComment() {
+    public Response deleteComment(String username, String password) {
 
         return getRestAssured()
                 .auth()
-                .form(getLatestRegisteredUsername(userController.getAllUsers()), USER_PASSWORD, new FormAuthConfig("/authenticate", "username", "password"))
-                .queryParam("commentId", getLatestCommentId(getAllCommentsInPost()))
+                .form(username, password,
+                        new FormAuthConfig("/authenticate", "username", "password"))
+                .queryParam("commentId", getLatestCommentId(getAllCommentsInPost(username, password)))
                 .when()
-                .delete("/api/comment/auth/manager?commentId=" + getLatestCommentId(getAllCommentsInPost()))
+                .delete("/api/comment/auth/manager?commentId=" + getLatestCommentId(getAllCommentsInPost(username, password)))
                 .then().statusCode(200)
                 .extract().response();
     }

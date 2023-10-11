@@ -11,6 +11,7 @@ import api.controllers.models.UserModel;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.*;
+import weare.ui.pagemodels.models.UserData;
 
 import java.util.ArrayList;
 
@@ -18,13 +19,19 @@ public class PostControllerTests {
     PostController postController = new PostController();
     CommentController commentController = new CommentController();
     static UserController userController = new UserController();
+    static BaseController baseController = new BaseController();
     static UserModel user;
+    static UserData userData = new UserData();
     PostModel post;
     CommentModel comment;
 
+
     @BeforeAll
     public static void setup() {
-        user = userController.createUser(false);
+        userData.username = baseController.getRandomUsername();
+        userData.password = baseController.getRandomPassword();
+        userData.email = baseController.getRandomEmail();
+        user = userController.createUser(userData.username, userData.password, userData.email,false);
         userController.authenticateUser();
     }
 
@@ -54,7 +61,8 @@ public class PostControllerTests {
         String randomContent = BaseController.faker.lorem().sentence();
         String randomPicture = BaseController.faker.internet().image();
 
-        post = postController.createPublicPost(randomContent, randomPicture);
+        post = postController.createPublicPost(randomContent, randomPicture,
+                userData.username, userData.password);
 
         String content = post.content;
         String picture = post.picture;
@@ -68,7 +76,7 @@ public class PostControllerTests {
     public void edit_Post_With_Valid_Data_Success() {
         String content = postController.getAllPost().jsonPath().get("[0].content");
 
-        postController.editPost(post.postId);
+        postController.editPost(post.postId, userData.username, userData.password);
 
         Assertions.assertNotSame
                 (content, post.content, "Post contents not edited");
@@ -77,7 +85,7 @@ public class PostControllerTests {
     @Test
     @DisplayName("Like a post successfully")
     public void like_Post_When_Post_Exists_Success() {
-        postController.likePost(post.postId);
+        postController.likePost(post.postId, userData.username, userData.password);
 
         Assertions.assertNotNull(post.likes, "Post has no likes");
     }
@@ -86,7 +94,7 @@ public class PostControllerTests {
     @Tag("NoCleanup")
     @DisplayName("Delete a post successfully")
     public void delete_Post_When_Post_Exists_Success() {
-        postController.deletePost();
+        postController.deletePost(userData.username, userData.password);
 
         Assertions.assertNotEquals
                 (post.postId, postController.getLatestPost(postController.getAllPost()), "Post not deleted");
@@ -112,11 +120,12 @@ public class PostControllerTests {
     @DisplayName("Get all comments for a post")
     public void view_Comments_For_Post() {
         String randomCommentContent = BaseController.faker.lorem().sentence();
-        comment = commentController.createComment(randomCommentContent);
+        comment = commentController.createComment(randomCommentContent, userData.username, userData.password);
 
         String commentId = String.format("[%d]", comment.commentId);
 
-        Assertions.assertEquals(commentId, commentController.getAllCommentsInPost().jsonPath().get("commentId").toString(),
+        Assertions.assertEquals(commentId,
+                commentController.getAllCommentsInPost(userData.username, userData.password).jsonPath().get("commentId").toString(),
                 "Displayed comment does not match created comment");
     }
 }

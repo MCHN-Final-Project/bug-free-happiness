@@ -12,7 +12,7 @@ public class PostController extends BaseController {
     PostModel postModel = new PostModel();
     ObjectMapper post = new ObjectMapper();
 
-    public PostModel createPublicPost(String randomContent, String randomPicture) {
+    public PostModel createPublicPost(String randomContent, String randomPicture, String username, String password) {
 
         String postBody = "{\n" +
                 "  \"content\": \"" + randomContent + "\",\n" +
@@ -22,7 +22,7 @@ public class PostController extends BaseController {
 
         Response response = getRestAssured()
                 .auth()
-                .form(getLatestRegisteredUsername(userController.getAllUsers()), USER_PASSWORD,
+                .form(username, password,
                         new FormAuthConfig("/authenticate", "username", "password"))
                 .body(postBody)
                 .when()
@@ -39,7 +39,7 @@ public class PostController extends BaseController {
 
     }
 
-    public void editPost(int postId) {
+    public void editPost(int postId, String username, String password) {
         String randomContent = BaseController.faker.lorem().sentence();
         String randomPicture = BaseController.faker.internet().image();
 
@@ -51,7 +51,7 @@ public class PostController extends BaseController {
 
         getRestAssured()
                 .auth()
-                .form(getLatestRegisteredUsername(userController.getAllUsers()), USER_PASSWORD,
+                .form(username, password,
                         new FormAuthConfig("/authenticate", "username", "password"))
                 .body(postBody)
                 .when()
@@ -59,10 +59,10 @@ public class PostController extends BaseController {
                 .then().statusCode(200);
     }
 
-    public Response likePost(int postId) {
-        return getRestAssured()
+    public void likePost(int postId, String username, String password) {
+        getRestAssured()
                 .auth()
-                .form(getLatestRegisteredUsername(userController.getAllUsers()), USER_PASSWORD,
+                .form(username, password,
                         new FormAuthConfig("/authenticate", "username", "password"))
                 .when()
                 .post(String.format("/api/post/auth/likesUp?postId=%d", postId))
@@ -79,7 +79,7 @@ public class PostController extends BaseController {
                 .extract().response();
     }
 
-    public void getAllUsersPosts() {
+    public void getAllUsersPosts(String username, String password) {
 
         String requestBody = "{\n" +
                 "  \"index\": 0,\n" +
@@ -91,7 +91,7 @@ public class PostController extends BaseController {
 
         getRestAssured()
                 .auth()
-                .form(getLatestRegisteredUsername(userController.getAllUsers()), USER_PASSWORD,
+                .form(username, password,
                         new FormAuthConfig("/authenticate", "username", "password"))
                 .body(requestBody)
                 .when()
@@ -100,10 +100,10 @@ public class PostController extends BaseController {
                 .extract().response();
     }
 
-    public void deletePost() {
+    public void deletePost(String username, String password) {
         getRestAssured()
                 .auth()
-                .form(getLatestRegisteredUsername(userController.getAllUsers()), USER_PASSWORD,
+                .form(username, password,
                         new FormAuthConfig("/authenticate", "username", "password"))
                 .queryParam("postId", getLatestPost(getAllPost()))
                 .when()

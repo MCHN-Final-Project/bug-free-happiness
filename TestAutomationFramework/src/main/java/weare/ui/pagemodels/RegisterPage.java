@@ -34,7 +34,7 @@ public class RegisterPage extends BasePage {
         actions.typeValueInField(password, Utils.getUIMappingByKey("register.confirmPassword"));
     }
 
-    public UserModelForUi assertSuccessfulRegistration(String username) {
+    public UserModelForUi assertUserExists(String username) {
         ArrayList<Object> users = userController.getAllUsers().jsonPath().get("$");
         for (Object instance : users) {
             try {

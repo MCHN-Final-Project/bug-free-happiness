@@ -12,7 +12,7 @@ public class UserController extends BaseController {
     UserModel userModel = new UserModel();
     ObjectMapper user = new ObjectMapper();
 
-    public UserModel createUser(Boolean admin) {
+    public UserModel createUser(String username, String password, String email, Boolean admin) {
         String adm = "";
         if (admin)
             adm = "admin";
@@ -24,10 +24,10 @@ public class UserController extends BaseController {
                 "    \"id\": 102,\n" +
                 "    \"name\": \"Actor\"\n" +
                 "  },\n" +
-                "  \"confirmPassword\": \"password\",\n" +
-                "  \"email\": \"" + BaseController.faker.internet().emailAddress() + "\",\n" +
-                "  \"password\": \"password\",\n" +
-                "  \"username\": \"" + adm + BaseController.faker.name().firstName() + "\"\n" +
+                "  \"confirmPassword\": \"" + password + "\",\n" +
+                "  \"email\": \"" + email + "\",\n" +
+                "  \"password\": \"" + password + "\",\n" +
+                "  \"username\": \"" + adm + username + "\"\n" +
                 "}";
 
         Response response = getRestAssured()

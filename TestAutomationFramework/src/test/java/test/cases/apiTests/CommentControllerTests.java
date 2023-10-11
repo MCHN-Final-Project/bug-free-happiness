@@ -14,6 +14,7 @@ import api.controllers.models.PostModel;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.*;
+import weare.ui.pagemodels.models.UserData;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -24,12 +25,17 @@ public class CommentControllerTests {
     static PostController postController = new PostController();
     CommentController commentController = new CommentController();
     static UserController userController = new UserController();
+    static BaseController baseController = new BaseController();
+    static UserData userData = new UserData();
     CommentModel comment;
     PostModel post;
 
     @BeforeAll
     public static void setup() {
-        userController.createUser(false);
+        userData.username = baseController.getRandomUsername();
+        userData.password = baseController.getRandomPassword();
+        userData.email = baseController.getRandomEmail();
+        userController.createUser(userData.username, userData.password, userData.email, false);
         userController.authenticateUser();
     }
     @BeforeEach
@@ -37,7 +43,8 @@ public class CommentControllerTests {
         if (testInfo.getTags().contains("NoSetup") && !testInfo.getDisplayName().contains("Create comment successfully."))
             return;
 
-        postController.createPublicPost(BaseController.faker.lorem().sentence(), BaseController.faker.internet().image());
+        postController.createPublicPost(BaseController.faker.lorem().sentence(), BaseController.faker.internet().image(),
+                userData.username, userData.password);
         create_Comment_With_Valid_Data_Success();
     }
     @AfterEach
@@ -51,10 +58,11 @@ public class CommentControllerTests {
     @Tag("NoSetup")
     @DisplayName("Create comment successfully.")
     public void create_Comment_With_Valid_Data_Success() {
-        postController.createPublicPost(BaseController.faker.lorem().sentence(), BaseController.faker.internet().image());
+        postController.createPublicPost(BaseController.faker.lorem().sentence(), BaseController.faker.internet().image(),
+                userData.username, userData.password);
 
         String randomCommentContent = BaseController.faker.lorem().sentence();
-        comment = commentController.createComment(randomCommentContent);
+        comment = commentController.createComment(randomCommentContent, userData.username, userData.password);
         String content = comment.content;
 
         Assertions.assertEquals(content, randomCommentContent, "Content of comment does not mach");
@@ -63,7 +71,7 @@ public class CommentControllerTests {
     @Test
     @DisplayName("Get last created comment.")
     public void view_Created_SuccessfullyComment(){
-        Response response = commentController.getCreatedComment();
+        Response response = commentController.getCreatedComment(userData.username, userData.password);
 
         JsonPath responseBody = response.jsonPath();
         int assertCommentId = responseBody.getInt("commentId");
@@ -73,7 +81,7 @@ public class CommentControllerTests {
     @Test
     @DisplayName("Get all comments in post.")
     public void view_All_Comments_InPost() {
-        Response response = commentController.getAllCommentsInPost();
+        Response response = commentController.getAllCommentsInPost(userData.username, userData.password);
 
         JsonPath responseBody = response.jsonPath();
         String actualCommentIdStringWithBrackets = responseBody.getString("commentId");
@@ -107,7 +115,7 @@ public class CommentControllerTests {
     @DisplayName("Like a comment successfully")
     public void likeComment_When_Comment_Exists_Successfully() {
 
-        Response response = commentController.likeComment(comment.commentId);
+        Response response = commentController.likeComment(comment.commentId, userData.username, userData.password);
         boolean isLiked = response.jsonPath().getBoolean("liked");
         Assertions.assertTrue(isLiked, "The comment should be liked");
         Assertions.assertNotNull(comment.likes, "Comment has no likes");
@@ -116,8 +124,8 @@ public class CommentControllerTests {
     @Test
     @DisplayName("Edit a comment successfully")
     public void editComment_When_Comment_Exists_Successfully() {
-        String commentContent = commentController.getAllCommentsInPost().jsonPath().get("[0].content");
-        commentController.editComment(comment.commentId);
+        String commentContent = commentController.getAllCommentsInPost(userData.username, userData.password).jsonPath().get("[0].content");
+        commentController.editComment(comment.commentId, userData.username, userData.password);
 
         Assertions.assertNotSame
                 (commentContent, comment.content, "Comment contents not edited");
@@ -135,12 +143,12 @@ public class CommentControllerTests {
         if (post == null) {
             post = new PostModel();
         }
-        commentController.deleteComment();
+        commentController.deleteComment(userData.username, userData.password);
         Assertions.assertNotEquals
-                (comment.commentId, commentController.getLatestPost(commentController.getAllCommentsInPost()),
+                (comment.commentId, commentController.getLatestPost(commentController.getAllCommentsInPost(userData.username, userData.password)),
                         "Comment is not deleted");
 
-        postController.deletePost();
+        postController.deletePost(userData.username, userData.password);
         Assertions.assertNotEquals
                 (post.postId, postController.getLatestPost(postController.getAllPost()), "Post not deleted");
     }

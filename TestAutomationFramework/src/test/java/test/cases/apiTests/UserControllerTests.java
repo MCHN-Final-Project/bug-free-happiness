@@ -7,17 +7,22 @@ import api.controllers.models.PostModel;
 import api.controllers.models.UserModel;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.*;
+import weare.ui.pagemodels.models.UserData;
 
 public class UserControllerTests {
     static UserController userController = new UserController();
     PostController postController = new PostController();
-    BaseController baseController = new BaseController();
+    static BaseController baseController = new BaseController();
     static UserModel user;
+    static UserData userData = new UserData();
     PostModel post;
 
     @BeforeAll
     public static void setup() {
-        user = userController.createUser(false);
+        userData.username = baseController.getRandomUsername();
+        userData.password = baseController.getRandomPassword();
+        userData.email = baseController.getRandomEmail();
+        user = userController.createUser(userData.username, userData.password, userData.email,false);
         userController.authenticateUser();
     }
 
@@ -35,7 +40,8 @@ public class UserControllerTests {
         String randomContent = BaseController.faker.lorem().sentence();
         String randomPicture = BaseController.faker.internet().image();
 
-        post = postController.createPublicPost(randomContent, randomPicture);
+        post = postController.createPublicPost(randomContent, randomPicture,
+                userData.username, userData.password);
 
         String content = post.content;
         String picture = post.picture;
@@ -44,10 +50,10 @@ public class UserControllerTests {
         Assertions.assertEquals(picture, randomPicture, "Picture does not match");
 
         int postId = postController.getAllPost().jsonPath().get("[0].postId");
-        postController.getAllUsersPosts();
+        postController.getAllUsersPosts(userData.username, userData.password);
         Assertions.assertEquals(post.postId, postId, "Post id does not mach");
 
-        postController.deletePost();
+        postController.deletePost(userData.username, userData.password);
         Assertions.assertNotEquals
                 (post.postId, postController.getLatestPost(postController.getAllPost()), "Post not deleted");
     }
