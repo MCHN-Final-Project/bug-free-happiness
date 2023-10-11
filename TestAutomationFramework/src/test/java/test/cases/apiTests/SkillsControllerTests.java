@@ -15,7 +15,7 @@ public class SkillsControllerTests {
     private String responseText;
 
     @BeforeEach
-    public void local_setup(TestInfo testInfo) {
+    public void local_Setup(TestInfo testInfo) {
 
         textToCreateSkill = "Created skill: " + baseController.getRandomSentence();
         if (testInfo.getTags().contains("PartialSetup")) return;
@@ -26,7 +26,7 @@ public class SkillsControllerTests {
     }
 
     @AfterEach
-    public void local_cleanup(TestInfo testInfo) {
+    public void local_Cleanup(TestInfo testInfo) {
         if (testInfo.getTags().contains("NoCleanup")) return;
 
         skillsController.deleteSkill(createdSkillId);
@@ -34,7 +34,7 @@ public class SkillsControllerTests {
 
     @Test
     @DisplayName("Get skills successfully")
-    public void getSkills_whenExisting_successfully() {
+    public void getSkills_WhenExisting_Successfully() {
 
         Response response = skillsController.getSkills();
 
@@ -45,7 +45,7 @@ public class SkillsControllerTests {
     @Test
     @Tag("PartialSetup")
     @DisplayName("Create skill successfully")
-    public void createSkill_withValidData_successfully() {
+    public void createSkill_WithValidData_Successfully() {
 
         SkillModel response = skillsController.createSkill
                 (textToCreateSkill);
@@ -58,7 +58,7 @@ public class SkillsControllerTests {
 
     @Test
     @DisplayName("Get skill by id successfully")
-    public void getSkill_byId_whenExisting_successfully() {
+    public void getSkill_ById_WhenExisting_Successfully() {
 
         skillsController.getSkillById(createdSkillId);
 
@@ -67,7 +67,7 @@ public class SkillsControllerTests {
 
     @Test
     @DisplayName("Edit skill successfully")
-    public void editSkill_withNewSkillText_successfully() {
+    public void editSkill_WithNewSkillText_Successfully() {
 
         String textToEditSkill = "Edited Skill: " + baseController.getRandomSentence();
 
@@ -81,7 +81,7 @@ public class SkillsControllerTests {
     @Test
     @Tag("NoCleanup")
     @DisplayName("Delete skill successfully")
-    public void deleteSkill_whenExisting_successfully() {
+    public void deleteSkill_WhenExisting_Successfully() {
 
         skillsController.deleteSkill(createdSkillId);
 
