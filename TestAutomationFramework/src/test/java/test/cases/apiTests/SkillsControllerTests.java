@@ -33,17 +33,18 @@ public class SkillsControllerTests {
     }
 
     @Test
+    @DisplayName("Get skills successfully")
     public void getSkills_whenExisting_successfully() {
 
         Response response = skillsController.getSkills();
 
         baseController.assertResponseIsArrayAndNotEmpty(response);
         skillsController.assertSkillIdIsNotNullAndSkillIsNotEmpty(response);
-        System.out.println("Get skills request is successful");
     }
 
     @Test
     @Tag("PartialSetup")
+    @DisplayName("Create skill successfully")
     public void createSkill_withValidData_successfully() {
 
         SkillModel response = skillsController.createSkill
@@ -51,21 +52,21 @@ public class SkillsControllerTests {
 
         Assertions.assertTrue(response.skillId > -1);
         Assertions.assertEquals(textToCreateSkill, response.skill);
-        System.out.println("Create skill request is successful");
 
         createdSkillId = response.skillId;
     }
 
     @Test
+    @DisplayName("Get skill by id successfully")
     public void getSkill_byId_whenExisting_successfully() {
 
         skillsController.getSkillById(createdSkillId);
 
         Assertions.assertEquals(textToCreateSkill, responseText);
-        System.out.println("Get skill by Id request is successful");
     }
 
     @Test
+    @DisplayName("Edit skill successfully")
     public void editSkill_withNewSkillText_successfully() {
 
         String textToEditSkill = "Edited Skill: " + baseController.getRandomSentence();
@@ -75,11 +76,11 @@ public class SkillsControllerTests {
         Response response = skillsController.getSkillById(createdSkillId);
         baseController.assertResponseBodyIsNotEmpty(response);
         skillsController.assertNewSkillContentIsCorrect(textToEditSkill, response);
-        System.out.println("Edit skill request is successful");
     }
 
     @Test
     @Tag("NoCleanup")
+    @DisplayName("Delete skill successfully")
     public void deleteSkill_whenExisting_successfully() {
 
         skillsController.deleteSkill(createdSkillId);
@@ -87,6 +88,5 @@ public class SkillsControllerTests {
         Response response = skillsController.getSkills();
         skillsController.assertSkillIdIsNotNullAndSkillIsNotEmpty(response);
         skillsController.assertSkillIsNotPresent(createdSkillId, response);
-        System.out.println("Delete skill request is successful");
     }
 }

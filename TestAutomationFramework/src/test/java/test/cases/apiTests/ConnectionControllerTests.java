@@ -3,37 +3,38 @@ package test.cases.apiTests;
 import api.controllers.BaseController;
 import api.controllers.ConnectionController;
 import api.controllers.UserController;
+import api.controllers.helpers.SqlMethods;
 import api.controllers.models.UserModel;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInfo;
+import org.junit.jupiter.api.*;
 import weare.ui.pagemodels.models.UserData;
 
 
 public class ConnectionControllerTests {
-    BaseController baseController = new BaseController();
+    static BaseController baseController = new BaseController();
     ConnectionController connectionController = new ConnectionController();
-    UserController userController = new UserController();
-    UserModel sender;
-    UserModel receiver;
-    UserData senderCred = new UserData();
-    UserData receiverCred = new UserData();
-    private int requestId;
+    static UserController userController = new UserController();
+    static UserModel sender;
+    static UserModel receiver;
+    static UserData senderCred = new UserData();
+    static UserData receiverCred = new UserData();
+    private static int requestId;
 
 
-    @BeforeEach
-    public void local_setup(TestInfo testInfo) {
+    @BeforeAll
+    public static void setup() {
         senderCred.username = baseController.getRandomUsername();
         senderCred.password = baseController.getRandomPassword();
         senderCred.email = baseController.getRandomEmail();
-        sender = userController.createUser(senderCred.username, senderCred.password, senderCred.email,false);
+        sender = userController.createUser(senderCred.username, senderCred.password, senderCred.email, false);
         receiverCred.username = baseController.getRandomUsername();
         receiverCred.password = baseController.getRandomPassword();
         receiverCred.email = baseController.getRandomEmail();
-        receiver = userController.createUser(receiverCred.username, receiverCred.password, receiverCred.email,false);
+        receiver = userController.createUser(receiverCred.username, receiverCred.password, receiverCred.email, false);
+    }
 
+    @BeforeEach
+    public void local_setup(TestInfo testInfo) {
         if (testInfo.getTags().contains("InitialSetup")) return;
         connectionController.sendConnectionRequest
                 (sender.username, senderCred.password, receiver.id, receiver.username);
@@ -44,31 +45,49 @@ public class ConnectionControllerTests {
         requestId = baseController.getRequestId(response);
     }
 
+    @AfterEach
+    public void local_cleanup(){
+        SqlMethods.deleteRequestById("id", requestId);
+    }
+
+    @AfterAll
+    public static void cleanup() {
+        SqlMethods.deleteUserById("user_id", sender.id);
+        SqlMethods.deleteUserById("user_id", receiver.id);
+    }
+
     @Test
     @Tag("InitialSetup")
+    @DisplayName("Send connection request successfully")
     public void sendConnectionRequest_toExistingUser_successfully() {
 
         Response response = connectionController.sendConnectionRequest
                 (sender.username, senderCred.password, receiver.id, receiver.username);
 
-        connectionController.assertSenderReceiverAndRequestAreExisting(response, sender.username, receiver.username);
-        System.out.println("Connection request is sent successfully");
+        connectionController.assertSenderReceiverAndRequestAreExisting
+                (response, sender.username, receiver.username);
+
+        Response idGetter = connectionController.getUserConnectionRequest
+                (receiver.username, receiverCred.password, receiver.id);
+        requestId = baseController.getRequestId(idGetter);
     }
 
 
     @Test
     @Tag("PartialSetup")
+    @DisplayName("Get connection requests successfully")
     public void getConnectionRequests_whenExisting_successfully() {
 
         Response response = connectionController.getUserConnectionRequest
                 (receiver.username, receiverCred.password, receiver.id);
+        requestId = baseController.getRequestId(response);
 
         connectionController.assertResponseIsArrayAndNotEmpty(response);
         connectionController.assertResponseContainsRequestId(response);
-        System.out.println("Connection requests are got successfully");
     }
 
     @Test
+    @DisplayName("Approve connection request successfully")
     public void approveConnectionRequest_whenExisting_successfully() {
 
         Response response = connectionController.approveConnectionRequest
@@ -76,6 +95,8 @@ public class ConnectionControllerTests {
 
         connectionController.assertConnectionRequestIsApproved(response);
         connectionController.assertSenderAndReceiverAreCorrect(response, receiver.username, sender.username);
-        System.out.println("Connection request is approved successfully");
+
+        SqlMethods.deleteConnectionById("user_a", sender.id);
+        SqlMethods.deleteConnectionById("user_a", receiver.id);
     }
 }
