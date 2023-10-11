@@ -2,6 +2,7 @@ package com.telerikacademy.testframework;
 
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
@@ -145,6 +146,32 @@ public class UserActions {
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
         } catch (Exception exception) {
             Assertions.fail("Element with locator: '" + xpath + "' was not found.");
+        }
+    }
+    public void javaScriptExecutorScrollIntoView(String key, Object... arguments) {
+        try {
+            Thread.sleep(2000);
+            String locator = getLocatorValueByKey(key, arguments);
+
+            LOGGER.info("Scrolling into view on element " + key);
+            WebElement element = driver.findElement(By.xpath(locator));
+            JavascriptExecutor executor = (JavascriptExecutor) driver;
+            executor.executeScript("arguments[0].scrollIntoView(true);", element);
+        } catch (Exception e) {
+            LOGGER.info("Scroll failed");
+        }
+    }
+    public void javaScriptExecutorClick(String key, Object... arguments) {
+        try {
+            Thread.sleep(2000);
+            String locator = getLocatorValueByKey(key, arguments);
+
+            LOGGER.info("Clicking on element " + key);
+            WebElement element = driver.findElement(By.xpath(locator));
+            JavascriptExecutor executor = (JavascriptExecutor) driver;
+            executor.executeScript("arguments[0].click();", element);
+        } catch (Exception e) {
+            LOGGER.info("Click failed");
         }
     }
 }
