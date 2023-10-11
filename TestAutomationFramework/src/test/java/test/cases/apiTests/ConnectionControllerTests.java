@@ -63,7 +63,7 @@ public class ConnectionControllerTests {
         Response response = connectionController.getUserConnectionRequest
                 (receiver.username, receiverCred.password, receiver.id);
 
-        //connectionController.assertResponseIsArrayAndNotEmpty(response);
+        connectionController.assertResponseIsArrayAndNotEmpty(response);
         connectionController.assertResponseContainsRequestId(response);
         System.out.println("Connection requests are got successfully");
     }

@@ -64,11 +64,11 @@ public class UserController extends BaseController {
         return userModel;
     }
 
-    public String authenticateUser() {
+    public String authenticateUser(String username, String password) {
 
         String jsessionIdCookie = getRestAssured()
-                .formParam("username", getLatestRegisteredUsername(getAllUsers()))
-                .formParam("password", USER_PASSWORD)
+                .formParam("username", username)
+                .formParam("password", password)
                 .when()
                 .post("/authenticate")
                 .then().statusCode(302)

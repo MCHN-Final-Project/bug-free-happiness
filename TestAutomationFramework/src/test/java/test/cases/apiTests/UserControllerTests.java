@@ -23,7 +23,7 @@ public class UserControllerTests {
         userData.password = baseController.getRandomPassword();
         userData.email = baseController.getRandomEmail();
         user = userController.createUser(userData.username, userData.password, userData.email,false);
-        userController.authenticateUser();
+        userController.authenticateUser(userData.username, userData.password);
     }
 
     @Test

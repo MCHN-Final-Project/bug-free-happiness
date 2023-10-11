@@ -85,7 +85,6 @@ public class SkillsControllerTests {
         skillsController.deleteSkill(createdSkillId);
 
         Response response = skillsController.getSkills();
-        //baseController.assertResponseIsArrayAndNotEmpty(response);
         skillsController.assertSkillIdIsNotNullAndSkillIsNotEmpty(response);
         skillsController.assertSkillIsNotPresent(createdSkillId, response);
         System.out.println("Delete skill request is successful");
