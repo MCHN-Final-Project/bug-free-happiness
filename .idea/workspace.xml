@@ -8,7 +8,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/ProfilePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/ProfilePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/test/resources/mappings/ui_map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/test/resources/mappings/ui_map.properties" afterDir="false" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/TestAutomationFramework/target/test-classes/mappings/ui_map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/target/test-classes/mappings/ui_map.properties" afterDir="false" />
+=======
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,8 +166,12 @@
       <workItem from="1697016700177" duration="10131000" />
       <workItem from="1697031293476" duration="5595000" />
       <workItem from="1697046261458" duration="881000" />
+<<<<<<< Updated upstream
       <workItem from="1697099254594" duration="39000" />
       <workItem from="1697106198554" duration="1956000" />
+=======
+      <workItem from="1697120029547" duration="1701000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>

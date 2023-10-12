@@ -34,14 +34,18 @@ UserModel userModel;
         actions.clickElement("profile.editButton");
     }
     public void enterFirstName() {
-        actions.typeValueInField(BaseController.faker.name().firstName(),"profile.inputFirstName");
+        actions.typeValueInField("profile.inputFirstName", BaseController.faker.name().firstName());
     }
     public void enterLastName() {
-        actions.typeValueInField(BaseController.faker.name().lastName(),"profile.inputLastName");
+        actions.typeValueInField("profile.inputLastName", BaseController.faker.name().lastName());
     }
     public void enterBirthDay() {
+<<<<<<< Updated upstream
         actions.clickElement("profile.inputBirthDay");
         actions.clickElement("profile.inputBirthDay");
         actions.typeValueInField(BaseController.faker.date().birthday(18, 60).toString(), "profile.inputBirthDay");
+=======
+        actions.typeValueInField("profile.inputBirthDay", BaseController.faker.date().birthday().toString());
+>>>>>>> Stashed changes
     }
 }
