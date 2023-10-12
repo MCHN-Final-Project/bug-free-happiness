@@ -5,11 +5,14 @@ import api.controllers.UserController;
 import api.controllers.models.UserModel;
 import com.telerikacademy.testframework.Utils;
 import com.telerikacademy.testframework.pages.BasePage;
+import com.telerikacademy.testframework.UserActions;
 import org.openqa.selenium.WebDriver;
 import weare.ui.pagemodels.models.UserData;
 
 public class ProfilePage extends BasePage {
 UserController userController = new UserController();
+UserActions actions = new UserActions();
+
 public UserData userData = new UserData();
 UserModel userModel;
     public ProfilePage(WebDriver driver) {
@@ -37,6 +40,8 @@ UserModel userModel;
         actions.typeValueInField(BaseController.faker.name().lastName(),"profile.inputLastName");
     }
     public void enterBirthDay() {
-        actions.typeValueInField(BaseController.faker.date().birthday().toString(), "profile.inputBirthDay");
+        actions.clickElement("profile.inputBirthDay");
+        actions.clickElement("profile.inputBirthDay");
+        actions.typeValueInField(BaseController.faker.date().birthday(18, 60).toString(), "profile.inputBirthDay");
     }
 }
