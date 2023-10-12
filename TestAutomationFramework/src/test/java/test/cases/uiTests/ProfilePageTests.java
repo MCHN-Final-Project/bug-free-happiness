@@ -14,6 +14,6 @@ public class ProfilePageTests {
     public void test() {
         profilePage.navigateToProfileEdit();
         profilePage.enterFirstName();
-        profilePage.enterBirthDay();
+        profilePage.enterBio();
     }
 }

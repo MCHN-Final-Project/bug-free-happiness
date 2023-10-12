@@ -6,7 +6,9 @@ import api.controllers.models.UserModel;
 import com.telerikacademy.testframework.Utils;
 import com.telerikacademy.testframework.pages.BasePage;
 import com.telerikacademy.testframework.UserActions;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import weare.ui.pagemodels.models.UserData;
 
 public class ProfilePage extends BasePage {
@@ -34,18 +36,27 @@ UserModel userModel;
         actions.clickElement("profile.editButton");
     }
     public void enterFirstName() {
-        actions.typeValueInField("profile.inputFirstName", BaseController.faker.name().firstName());
+        actions.typeValueInField(BaseController.faker.name().firstName(),"profile.inputFirstName");
     }
     public void enterLastName() {
-        actions.typeValueInField("profile.inputLastName", BaseController.faker.name().lastName());
+        actions.typeValueInField(BaseController.faker.name().lastName(),"profile.inputLastName");
     }
     public void enterBirthDay() {
-<<<<<<< Updated upstream
-        actions.clickElement("profile.inputBirthDay");
-        actions.clickElement("profile.inputBirthDay");
-        actions.typeValueInField(BaseController.faker.date().birthday(18, 60).toString(), "profile.inputBirthDay");
-=======
-        actions.typeValueInField("profile.inputBirthDay", BaseController.faker.date().birthday().toString());
->>>>>>> Stashed changes
+        //implement locator profile.inputBirthDay
+    }
+    public void selectGender() {
+        //implement locator profile.inputGender
+    }
+    public void enterEmail() {
+        actions.typeValueInField(BaseController.faker.internet().emailAddress(), "profile.inputEmail");
+    }
+    public void enterBio() {
+        actions.typeValueInField(BaseController.faker.lorem().paragraph(), "profile.inputInfo");
+    }
+    public void selectCity() {
+        //implement locator profile.inputCity
+    }
+    public void updateProfile() {
+        actions.clickElement("profile.updateButton");
     }
 }
