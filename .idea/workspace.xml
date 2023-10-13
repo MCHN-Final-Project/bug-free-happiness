@@ -6,12 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="b8ade3cc-33df-4545-8155-099a4fe9017b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/api/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/api/controllers/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/com/telerikacademy/testframework/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/com/telerikacademy/testframework/pages/BasePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/AdminPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/AdminPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/CommentPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/CommentPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/CreatePostPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/CreatePostPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/DeleteCommentPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/DeleteCommentPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/EditCommentPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/EditCommentPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/LatestPostPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/LatestPostPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/LoginPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/ProfilePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/ProfilePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/RegisterPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/RegisterPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/apiTests/CommentControllerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/apiTests/CommentControllerTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/apiTests/PostControllerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/apiTests/PostControllerTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/apiTests/UserControllerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/apiTests/UserControllerTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/uiTests/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/uiTests/BaseTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/uiTests/ProfilePageTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/uiTests/ProfilePageTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/uiTests/RegisterTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/uiTests/RegisterTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +67,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.ProfilePageTests.test">
+  <component name="RunManager" selected="JUnit.RegisterTests.registerUserWithValidDataSuccessfully">
     <configuration name="LoginTests.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="test-automation-framework" />
       <extension name="coverage">
@@ -69,6 +80,21 @@
       <option name="MAIN_CLASS_NAME" value="test.cases.uiTests.LoginTests" />
       <option name="METHOD_NAME" value="test" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProfilePageTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="test-automation-framework" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.cases.uiTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.cases.uiTests" />
+      <option name="MAIN_CLASS_NAME" value="test.cases.uiTests.ProfilePageTests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -91,6 +117,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RegisterTests.registerUserWithValidDataSuccessfully" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="test-automation-framework" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.cases.uiTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.cases.uiTests" />
+      <option name="MAIN_CLASS_NAME" value="test.cases.uiTests.RegisterTests" />
+      <option name="METHOD_NAME" value="registerUserWithValidDataSuccessfully" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="UserControllerTests.settestup" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="test-automation-framework" />
       <extension name="coverage">
@@ -107,44 +149,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="cases in test-automation-framework" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="test-automation-framework" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="ALTERNATIVE_JRE_PATH" value="11.0.17" />
-      <option name="MAIN_CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="uiTests in test-automation-framework" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="test-automation-framework" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="ALTERNATIVE_JRE_PATH" value="11.0.17" />
-      <option name="MAIN_CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/uiTests" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
+      <item itemvalue="JUnit.ProfilePageTests" />
+      <item itemvalue="JUnit.RegisterTests.registerUserWithValidDataSuccessfully" />
       <item itemvalue="JUnit.UserControllerTests.settestup" />
-      <item itemvalue="JUnit.uiTests in test-automation-framework" />
       <item itemvalue="JUnit.LoginTests.test" />
       <item itemvalue="JUnit.ProfilePageTests.test" />
-      <item itemvalue="JUnit.cases in test-automation-framework" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RegisterTests.registerUserWithValidDataSuccessfully" />
         <item itemvalue="JUnit.ProfilePageTests.test" />
+        <item itemvalue="JUnit.ProfilePageTests" />
         <item itemvalue="JUnit.LoginTests.test" />
         <item itemvalue="JUnit.UserControllerTests.settestup" />
-        <item itemvalue="JUnit.uiTests in test-automation-framework" />
-        <item itemvalue="JUnit.cases in test-automation-framework" />
       </list>
     </recent_temporary>
   </component>
@@ -175,6 +193,7 @@
       <workItem from="1697207530892" duration="2710000" />
       <workItem from="1697210285188" duration="5588000" />
       <workItem from="1697216502353" duration="3785000" />
+      <workItem from="1697220947897" duration="1500000" />
     </task>
     <servers />
   </component>

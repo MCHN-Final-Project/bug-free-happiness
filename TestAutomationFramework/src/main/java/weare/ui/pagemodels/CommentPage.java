@@ -12,7 +12,7 @@ public class CommentPage extends BasePage {
     UserModelForUi userModelForUi = new UserModelForUi();
     RegisterPage registerPage = new RegisterPage(actions.getDriver());
     public CommentPage(WebDriver driver) {
-        super(driver, "weAreSocialNetwork.comment");
+        super(driver, "weAreSocialNetwork.comment", false);
         String username = baseController.getRandomUsername();
         userController.createUser(username, baseController.getRandomPassword(),
                 baseController.getRandomEmail(), false);

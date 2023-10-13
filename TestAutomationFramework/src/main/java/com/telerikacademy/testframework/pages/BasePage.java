@@ -16,7 +16,19 @@ public abstract class BasePage {
     public UserActions actions;
     public UserModel userModel;
 
-    public BasePage(WebDriver driver, String urlKey) {
+    public BasePage(WebDriver driver, String urlKey, boolean register) {
+        if (register) {
+            this.driver = driver;
+            this.url = Utils.getConfigPropertyByKey(urlKey);
+            actions = new UserActions();
+        }
+        else nonRegister(driver, urlKey);
+    }
+
+    public String getUrl() {
+        return url;
+    }
+    public void nonRegister (WebDriver driver, String urlKey) {
         this.driver = driver;
         UserController userController = new UserController();
         UserData userData = new UserData();
@@ -27,10 +39,6 @@ public abstract class BasePage {
         driver.manage().addCookie(userModel.cookie);
         actions = new UserActions();
         this.url = Utils.getConfigPropertyByKey(urlKey);
-    }
-
-    public String getUrl() {
-        return url;
     }
 
     public void navigateToPage() {

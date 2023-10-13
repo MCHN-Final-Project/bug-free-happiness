@@ -13,7 +13,7 @@ public class AdminPage extends BasePage {
     public UserData userData = new UserData();
     UserModel userModel;
     public AdminPage(WebDriver driver) {
-        super(driver, "weAreSocialNetwork.adminPage");
+        super(driver, "weAreSocialNetwork.adminPage", false);
         userModel = userController.createUser
                 (userData.username, userData.password, userData.email, true);
         LoginPage loginPage = new LoginPage(driver);

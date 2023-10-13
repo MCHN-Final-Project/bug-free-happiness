@@ -11,7 +11,11 @@ import weare.ui.pagemodels.models.UserModelForUi;
 
 public class RegisterTests extends BaseTest {
     RegisterPage registerPage = new RegisterPage(actions.getDriver());
-
+    @AfterAll
+    public static void cleanup() {
+        UserActions.quitDriver();
+        SqlMethods.deleteUserById("user_id", userModelForUi.userId);
+    }
     @Test
     @DisplayName("Register a new user")
     void registerUserWithValidDataSuccessfully() {
@@ -21,9 +25,9 @@ public class RegisterTests extends BaseTest {
         actions.clickElement("register.registerButton");
         userModelForUi = registerPage.assertUserExists(userData.username);
 
-        Assertions.assertNotNull(userModel,
+        Assertions.assertNotNull(userModelForUi,
                 "User was not found in the database");
-        Assertions.assertEquals(userModel.username, userData.username);
+        Assertions.assertEquals(userModelForUi.username, userData.username);
         try {
             actions.assertElementPresent("register.loginButton");
         } catch (NoSuchElementException e) {
