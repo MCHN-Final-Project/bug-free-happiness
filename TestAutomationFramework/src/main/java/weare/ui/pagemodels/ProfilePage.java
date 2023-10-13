@@ -21,7 +21,7 @@ UserModel userModel;
         //Cookie cookie = new Cookie("JSESSIONID",
         //        userController.authenticateUser(userData.username, userData.password));
         //driver.manage().addCookie(cookie);
-        super(driver, "weAreSocialNetwork.profile");
+        super(driver, "weAreSocialNetwork.login");
         userModel = userController.createUser
                 (userData.username, userData.password, userData.email, false);
         LoginPage loginPage = new LoginPage(driver);
