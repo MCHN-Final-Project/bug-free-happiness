@@ -9,7 +9,8 @@ import weare.ui.pagemodels.RegisterPage;
 import weare.ui.pagemodels.models.UserData;
 import weare.ui.pagemodels.models.UserModelForUi;
 
-public class RegisterTests extends BaseTest{
+public class RegisterTests extends BaseTest {
+    RegisterPage registerPage = new RegisterPage(actions.getDriver());
 
     @Test
     @DisplayName("Register a new user")

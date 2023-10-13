@@ -17,28 +17,24 @@ public class BaseTest {
     static BaseController baseController = new BaseController();
     static UserModelForUi userModelForUi = new UserModelForUi();
     static UserActions actions = new UserActions();
-    RegisterPage registerPage = new RegisterPage(actions.getDriver());
+    //
     static UserController userController = new UserController();
-    static HomePage homePage = new HomePage(actions.getDriver());
-    AdminPage adminPage = new AdminPage(actions.getDriver());
-    CommentPage commentPage = new CommentPage(actions.getDriver());
-    CreatePostPage createPostPage = new CreatePostPage(actions.getDriver());
-    DeleteCommentPage deleteCommentPage = new DeleteCommentPage(actions.getDriver());
-    EditCommentPage editCommentPage = new EditCommentPage(actions.getDriver());
-    LatestPostPage latestPostPage = new LatestPostPage(actions.getDriver());
-    LoginPage loginPage = new LoginPage(actions.getDriver());
-    ProfilePage profilePage = new ProfilePage(actions.getDriver());
+    //static HomePage homePage = new HomePage(actions.getDriver());
+    //AdminPage adminPage = new AdminPage(actions.getDriver());
+    //CommentPage commentPage = new CommentPage(actions.getDriver());
+    //CreatePostPage createPostPage = new CreatePostPage(actions.getDriver());
+    //DeleteCommentPage deleteCommentPage = new DeleteCommentPage(actions.getDriver());
+    //EditCommentPage editCommentPage = new EditCommentPage(actions.getDriver());
+    //LatestPostPage latestPostPage = new LatestPostPage(actions.getDriver());
+    //LoginPage loginPage = new LoginPage(actions.getDriver());
+    //ProfilePage profilePage = new ProfilePage(actions.getDriver());
     static UserModel userModel = new UserModel();
     static UserData userData = new UserData();
 
     @BeforeAll
     public static void setup() {
-        userData.username = baseController.getRandomUsername();
-        userData.password = baseController.getRandomPassword();
-        userData.email = baseController.getRandomEmail();
-        userController.createUser(userData.username, userData.password, userData.email,false);
-        Utils.getWebDriver().manage().addCookie(new Cookie("JSESSIONID", userController.authenticateUser(userData.username, userData.password)));
-        homePage.navigateToPage();
+
+        //homePage.navigateToPage();
     }
 
     @AfterAll
