@@ -1,4 +1,4 @@
-package com.telerikacademy.testframework.pages;
+package weare.ui.pagemodels;
 
 import api.controllers.UserController;
 import api.controllers.models.UserModel;
@@ -14,7 +14,8 @@ public abstract class BasePage {
     protected WebDriver driver;
     protected String url;
     public UserActions actions;
-    public UserModel userModel;
+    public static UserModel userModel;
+    public static UserData userData = new UserData();
 
     public BasePage(WebDriver driver, String urlKey, boolean register) {
         if (register) {
@@ -31,7 +32,6 @@ public abstract class BasePage {
     public void nonRegister (WebDriver driver, String urlKey) {
         this.driver = driver;
         UserController userController = new UserController();
-        UserData userData = new UserData();
         userModel = userController.createUser(userData.username, userData.password, userData.email,false);
         this.url = Utils.getConfigPropertyByKey(urlKey);
         navigateToPage();

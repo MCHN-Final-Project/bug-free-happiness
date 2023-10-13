@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b8ade3cc-33df-4545-8155-099a4fe9017b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/com/telerikacademy/testframework/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/com/telerikacademy/testframework/pages/BasePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/com/telerikacademy/testframework/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/BasePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/AdminPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/AdminPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/CommentPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/CommentPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/CreatePostPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/CreatePostPage.java" afterDir="false" />
@@ -17,12 +17,8 @@
       <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/LoginPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/ProfilePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/ProfilePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/RegisterPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/RegisterPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/apiTests/CommentControllerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/apiTests/CommentControllerTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/apiTests/PostControllerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/apiTests/PostControllerTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/apiTests/UserControllerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/apiTests/UserControllerTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/uiTests/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/uiTests/BaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/uiTests/ProfilePageTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/uiTests/ProfilePageTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/uiTests/RegisterTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/uiTests/RegisterTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/uiTests/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/uiTests/LoginTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/test/resources/mappings/ui_map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/test/resources/mappings/ui_map.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +63,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.RegisterTests.registerUserWithValidDataSuccessfully">
+  <component name="RunManager" selected="JUnit.LoginTests.test">
     <configuration name="LoginTests.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="test-automation-framework" />
       <extension name="coverage">
@@ -158,10 +154,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LoginTests.test" />
+        <item itemvalue="JUnit.ProfilePageTests" />
         <item itemvalue="JUnit.RegisterTests.registerUserWithValidDataSuccessfully" />
         <item itemvalue="JUnit.ProfilePageTests.test" />
-        <item itemvalue="JUnit.ProfilePageTests" />
-        <item itemvalue="JUnit.LoginTests.test" />
         <item itemvalue="JUnit.UserControllerTests.settestup" />
       </list>
     </recent_temporary>
@@ -193,7 +189,7 @@
       <workItem from="1697207530892" duration="2710000" />
       <workItem from="1697210285188" duration="5588000" />
       <workItem from="1697216502353" duration="3785000" />
-      <workItem from="1697220947897" duration="1500000" />
+      <workItem from="1697220947897" duration="3749000" />
     </task>
     <servers />
   </component>

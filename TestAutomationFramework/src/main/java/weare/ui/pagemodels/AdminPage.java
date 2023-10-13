@@ -3,7 +3,6 @@ package weare.ui.pagemodels;
 import api.controllers.UserController;
 import api.controllers.models.UserModel;
 import com.telerikacademy.testframework.UserActions;
-import com.telerikacademy.testframework.pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import weare.ui.pagemodels.models.UserData;
 

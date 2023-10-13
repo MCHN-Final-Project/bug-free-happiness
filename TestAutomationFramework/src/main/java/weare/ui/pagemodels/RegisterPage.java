@@ -3,8 +3,6 @@ package weare.ui.pagemodels;
 import api.controllers.UserController;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.telerikacademy.testframework.Utils;
-import com.telerikacademy.testframework.pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import weare.ui.pagemodels.models.UserModelForUi;
 

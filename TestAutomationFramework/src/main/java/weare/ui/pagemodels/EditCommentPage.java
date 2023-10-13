@@ -2,7 +2,6 @@ package weare.ui.pagemodels;
 
 import api.controllers.BaseController;
 import api.controllers.UserController;
-import com.telerikacademy.testframework.pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import weare.ui.pagemodels.models.UserModelForUi;
 
