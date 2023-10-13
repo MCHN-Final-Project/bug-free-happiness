@@ -6,10 +6,7 @@ import org.junit.jupiter.api.Test;
 import weare.ui.pagemodels.LoginPage;
 import weare.ui.pagemodels.ProfilePage;
 
-public class ProfilePageTests {
-    UserActions actions = new UserActions();
-
-    ProfilePage profilePage = new ProfilePage(actions.getDriver());
+public class ProfilePageTests extends BaseTest {
     @Test
     public void test() {
         profilePage.navigateToProfileEdit();

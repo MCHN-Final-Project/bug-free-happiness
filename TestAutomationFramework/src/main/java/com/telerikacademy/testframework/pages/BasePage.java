@@ -2,6 +2,7 @@ package com.telerikacademy.testframework.pages;
 
 import com.telerikacademy.testframework.UserActions;
 import com.telerikacademy.testframework.Utils;
+import io.restassured.http.Cookie;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 
@@ -32,4 +33,5 @@ public abstract class BasePage {
         Assertions.assertTrue(currentUrl.contains(url),
                 "Landed URL is not as expected. Actual URL: " + currentUrl + ". Expected URL: " + url);
     }
+
 }
