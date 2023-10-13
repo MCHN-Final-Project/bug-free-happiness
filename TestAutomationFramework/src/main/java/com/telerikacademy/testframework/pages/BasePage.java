@@ -14,22 +14,25 @@ public abstract class BasePage {
     protected WebDriver driver;
     protected String url;
     public UserActions actions;
-    public UserModel userModel;
+    public static UserModel userModel;
+    public static UserData userData = new UserData();
 
     public BasePage(WebDriver driver, String urlKey) {
         this.driver = driver;
         UserController userController = new UserController();
-        UserData userData = new UserData();
         userModel = userController.createUser(userData.username, userData.password, userData.email,false);
         this.url = Utils.getConfigPropertyByKey(urlKey);
         navigateToPage();
         assertPageNavigated();
+        Cookie login = new Cookie.Builder(userController.authenticateUser(BasePage.userModel.username, BasePage.userData.password).getName(),
+                userController.authenticateUser(BasePage.userModel.username, BasePage.userData.password).getValue())
+                .build();
+        System.out.println(login.toString());
         driver
                 .manage()
-                .addCookie(new Cookie("JSESSIONID",
-                        userController.authenticateUser(userModel.username, userData.password)));
+                .addCookie(login);
+        System.out.println(driver.manage().getCookies());
         actions = new UserActions();
-        this.url = Utils.getConfigPropertyByKey(urlKey);
     }
 
     public String getUrl() {

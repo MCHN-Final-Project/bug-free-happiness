@@ -2,7 +2,6 @@ package weare.ui.pagemodels;
 
 import api.controllers.BaseController;
 import api.controllers.UserController;
-import api.controllers.models.UserModel;
 import com.telerikacademy.testframework.UserActions;
 import com.telerikacademy.testframework.Utils;
 import com.telerikacademy.testframework.pages.BasePage;
@@ -17,9 +16,6 @@ public class ProfilePage extends BasePage {
 
 
     public ProfilePage(WebDriver driver) {
-        //Cookie cookie = new Cookie("JSESSIONID",
-        //        userController.authenticateUser(userData.username, userData.password));
-        //driver.manage().addCookie(cookie);
         super(driver, "weAreSocialNetwork.homepage");
         ProfilePage.super.url = String.format
                 (Utils.getConfigPropertyByKey("weAreSocialNetwork.profile"), userModel.id);

@@ -3,6 +3,7 @@ package api.controllers;
 import api.controllers.models.UserModel;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.restassured.http.Cookie;
 import io.restassured.response.Response;
 
 import java.util.regex.Matcher;
@@ -64,16 +65,15 @@ public class UserController extends BaseController {
         return userModel;
     }
 
-    public String authenticateUser(String username, String password) {
+    public Cookie authenticateUser(String username, String password) {
 
-        String jsessionIdCookie = getRestAssured()
+        return getRestAssured()
                 .formParam("username", username)
                 .formParam("password", password)
                 .when()
                 .post("/authenticate")
                 .then().statusCode(302)
-                .extract().response().getCookie("JSESSIONID");
-        return jsessionIdCookie;
+                .extract().response().getDetailedCookie("JSESSIONID");
     }
 
     public Response getAllUsers() {

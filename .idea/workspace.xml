@@ -6,11 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="b8ade3cc-33df-4545-8155-099a4fe9017b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/api/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/api/controllers/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/com/telerikacademy/testframework/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/com/telerikacademy/testframework/pages/BasePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/ProfilePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/ProfilePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/uiTests/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/uiTests/BaseTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/uiTests/ProfilePageTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/uiTests/ProfilePageTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/uiTests/RegisterTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/uiTests/RegisterTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,21 +177,11 @@
       <workItem from="1697106198554" duration="1956000" />
       <workItem from="1697120029547" duration="1701000" />
       <workItem from="1697207530892" duration="2710000" />
+      <workItem from="1697210285188" duration="5588000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/ProfilePage.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
