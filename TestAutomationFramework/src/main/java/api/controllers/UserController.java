@@ -3,10 +3,16 @@ package api.controllers;
 import api.controllers.models.UserModel;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.restassured.http.ContentType;
+import io.restassured.http.Cookie;
+import io.restassured.http.Cookies;
 import io.restassured.response.Response;
+
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static api.controllers.helpers.Endpoints.AUTHENTICATE_ENDPOINT;
 
 public class UserController extends BaseController {
     UserModel userModel = new UserModel();
@@ -51,29 +57,41 @@ public class UserController extends BaseController {
 
             userInfo[0] = name;
             userInfo[1] = id;
-
         } else {
             System.out.println("Pattern not found in the input string.");
         }
+
         String userData = getUserById(Integer.parseInt(userInfo[1]), userInfo[0]).asString();
+
 
         try {
             userModel = user.readValue(userData, UserModel.class);
         } catch (JsonProcessingException ignored) {
         }
-        return userModel;
-    }
 
-    public String authenticateUser(String username, String password) {
-
-        String jsessionIdCookie = getRestAssured()
+        Cookies restAssuredCookies = getRestAssured()
+                .contentType(ContentType.URLENC)
                 .formParam("username", username)
                 .formParam("password", password)
                 .when()
-                .post("/authenticate")
-                .then().statusCode(302)
-                .extract().response().getCookie("JSESSIONID");
-        return jsessionIdCookie;
+                .post(AUTHENTICATE_ENDPOINT)
+                .then()
+                .statusCode(302)
+                .extract().detailedCookies();
+        Cookie restAssuredJSessionIdCookie = restAssuredCookies.get("JSESSIONID");
+
+        org.openqa.selenium.Cookie seleniumCookie = new org.openqa.selenium.Cookie(
+                restAssuredJSessionIdCookie.getName(),
+                restAssuredJSessionIdCookie.getValue(),
+                restAssuredJSessionIdCookie.getDomain(),
+                restAssuredJSessionIdCookie.getPath(),
+                restAssuredJSessionIdCookie.getExpiryDate(),
+                restAssuredJSessionIdCookie.isSecured()
+        );
+
+        userModel.setCookie(seleniumCookie);
+
+        return userModel;
     }
 
     public Response getAllUsers() {

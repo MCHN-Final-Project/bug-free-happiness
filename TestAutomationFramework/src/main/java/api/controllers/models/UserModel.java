@@ -1,5 +1,7 @@
 package api.controllers.models;
 
+
+import org.openqa.selenium.Cookie;
 import java.util.ArrayList;
 
 public class UserModel {
@@ -16,5 +18,12 @@ public class UserModel {
     public String personalReview;
     public String expertise;
     public ArrayList<String> skills;
+    public Cookie cookie;
+    public Cookie getCookie() {
+        return cookie;
+    }
+    public void setCookie(Cookie cookie) {
+        this.cookie = cookie;
+    }
 }
 

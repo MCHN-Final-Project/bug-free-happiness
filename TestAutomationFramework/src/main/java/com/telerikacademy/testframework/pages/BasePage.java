@@ -24,10 +24,7 @@ public abstract class BasePage {
         this.url = Utils.getConfigPropertyByKey(urlKey);
         navigateToPage();
         assertPageNavigated();
-        driver
-                .manage()
-                .addCookie(new Cookie("JSESSIONID",
-                        userController.authenticateUser(userModel.username, userData.password)));
+        driver.manage().addCookie(userModel.cookie);
         actions = new UserActions();
         this.url = Utils.getConfigPropertyByKey(urlKey);
     }

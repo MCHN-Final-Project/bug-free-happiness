@@ -24,7 +24,7 @@ public class UserControllerTests {
         userData.password = baseController.getRandomPassword();
         userData.email = baseController.getRandomEmail();
         user = userController.createUser(userData.username, userData.password, userData.email,false);
-        userController.authenticateUser(userData.username, userData.password);
+//        userController.authenticateUser(userData.username, userData.password);
     }
     @AfterAll
     public static void cleanup(){
