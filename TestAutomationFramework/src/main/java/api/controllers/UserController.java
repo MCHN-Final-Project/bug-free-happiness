@@ -65,7 +65,7 @@ public class UserController extends BaseController {
         return userModel;
     }
 
-    public Cookie authenticateUser(String username, String password) {
+    public String authenticateUser(String username, String password) {
 
         return getRestAssured()
                 .formParam("username", username)
@@ -73,7 +73,7 @@ public class UserController extends BaseController {
                 .when()
                 .post("/authenticate")
                 .then().statusCode(302)
-                .extract().response().getDetailedCookie("JSESSIONID");
+                .extract().response().getDetailedCookie("JSESSIONID").getValue();
     }
 
     public Response getAllUsers() {

@@ -5,7 +5,6 @@ import api.controllers.models.UserModel;
 import com.telerikacademy.testframework.UserActions;
 import com.telerikacademy.testframework.Utils;
 import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import weare.ui.pagemodels.models.UserData;
 
@@ -20,18 +19,10 @@ public abstract class BasePage {
     public BasePage(WebDriver driver, String urlKey) {
         this.driver = driver;
         UserController userController = new UserController();
-        userModel = userController.createUser(userData.username, userData.password, userData.email,false);
+        userModel = userController.createUser(userData.username, userData.password, userData.email, false);
         this.url = Utils.getConfigPropertyByKey(urlKey);
         navigateToPage();
         assertPageNavigated();
-        Cookie login = new Cookie.Builder(userController.authenticateUser(BasePage.userModel.username, BasePage.userData.password).getName(),
-                userController.authenticateUser(BasePage.userModel.username, BasePage.userData.password).getValue())
-                .build();
-        System.out.println(login.toString());
-        driver
-                .manage()
-                .addCookie(login);
-        System.out.println(driver.manage().getCookies());
         actions = new UserActions();
     }
 
@@ -48,5 +39,4 @@ public abstract class BasePage {
         Assertions.assertTrue(currentUrl.contains(url),
                 "Landed URL is not as expected. Actual URL: " + currentUrl + ". Expected URL: " + url);
     }
-
 }

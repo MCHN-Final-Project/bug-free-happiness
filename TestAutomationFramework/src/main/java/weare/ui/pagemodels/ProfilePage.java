@@ -5,20 +5,23 @@ import api.controllers.UserController;
 import com.telerikacademy.testframework.UserActions;
 import com.telerikacademy.testframework.Utils;
 import com.telerikacademy.testframework.pages.BasePage;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
-import weare.ui.pagemodels.models.UserData;
 
 public class ProfilePage extends BasePage {
     UserController userController = new UserController();
     UserActions actions = new UserActions();
-
-    public UserData userData = new UserData();
 
 
     public ProfilePage(WebDriver driver) {
         super(driver, "weAreSocialNetwork.homepage");
         ProfilePage.super.url = String.format
                 (Utils.getConfigPropertyByKey("weAreSocialNetwork.profile"), userModel.id);
+        Cookie login = new Cookie.Builder("JSESSIONID",
+                userController.authenticateUser(userModel.username, userData.password)).build();
+        this.driver
+                .manage()
+                .addCookie(login);
         navigateToPage();
         assertPageNavigated();
     }

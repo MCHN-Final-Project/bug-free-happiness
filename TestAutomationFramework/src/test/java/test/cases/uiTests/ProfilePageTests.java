@@ -10,6 +10,7 @@ public class ProfilePageTests {
     ProfilePage profilePage = new ProfilePage(actions.getDriver());
     UserController userController = new UserController();
 
+
     @Test
     public void test() {
         profilePage.navigateToProfileEdit();

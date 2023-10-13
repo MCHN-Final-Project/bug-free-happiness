@@ -1,6 +1,5 @@
 package weare.ui.pagemodels;
 
-import com.telerikacademy.testframework.Utils;
 import com.telerikacademy.testframework.pages.BasePage;
 import org.openqa.selenium.WebDriver;
 
@@ -12,11 +11,11 @@ public class LoginPage extends BasePage {
     }
 
     public void enterUsername(String username) {
-        actions.typeValueInField(username,"login.username");
+        actions.typeValueInField(username, "login.username");
     }
 
     public void enterPassword(String password) {
-        actions.typeValueInField(password,"login.password");
+        actions.typeValueInField(password, "login.password");
     }
 
     public void submitLoginForm() {
