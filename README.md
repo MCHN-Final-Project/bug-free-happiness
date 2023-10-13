@@ -1,1 +1,57 @@
-# bug-free-happiness
+                                     WEare Social Network - Final Project, Telerik Academy Alpha QA Track
+
+I. Project description
+
+WEare Social Network presents an innovative avenue for the pursuit of one's aspirations, where the synergy of offerings and desires flourishes harmoniously. Within this digital ecosystem, a vibrant tapestry of connections forms, weaving a rich social fabric. By extending a helping hand, individuals forge new bonds, expand their knowledge horizons, catalyze their career trajectories, and, most profoundly, imbue the community with their unique essence.
+
+II. Used technologies 
+
+Our project utilizes a stack of various technologies and tools, including:
+
+- Testing Framework: Java with Selenium WebDriver
+- API Testing: Postman, RestAssured and Newman(Command-line collection runner for Postman)
+- Issue Tracking: JIRA
+- Performance Testing: Apache JMeter
+- Unit Testing: JUnit 5
+- Build and Dependency Management: Apache Maven
+
+These technologies were instrumental in the successful development and testing of our project.
+
+III. Achievements
+
+- Manual Testing: Our team has diligently conducted extensive manual testing of the project, covering all critical functionalities. This includes testing user registration, login, and various user interactions to identify usability and user experience issues.
+
+- Automated Testing: We have successfully implemented automated testing using industry-standard testing tools and frameworks. This includes testing API endpoints, UI interactions, and performance under various scenarios.
+
+IV. Test Coverage
+
+Our test cases cover a wide range of scenarios, including positive and negative test cases, boundary testing, and load testing. We have designed test suites to validate different aspects of the project, ensuring it meets the highest quality standards.
+
+V. Project Setup and test execution
+To set up the project locally for testing and development, follow these steps:
+
+1. Clone the Project: Start by cloning the project repository to your local machine using the following command: git clone https://github.com/MCHN-Final-Project/bug-free-happiness.git
+2. Install Dependencies
+3. Configuration: Configure the project settings and environment variables, if applicable. 
+4. Database Setup: 
+5. Run the Application: The application will be accessible at [http://localhost:8000](http://localhost:8000) in your web browser.
+6. Run Tests: To execute the project's test suite, you can run the tests using: 
+
+This command will run the automated tests and provide you with test results.
+
+Please ensure that you fulfill all the prerequisites and project-specific requirements as described in the project documentation. If you encounter any issues during setup, feel free to reach out to our team for assistance.
+
+VI. Resources
+1. [Final project repo](https://github.com/MCHN-Final-Project/bug-free-happiness/tree/main)
+2. [Test Plan](https://drive.google.com/drive/folders/1dx9yin_QygG3MwIl6H1iyvthyyQu8oeH)
+3. [Initial/exploratory testing report](https://drive.google.com/drive/folders/1dx9yin_QygG3MwIl6H1iyvthyyQu8oeH)
+4. [Test Cases in Jira](https://simvel.atlassian.net/jira/software/c/projects/Q5FP/boards/6)
+5. [Logged bugs and issues in Jira](https://simvel.atlassian.net/jira/software/c/projects/Q5FP/boards/4)
+6. [Newman report]() 
+7. [Performance Testing report]() 
+7. [Final Test Report]() 
+
+VII. Authors
+Simona Diamandieva-Ilieva - [github](https://github.com/SimonaDiamandievaIlieva)
+Petar Hlebarov - [github]()
+Simeon Velinov - [github]()
