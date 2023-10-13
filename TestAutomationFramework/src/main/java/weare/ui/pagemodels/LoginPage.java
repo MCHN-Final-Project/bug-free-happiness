@@ -24,6 +24,7 @@ public class LoginPage extends BasePage {
     public void login(String username, String password) {
         enterUsername(username);
         enterPassword(password);
+        actions.waitForElementClickable("login.loginButton");
         submitLoginForm();
     }
 }

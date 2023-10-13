@@ -9,13 +9,10 @@ import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.time.Duration;
 
-import static com.telerikacademy.testframework.Utils.LOGGER;
-import static com.telerikacademy.testframework.Utils.getConfigPropertyByKey;
-import static com.telerikacademy.testframework.Utils.getUIMappingByKey;
-import static com.telerikacademy.testframework.Utils.getWebDriver;
-import static com.telerikacademy.testframework.Utils.tearDownWebDriver;
+import static com.telerikacademy.testframework.Utils.*;
 import static java.lang.String.format;
 
 public class UserActions {
@@ -45,6 +42,15 @@ public class UserActions {
         WebElement element = driver.findElement(By.xpath(locator));
         element.click();
     }
+
+    public void sendEnter(String key, Object... arguments) {
+        String locator = getLocatorValueByKey(key, arguments);
+
+        LOGGER.info("Sending Enter on " + key);
+        WebElement element = driver.findElement(By.xpath(locator));
+        element.submit();
+    }
+
 
     public void typeValueInField(String value, String field, Object... fieldArguments) {
         String locator = getLocatorValueByKey(field, fieldArguments);
@@ -83,6 +89,10 @@ public class UserActions {
     }
 
     //############# WAITS #########
+    public void navigateBack() {
+        driver.navigate().back();
+    }
+
     public void waitForElementPresent(String locator, Object... arguments) {
         // TODO: Implement the method
         // 1. Initialize Wait utility with default timeout from properties
@@ -95,6 +105,16 @@ public class UserActions {
     public void assertElementPresent(String locator) {
         Assertions.assertNotNull(driver.findElement(By.xpath(getUIMappingByKey(locator))),
                 format("Element with %s doesn't present.", locator));
+    }
+
+    public void assertElementNotPresent(String locator) {
+        boolean test = true;
+        try {
+            Assertions.assertNull(driver.findElement(By.xpath(getUIMappingByKey(locator))));
+        } catch (Exception e) {
+            test = false;
+        }
+        Assertions.assertFalse(test, "Test succeeded when expected to fail");
     }
 
     public void assertElementAttribute(String locator, String attributeName, String attributeValue) {
@@ -148,6 +168,7 @@ public class UserActions {
             Assertions.fail("Element with locator: '" + xpath + "' was not found.");
         }
     }
+
     public void javaScriptExecutorScrollIntoView(String key, Object... arguments) {
         try {
             Thread.sleep(2000);
@@ -161,6 +182,7 @@ public class UserActions {
             LOGGER.info("Scroll failed");
         }
     }
+
     public void javaScriptExecutorClick(String key, Object... arguments) {
         try {
             Thread.sleep(2000);
@@ -173,5 +195,14 @@ public class UserActions {
         } catch (Exception e) {
             LOGGER.info("Click failed");
         }
+    }
+
+    public void assertPageNotFound(String key) {
+        String page = Utils.getConfigPropertyByKey(key);
+        LOGGER.info("Attempting to access page: " + key);
+        driver.get(page);
+        Assertions.assertTrue(driver.getCurrentUrl().contains(page),
+                "Landed URL is not as expected. Actual URL: " + driver.getCurrentUrl() + ". Expected URL: " + page);
+        assertElementPresent("notFound.notFoundMessage");
     }
 }
