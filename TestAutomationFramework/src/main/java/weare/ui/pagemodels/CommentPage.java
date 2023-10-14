@@ -11,13 +11,7 @@ public class CommentPage extends BasePage {
     UserModelForUi userModelForUi = new UserModelForUi();
     RegisterPage registerPage = new RegisterPage(actions.getDriver());
     public CommentPage(WebDriver driver) {
-        super(driver, "weAreSocialNetwork.comment", false);
-        String username = baseController.getRandomUsername();
-        userController.createUser(username, baseController.getRandomPassword(),
-                baseController.getRandomEmail(), false);
-        userModelForUi = registerPage.assertUserExists(username);
-        navigateToPage();
-        assertPageNavigated();
+        super(driver, "weAreSocialNetwork.comment", true);
     }
 
    public void enterCommentContent(){
@@ -42,6 +36,10 @@ public class CommentPage extends BasePage {
 
   public void clickDeleteCommentButton(String commentContent) {
         actions.clickElement("comment.deleteComment", commentContent);
+  }
+
+  public void clickOnEditPostButton(){
+        actions.clickElement("comment.editPostButton");
   }
 
 }

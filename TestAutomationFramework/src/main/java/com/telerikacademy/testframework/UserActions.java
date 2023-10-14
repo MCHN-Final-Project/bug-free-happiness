@@ -8,9 +8,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
 import java.time.Duration;
+import java.util.List;
 
 import static com.telerikacademy.testframework.Utils.*;
 import static java.lang.String.format;
@@ -204,5 +207,25 @@ public class UserActions {
         Assertions.assertTrue(driver.getCurrentUrl().contains(page),
                 "Landed URL is not as expected. Actual URL: " + driver.getCurrentUrl() + ". Expected URL: " + page);
         assertElementPresent("notFound.notFoundMessage");
+    }
+
+
+    public void selectValueFromDropdown(String value, String field, Object... fieldArguments){
+        Select dropdown = new Select(getWebElement(field,fieldArguments));
+        dropdown.selectByVisibleText(value);
+    }
+
+    public WebElement getWebElement(String key, Object... arguments) {
+        String locator = getLocatorValueByKey(key, arguments);
+        waitForElementVisible(locator);
+        WebElement element = driver.findElement(By.xpath(locator));
+        return element;
+    }
+
+    public void uploadImage(String locatorKey,String imagePath) {
+        File picture = new File(imagePath);
+        String absolutePath = picture.getAbsolutePath();
+        WebElement element = getWebElement(locatorKey);
+        element.sendKeys(absolutePath);
     }
 }

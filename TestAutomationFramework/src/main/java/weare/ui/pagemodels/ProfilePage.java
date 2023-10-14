@@ -10,7 +10,6 @@ public class ProfilePage extends BasePage {
     UserController userController = new UserController();
     UserActions actions = new UserActions();
 
-
     public ProfilePage(WebDriver driver) {
         super(driver, "weAreSocialNetwork.homepage", false);
         ProfilePage.super.url = String.format

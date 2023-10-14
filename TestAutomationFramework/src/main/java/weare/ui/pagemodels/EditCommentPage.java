@@ -12,12 +12,12 @@ public class EditCommentPage extends BasePage {
     RegisterPage registerPage = new RegisterPage(actions.getDriver());
     public EditCommentPage(WebDriver driver) {
         super(driver, "weAreSocialNetwork.editComment", false);
-        String username = baseController.getRandomUsername();
-        userController.createUser(username, baseController.getRandomPassword(),
-                baseController.getRandomEmail(), false);
-        userModelForUi = registerPage.assertUserExists(username);
-        navigateToPage();
-        assertPageNavigated();
+//        String username = baseController.getRandomUsername();
+//        userController.createUser(username, baseController.getRandomPassword(),
+//                baseController.getRandomEmail(), false);
+//        userModelForUi = registerPage.assertUserExists(username);
+//        navigateToPage();
+//        assertPageNavigated();
     }
 
     public void enterEditedCommentContent(String editedContent){
