@@ -1,5 +1,6 @@
 package com.telerikacademy.testframework;
 
+import api.controllers.BaseController;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -8,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -204,5 +206,19 @@ public class UserActions {
         Assertions.assertTrue(driver.getCurrentUrl().contains(page),
                 "Landed URL is not as expected. Actual URL: " + driver.getCurrentUrl() + ". Expected URL: " + page);
         assertElementPresent("notFound.notFoundMessage");
+    }
+
+    public void selectFromDropdown(String key, String start, int target) {
+        Select drop = new Select(driver.findElement(By.xpath(key)));
+        drop.selectByVisibleText(start);
+        drop.selectByIndex(target);
+    }
+
+    public void selectDate(String key) {
+        ((JavascriptExecutor) driver).executeScript("document.getElementById('birthDayE').removeAttribute('readonly',0);"); // Enables the from date box
+
+        WebElement fromDateBox = driver.findElement(By.xpath(Utils.getUIMappingByKey(key)));
+        fromDateBox.clear();
+        fromDateBox.sendKeys("12-12-1950");
     }
 }

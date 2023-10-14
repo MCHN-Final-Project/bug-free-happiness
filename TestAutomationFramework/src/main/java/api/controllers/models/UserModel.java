@@ -13,7 +13,7 @@ public class UserModel {
     public String firstName;
     public String lastNAme;
     public String gender;
-    public String city;
+    public Object city;
     public String birthYear;
     public String personalReview;
     public String expertise;
