@@ -27,8 +27,16 @@ public class RegisterPage extends BasePage {
         actions.typeValueInField(email, "register.email");
     }
 
+    public void enterPasswordInBothPasswordFields(String password) {
+        actions.typeValueInField(password, "register.password");
+        actions.typeValueInField(password, "register.confirmPassword");
+    }
+
     public void enterPassword(String password) {
         actions.typeValueInField(password, "register.password");
+    }
+
+    public void confirmPassword(String password) {
         actions.typeValueInField(password, "register.confirmPassword");
     }
 

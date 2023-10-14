@@ -45,5 +45,4 @@ public class BasePage {
         Assertions.assertTrue(currentUrl.contains(url),
                 "Landed URL is not as expected. Actual URL: " + currentUrl + ". Expected URL: " + url);
     }
-
 }
