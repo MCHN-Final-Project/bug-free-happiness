@@ -39,7 +39,7 @@ public class ProfilePage extends BasePage {
     }
 
     public void enterBio() {
-        actions.typeValueInField(BaseController.faker.lorem().paragraph(), "profile.inputInfo");
+        actions.typeValueInField(BaseController.faker.lorem().sentence(), "profile.inputInfo");
     }
 
     public void selectCity(String input, int output) {

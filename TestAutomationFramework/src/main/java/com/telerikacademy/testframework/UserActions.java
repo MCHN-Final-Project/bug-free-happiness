@@ -208,8 +208,18 @@ public class UserActions {
                 "Landed URL is not as expected. Actual URL: " + driver.getCurrentUrl() + ". Expected URL: " + page);
         assertElementPresent("notFound.notFoundMessage");
     }
+    public void selectFromDropdown(String key, String start, int target) {
+        Select drop = new Select(driver.findElement(By.xpath(key)));
+        drop.selectByVisibleText(start);
+        drop.selectByIndex(target);
+    }
+    public void selectDate(String key) {
+        ((JavascriptExecutor) driver).executeScript("document.getElementById('birthDayE').removeAttribute('readonly',0);"); // Enables the from date box
 
-
+        WebElement fromDateBox = driver.findElement(By.xpath(Utils.getUIMappingByKey(key)));
+        fromDateBox.clear();
+        fromDateBox.sendKeys("12-12-1950");
+    }
     public void selectValueFromDropdown(String value, String field, Object... fieldArguments){
         Select dropdown = new Select(getWebElement(field,fieldArguments));
         dropdown.selectByVisibleText(value);

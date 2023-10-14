@@ -52,8 +52,8 @@ public class UserControllerTests {
         Assertions.assertEquals(content, randomContent, "Content does not match");
         Assertions.assertEquals(picture, randomPicture, "Picture does not match");
 
-        int postId = postController.getAllPost().jsonPath().get("[0].postId");
-        postController.getAllUsersPosts(userData.username, userData.password);
+        int postId = postController.getAllUsersPosts
+                (userData.username, userData.password).jsonPath().get("[0].postId");
         Assertions.assertEquals(post.postId, postId, "Post id does not mach");
 
         postController.deletePost(userData.username, userData.password);

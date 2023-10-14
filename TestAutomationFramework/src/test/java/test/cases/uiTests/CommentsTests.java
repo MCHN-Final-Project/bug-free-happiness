@@ -4,6 +4,7 @@ import api.controllers.BaseController;
 import api.controllers.helpers.SqlMethods;
 import com.telerikacademy.testframework.UserActions;
 import com.telerikacademy.testframework.Utils;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -19,8 +20,8 @@ public class CommentsTests extends BaseTest{
     HomePage homePage = new HomePage(actions.getDriver());
     CommentPage commentPage = new CommentPage(actions.getDriver());
 
-    @AfterEach
-    public void cleanUp(){
+    @AfterAll
+    public static void cleanUp(){
         UserActions.quitDriver();
         SqlMethods.deleteUserById("user_id", userModelForUi.userId);
     }

@@ -4,31 +4,27 @@ import api.controllers.BaseController;
 import api.controllers.helpers.SqlMethods;
 import com.telerikacademy.testframework.UserActions;
 import com.telerikacademy.testframework.Utils;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import weare.ui.pagemodels.*;
 
 public class PostsTests extends BaseTest{
     CreatePostPage createPostPage = new CreatePostPage(actions.getDriver());
     BaseController baseController = new BaseController();
-    HomePage homePage;
+    HomePage homePage= new HomePage(actions.getDriver());
     CommentPage commentPage = new CommentPage(actions.getDriver());
     LatestPostPage latestPostPage = new LatestPostPage(actions.getDriver());
     EditPostPage editPostPage = new EditPostPage(actions.getDriver());
     DeletePostPage deletePostPage = new DeletePostPage(actions.getDriver());
-    @AfterEach
-    public void cleanUp(){
-        UserActions.quitDriver();
-        SqlMethods.deleteUserById("user_id", userModelForUi.userId);
-    }
 
     @BeforeEach
     public void homeSetUp(){
-        homePage = new HomePage(actions.getDriver());
+        homePage.navigateToPage();
     }
-
+    @AfterAll
+    public static void cleanUp(){
+        UserActions.quitDriver();
+        SqlMethods.deleteUserById("user_id", userModelForUi.userId);
+    }
     @Test
     @DisplayName("Create public post successfully")
     public void createPublicPostWithValidDataSuccessfully(){
