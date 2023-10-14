@@ -8,6 +8,7 @@ import org.junit.jupiter.api.*;
 import weare.ui.pagemodels.*;
 
 public class PostsTests extends BaseTest{
+    UserActions actions = new UserActions();
     CreatePostPage createPostPage = new CreatePostPage(actions.getDriver());
     BaseController baseController = new BaseController();
     HomePage homePage= new HomePage(actions.getDriver());
