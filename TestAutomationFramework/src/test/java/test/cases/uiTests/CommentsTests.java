@@ -4,18 +4,20 @@ import api.controllers.BaseController;
 import api.controllers.helpers.SqlMethods;
 import com.telerikacademy.testframework.UserActions;
 import com.telerikacademy.testframework.Utils;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import weare.ui.pagemodels.CommentPage;
 import weare.ui.pagemodels.CreatePostPage;
 import weare.ui.pagemodels.HomePage;
+import weare.ui.pagemodels.LatestPostPage;
 
-public class CreatePostTests extends BaseTest{
+public class CommentsTests extends BaseTest{
     CreatePostPage createPostPage = new CreatePostPage(actions.getDriver());
     BaseController baseController = new BaseController();
-
+    LatestPostPage latestPostPage = new LatestPostPage(actions.getDriver());
     HomePage homePage = new HomePage(actions.getDriver());
+    CommentPage commentPage = new CommentPage(actions.getDriver());
 
     @AfterEach
     public void cleanUp(){
@@ -24,9 +26,10 @@ public class CreatePostTests extends BaseTest{
     }
 
     @Test
-    @DisplayName("Create public post successfully")
-    public void createPublicPostWithValidDataSuccessfully(){
+    @DisplayName("Create comment below already created post successfully")
+    public void createValidCommentBelowPostSuccessfully(){
 
+        actions.waitForElementClickable("home.addNewPostButton");
         homePage.clickOnAddNewPostButton();
 
         actions.waitForElementClickable("post.clickPostVisibilityButton");
@@ -42,29 +45,15 @@ public class CreatePostTests extends BaseTest{
 
         createPostPage.clickOnSaveButton();
 
-        actions.assertElementPresent(String.format(Utils.getUIMappingByKey("post.postExistingAssertion"), postContent));
-        actions.assertElementPresent("post.publicPostAssertion");
-    }
+        actions.waitForElementClickable("latestPost.explorePostButton");
+        latestPostPage.clickOnExplorePostButton("latestPost.explorePostButton");
 
-    @Test
-    @DisplayName("Create private post successfully")
-    public void createPrivatePostWithValidDataSuccessfully(){
-        homePage.clickOnAddNewPostButton();
+        actions.javaScriptExecutorScrollIntoView("comment.content");
+        String commentContent = baseController.getRandomSentence();
+        commentPage.enterCommentBody(commentContent);
 
-        actions.waitForElementClickable("post.clickPostVisibilityButton");
-        createPostPage.clickOnPostVisibilityButton();
-        actions.selectValueFromDropdown("Private post", "post.clickPostVisibilityButton");
+        commentPage.clickOnPostCommentButton();
 
-        actions.javaScriptExecutorScrollIntoView("post.postContent");
-
-        String postContent = baseController.getRandomSentence();
-        createPostPage.enterPostBody(postContent);
-
-        actions.uploadImage("post.imageFileButton", "src/main/resources/picture.png.png");
-
-        createPostPage.clickOnSaveButton();
-
-        actions.assertElementPresent(String.format(Utils.getUIMappingByKey("post.postExistingAssertion"), postContent));
-        actions.assertElementPresent("post.privatePostAssertion");
+        actions.assertElementPresent(String.format(Utils.getUIMappingByKey("comment.commentExistingAssertion"), commentContent));
     }
 }
