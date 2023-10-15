@@ -6,6 +6,7 @@ import com.telerikacademy.testframework.Utils;
 import org.junit.jupiter.api.*;
 import weare.ui.pagemodels.ProfilePage;
 import weare.ui.pagemodels.SearchPage;
+import weare.ui.pagemodels.models.UserData;
 
 import java.util.NoSuchElementException;
 
@@ -44,7 +45,8 @@ public class SearchTests {
     }
 
     @AfterEach
-    public void clearSearchFields() {
+    public void clearSearchFields(TestInfo testInfo) {
+        if (testInfo.getTags().contains("NoSearchClear")) return;
         searchPage.clearNameInSearchField();
         searchPage.clearProfessionInSearchField();
     }
@@ -94,6 +96,38 @@ public class SearchTests {
             actions.assertElementPresent(format(getUIMappingByKey("search.userName"), userData.username + " " + lastName));
         } catch (NoSuchElementException e) {
             throw new RuntimeException("Search for existing user by last name unsuccessful");
+        }
+    }
+
+    @Test
+    @Tag("NoSearchClear")
+    @DisplayName("Search for existing user by different professional category unsuccessfully")
+    public void searchForExistingUserByDifferentProfessionalCategoryUnsuccessfully() {
+
+        searchPage.enterProfession("Tailor");
+        searchPage.clickOnSearchButton();
+
+        try {
+            actions.assertElementPresent("search.noUsersMessage");
+        } catch (NoSuchElementException e) {
+            throw new RuntimeException("Search user by different professional category successful");
+        }
+    }
+
+    @Test
+    @Tag("NoSearchClear")
+    @DisplayName("Search for existing user by different name unsuccessfully")
+    public void searchForExistingUserByDifferentNameUnsuccessfully() {
+
+        UserData differentUserName = new UserData();
+
+        searchPage.enterUsersName(differentUserName.username);
+        searchPage.clickOnSearchButton();
+
+        try {
+            actions.assertElementPresent("search.noUsersMessage");
+        } catch (NoSuchElementException e) {
+            throw new RuntimeException("Search user by different name successful");
         }
     }
 }
