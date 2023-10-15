@@ -1,42 +1,128 @@
 package test.cases.uiTests;
 
 import api.controllers.UserController;
+import api.controllers.helpers.SqlMethods;
 import api.controllers.models.UserModel;
 import com.telerikacademy.testframework.UserActions;
 import com.telerikacademy.testframework.Utils;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import weare.ui.pagemodels.AdminPage;
+import weare.ui.pagemodels.LoginPage;
 import weare.ui.pagemodels.models.UserData;
 
+import java.util.List;
+import java.util.NoSuchElementException;
+
+import static com.telerikacademy.testframework.Utils.getUIMappingByKey;
+import static com.telerikacademy.testframework.Utils.getWebDriver;
+import static java.lang.String.format;
 import static weare.ui.pagemodels.BasePage.userModel;
 
 public class AdminTests {
 
     UserActions actions = new UserActions();
     AdminPage adminPage = new AdminPage(actions.getDriver());
+    static UserModel regularUser = new UserModel();
+    static UserData regularUserData = new UserData();
+    static String lastName;
 
     @BeforeAll
     public static void setUpUser() {
-        UserData regularUser = new UserData();
+
         UserController userController = new UserController();
-        UserModel regularUserModel = userController.createUser(regularUser.username, regularUser.password, regularUser.email, false);
+        regularUser = userController.createUser(regularUserData.username, regularUserData.password, regularUserData.email, false);
+        lastName = regularUser.username + "son";
+    }
+
+    @AfterAll
+    public static void clearUpData() {
+        SqlMethods.deleteUserById("user_id", userModel.id);
+        SqlMethods.deleteUserById("user_id", regularUser.id);
+        UserActions.quitDriver();
     }
 
     @BeforeEach
-    public void setUp() {
+    public void setUp(TestInfo testInfo) {
+
         actions.getDriver().get(String.format
                 (Utils.getConfigPropertyByKey("weAreSocialNetwork.profile"), userModel.id));
         adminPage.assertPageNavigated();
+        actions.clickElement("admin.adminZone");
+
+        adminPage.navigateToUserList();
+        adminPage.chooseUserById(regularUser.id);
+        actions.clickElement("profile.editButton");
+        actions.typeValueInField(regularUser.username, "profile.inputFirstName");
+        actions.typeValueInField(lastName, "profile.inputLastName");
+        actions.selectDate("profile.inputBirthDay");
+        actions.clickElement("profile.updateButton");
+
+        if (testInfo.getTags().contains("PartialSetup")) return;
+        actions.clickElement("admin.adminZone");
+        adminPage.navigateToUserList();
+        adminPage.chooseUserById(regularUser.id);
+
     }
 
     @Test
-    public void disableUserSuccessfully() {
+    @Tag("PartialSetup")
+    public void asAdminEditUserProfileSuccessfully() {
 
-//        adminPage.navigateToUserList();
-//        adminPage.chooseUserById(regularUserId);
+        actions.clickElement("profile.homeButton");
+        actions.waitForElementClickable("home.username");
+        actions.typeValueInField(regularUser.username, "home.username");
+        actions.waitForElementClickable("home.searchButton");
+        actions.clickElement("home.searchButton");
+
+        try {
+            actions.assertElementPresent(format(getUIMappingByKey("search.userName"), regularUser.username));
+        } catch (NoSuchElementException e) {
+            throw new RuntimeException("Search for existing user by first name unsuccessful");
+        }
 
     }
 
+    @Test
+    public void disableUserProfileSuccessfully() {
+
+        List<WebElement> enableButton = getWebDriver().findElements(By.xpath(getUIMappingByKey("admin.enableProfile")));
+        if (enableButton.size() > 0) {
+            enableButton.get(0).click();
+        }
+
+        actions.clickElement("admin.disableProfile");
+        actions.clickElement("profile.logOutButton");
+
+        LoginPage loginPage = new LoginPage(actions.getDriver());
+        loginPage.login(regularUserData.username, regularUserData.password);
+
+        try {
+            actions.assertElementPresent("login.wrongUserOrPasswordMessage");
+        } catch (NoSuchElementException e) {
+            throw new RuntimeException("Search user by different name successful");
+        }
+    }
+
+    @Test
+    public void enableUserProfileSuccessfully() {
+
+        List<WebElement> disableButton = getWebDriver().findElements(By.xpath(getUIMappingByKey("admin.disableProfile")));
+        if (disableButton.size() > 0) {
+            disableButton.get(0).click();
+        }
+
+        actions.clickElement("admin.enableProfile");
+        actions.clickElement("profile.logOutButton");
+
+        LoginPage loginPage = new LoginPage(actions.getDriver());
+        loginPage.login(regularUserData.username, regularUserData.password);
+
+        actions.assertElementPresent("home.logoutButton");
+        actions.assertElementPresent(String.format(Utils.getUIMappingByKey("home.personalProfileAlt"),
+                regularUser.id));
+    }
 }
+
+
