@@ -13,7 +13,6 @@ import weare.ui.pagemodels.LoginPage;
 import weare.ui.pagemodels.models.UserData;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 import static com.telerikacademy.testframework.Utils.getUIMappingByKey;
 import static com.telerikacademy.testframework.Utils.getWebDriver;
@@ -77,11 +76,8 @@ public class AdminTests {
         actions.waitForElementClickable("home.searchButton");
         actions.clickElement("home.searchButton");
 
-        try {
-            actions.assertElementPresent(format(getUIMappingByKey("search.userName"), regularUser.username));
-        } catch (NoSuchElementException e) {
-            throw new RuntimeException("Admin edited user profile unsuccessfully");
-        }
+        actions.assertElementPresent(format(getUIMappingByKey("search.userName"), regularUser.username));
+
 
     }
 
@@ -100,11 +96,8 @@ public class AdminTests {
         LoginPage loginPage = new LoginPage(actions.getDriver());
         loginPage.login(regularUserData.username, regularUserData.password);
 
-        try {
-            actions.assertElementPresent("login.wrongUserOrPasswordMessage");
-        } catch (NoSuchElementException e) {
-            throw new RuntimeException("Admin disabled user profile unsuccessfully");
-        }
+        actions.assertElementPresent("login.wrongUserOrPasswordMessage");
+
     }
 
     @Test

@@ -8,8 +8,6 @@ import weare.ui.pagemodels.ProfilePage;
 import weare.ui.pagemodels.SearchPage;
 import weare.ui.pagemodels.models.UserData;
 
-import java.util.NoSuchElementException;
-
 import static com.telerikacademy.testframework.Utils.getUIMappingByKey;
 import static java.lang.String.format;
 import static weare.ui.pagemodels.BasePage.userData;
@@ -63,11 +61,7 @@ public class SearchTests {
         searchPage.enterProfession("Baker");
         searchPage.clickOnSearchButton();
 
-        try {
-            actions.assertElementPresent(format(getUIMappingByKey("search.userCategory"), "Baker"));
-        } catch (NoSuchElementException e) {
-            throw new RuntimeException("Search by user professional category unsuccessful");
-        }
+        actions.assertElementPresent(format(getUIMappingByKey("search.userCategory"), "Baker"));
     }
 
     @Test
@@ -77,11 +71,7 @@ public class SearchTests {
         searchPage.enterUsersName(userData.username);
         searchPage.clickOnSearchButton();
 
-        try {
-            actions.assertElementPresent(format(getUIMappingByKey("search.userName"), userData.username));
-        } catch (NoSuchElementException e) {
-            throw new RuntimeException("Search for existing user by first name unsuccessful");
-        }
+        actions.assertElementPresent(format(getUIMappingByKey("search.userName"), userData.username));
     }
 
     @Test
@@ -91,11 +81,7 @@ public class SearchTests {
         searchPage.enterUsersName(userData.username + " " + lastName);
         searchPage.clickOnSearchButton();
 
-        try {
-            actions.assertElementPresent(format(getUIMappingByKey("search.userName"), userData.username + " " + lastName));
-        } catch (NoSuchElementException e) {
-            throw new RuntimeException("Search for existing user by last name unsuccessful");
-        }
+        actions.assertElementPresent(format(getUIMappingByKey("search.userName"), userData.username + " " + lastName));
     }
 
     @Test
@@ -106,11 +92,7 @@ public class SearchTests {
         searchPage.enterProfession("Tailor");
         searchPage.clickOnSearchButton();
 
-        try {
-            actions.assertElementPresent("search.noUsersMessage");
-        } catch (NoSuchElementException e) {
-            throw new RuntimeException("Search user by different professional category successful");
-        }
+        actions.assertElementPresent("search.noUsersMessage");
     }
 
     @Test
@@ -123,10 +105,6 @@ public class SearchTests {
         searchPage.enterUsersName(differentUserName.username);
         searchPage.clickOnSearchButton();
 
-        try {
-            actions.assertElementPresent("search.noUsersMessage");
-        } catch (NoSuchElementException e) {
-            throw new RuntimeException("Search user by different name successful");
-        }
+        actions.assertElementPresent("search.noUsersMessage");
     }
 }

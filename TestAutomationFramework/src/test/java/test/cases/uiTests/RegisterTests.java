@@ -2,15 +2,17 @@ package test.cases.uiTests;
 
 import api.controllers.helpers.SqlMethods;
 import com.telerikacademy.testframework.UserActions;
-import org.junit.jupiter.api.*;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import weare.ui.pagemodels.RegisterPage;
 import weare.ui.pagemodels.models.UserData;
 
 public class RegisterTests extends BaseTest {
     UserActions actions = new UserActions();
     RegisterPage registerPage = new RegisterPage(actions.getDriver());
+
     @AfterAll
     public static void cleanup() {
         UserActions.quitDriver();
@@ -30,11 +32,7 @@ public class RegisterTests extends BaseTest {
         Assertions.assertNotNull(userModelForUi,
                 "User was not found in the database");
         Assertions.assertEquals(userModelForUi.username, userData.username);
-        try {
-            actions.assertElementPresent("register.updateProfileLoginButton");
-        } catch (NoSuchElementException e) {
-            throw new RuntimeException("Expected page not loaded successfully");
-        }
+        actions.assertElementPresent("register.updateProfileLoginButton");
     }
 
     @Test
@@ -47,11 +45,7 @@ public class RegisterTests extends BaseTest {
         registerPage.enterPasswordInBothPasswordFields(userData.password);
         actions.clickElement("register.registerButton");
 
-        try {
-            actions.assertElementNotPresent("register.updateProfileLoginButton");
-        } catch (NoSuchElementException e) {
-            throw new RuntimeException("Registration with already registered user successful");
-        }
+        actions.assertElementNotPresent("register.updateProfileLoginButton");
         actions.assertElementPresent("register.userExistError");
     }
 
@@ -64,11 +58,8 @@ public class RegisterTests extends BaseTest {
         registerPage.enterPasswordInBothPasswordFields(userData.password);
         actions.clickElement("register.registerButton");
 
-        try {
-            actions.assertElementNotPresent("register.updateProfileLoginButton");
-        } catch (NoSuchElementException e) {
-            throw new RuntimeException("Registration with empty username successful");
-        }
+        actions.assertElementNotPresent("register.updateProfileLoginButton");
+
     }
 
     @Test
@@ -80,11 +71,8 @@ public class RegisterTests extends BaseTest {
         registerPage.enterPasswordInBothPasswordFields(userData.password);
         actions.clickElement("register.registerButton");
 
-        try {
-            actions.assertElementNotPresent("register.updateProfileLoginButton");
-        } catch (NoSuchElementException e) {
-            throw new RuntimeException("Registration with empty email field successful");
-        }
+        actions.assertElementNotPresent("register.updateProfileLoginButton");
+
     }
 
     @Test
@@ -96,11 +84,7 @@ public class RegisterTests extends BaseTest {
         registerPage.enterPasswordInBothPasswordFields(userData.password);
         actions.clickElement("register.registerButton");
 
-        try {
-            actions.assertElementNotPresent("register.updateProfileLoginButton");
-        } catch (NoSuchElementException e) {
-            throw new RuntimeException("Registration with invalid email format successful");
-        }
+        actions.assertElementNotPresent("register.updateProfileLoginButton");
         actions.assertElementPresent("register.invalidEmailFormatError");
     }
 
@@ -113,11 +97,7 @@ public class RegisterTests extends BaseTest {
         registerPage.enterPasswordInBothPasswordFields("");
         actions.clickElement("register.registerButton");
 
-        try {
-            actions.assertElementNotPresent("register.updateProfileLoginButton");
-        } catch (NoSuchElementException e) {
-            throw new RuntimeException("Registration with empty password fields successful");
-        }
+        actions.assertElementNotPresent("register.updateProfileLoginButton");
     }
 
     @Test
@@ -130,11 +110,8 @@ public class RegisterTests extends BaseTest {
         registerPage.confirmPassword(userData.password);
         actions.clickElement("register.registerButton");
 
-        try {
-            actions.assertElementNotPresent("register.updateProfileLoginButton");
-        } catch (NoSuchElementException e) {
-            throw new RuntimeException("Registration with empty first password field successful");
-        }
+        actions.assertElementNotPresent("register.updateProfileLoginButton");
+
     }
 
     @Test
@@ -147,11 +124,7 @@ public class RegisterTests extends BaseTest {
         registerPage.confirmPassword("");
         actions.clickElement("register.registerButton");
 
-        try {
-            actions.assertElementNotPresent("register.updateProfileLoginButton");
-        } catch (NoSuchElementException e) {
-            throw new RuntimeException("Registration with empty password confirmation field successful");
-        }
+        actions.assertElementNotPresent("register.updateProfileLoginButton");
         actions.assertElementPresent("register.userPasswordNotConfirmedError");
     }
 
@@ -166,11 +139,7 @@ public class RegisterTests extends BaseTest {
         registerPage.confirmPassword(differentPassword.password);
         actions.clickElement("register.registerButton");
 
-        try {
-            actions.assertElementNotPresent("register.updateProfileLoginButton");
-        } catch (NoSuchElementException e) {
-            throw new RuntimeException("Registration with different passwords in password fields successful");
-        }
+        actions.assertElementNotPresent("register.updateProfileLoginButton");
         actions.assertElementPresent("register.userPasswordNotConfirmedError");
     }
 }
