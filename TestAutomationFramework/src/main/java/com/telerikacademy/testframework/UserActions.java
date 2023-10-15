@@ -1,10 +1,7 @@
 package com.telerikacademy.testframework;
 
 import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -204,5 +201,23 @@ public class UserActions {
         Assertions.assertTrue(driver.getCurrentUrl().contains(page),
                 "Landed URL is not as expected. Actual URL: " + driver.getCurrentUrl() + ". Expected URL: " + page);
         assertElementPresent("notFound.notFoundMessage");
+    }
+
+    public void pressKey(Keys key) {
+        Actions actions = new Actions(driver);
+        switch (key) {
+            case ENTER:
+                actions.sendKeys(Keys.ENTER).perform();
+                break;
+            case TAB:
+                actions.sendKeys(Keys.TAB).perform();
+                break;
+            case DELETE:
+                actions.sendKeys(Keys.DELETE).perform();
+                break;
+            case BACK_SPACE:
+                actions.sendKeys(Keys.BACK_SPACE).perform();
+                break;
+        }
     }
 }

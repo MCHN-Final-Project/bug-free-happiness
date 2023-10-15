@@ -5,6 +5,7 @@ import api.controllers.UserController;
 import com.telerikacademy.testframework.UserActions;
 import com.telerikacademy.testframework.Utils;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class ProfilePage extends BasePage {
     UserController userController = new UserController();
@@ -27,13 +28,23 @@ public class ProfilePage extends BasePage {
         actions.typeValueInField(BaseController.faker.name().firstName(), "profile.inputFirstName");
     }
 
+    public void enterFirstName(String name) {
+        actions.typeValueInField(name, "profile.inputFirstName");
+    }
+
     public void enterLastName() {
         actions.typeValueInField(BaseController.faker.name().lastName(), "profile.inputLastName");
+    }
+
+    public void enterLastName(String name) {
+        actions.typeValueInField(name, "profile.inputLastName");
     }
 
     public void enterBirthDay() {
         //implement locator profile.inputBirthDay
     }
+    public void enterBirthDay(int eightFigures) {
+        actions.typeValueInField(String.valueOf(eightFigures), "//input[@id=\"birthDayE\"]");    }
 
     public void selectGender() {
         //implement locator profile.inputGender
@@ -53,5 +64,10 @@ public class ProfilePage extends BasePage {
 
     public void updateProfile() {
         actions.clickElement("profile.updateButton");
+    }
+
+    public void updateProfessionalCategory(String profession){
+        actions.typeValueInField(profession, "//select[@id='category.id']");
+        actions.clickElement("(//button[@name='submit' and @class='btn btn-primary'])[2]");
     }
 }
