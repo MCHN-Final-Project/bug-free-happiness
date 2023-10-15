@@ -72,7 +72,7 @@ public class PostsTests extends BaseTest{
     }
 
     @Test
-    @DisplayName("Edit already created post successfully")
+    @DisplayName("Edit already created public post successfully")
     public void editPostAsPublicWithValidDataSuccessfully(){
 
         actions.waitForElementClickable("home.addNewPostButton");
@@ -113,7 +113,7 @@ public class PostsTests extends BaseTest{
     }
 
     @Test
-    @DisplayName("Edit already created post successfully")
+    @DisplayName("Edit already created private post successfully")
     public void editPostAsPrivateWithValidDataSuccessfully(){
 
         actions.waitForElementClickable("home.addNewPostButton");
@@ -151,6 +151,61 @@ public class PostsTests extends BaseTest{
         createPostPage.clickOnSaveButton();
 
         actions.assertElementPresent(String.format(Utils.getUIMappingByKey("editPost.publicPostAssertion"), editPostContent));
+    }
+
+    @Test
+    @DisplayName("Like post successfully")
+    public void LikePostSuccessfully(){
+
+        homePage.clickOnAddNewPostButton();
+
+        actions.waitForElementClickable("post.clickPostVisibilityButton");
+        createPostPage.clickOnPostVisibilityButton();
+        actions.selectValueFromDropdown("Public post", "post.clickPostVisibilityButton");
+
+        actions.javaScriptExecutorScrollIntoView("post.postContent");
+
+        String postContent = baseController.getRandomSentence();
+        createPostPage.enterPostBody(postContent);
+
+        actions.uploadImage("post.imageFileButton", "src/main/resources/picture.png.png");
+
+        createPostPage.clickOnSaveButton();
+
+        actions.waitForElementClickable("post.likePostButton");
+        latestPostPage.clickOnLikeButton();
+
+        actions.waitForElementPresent("post.likeAssertion");
+        actions.assertElementPresent("post.likeAssertion");
+    }
+
+    @Test
+    @DisplayName("Dislike post successfully")
+    public void DislikePostSuccessfully(){
+
+        homePage.clickOnAddNewPostButton();
+
+        actions.waitForElementClickable("post.clickPostVisibilityButton");
+        createPostPage.clickOnPostVisibilityButton();
+        actions.selectValueFromDropdown("Public post", "post.clickPostVisibilityButton");
+
+        actions.javaScriptExecutorScrollIntoView("post.postContent");
+
+        String postContent = baseController.getRandomSentence();
+        createPostPage.enterPostBody(postContent);
+
+        actions.uploadImage("post.imageFileButton", "src/main/resources/picture.png.png");
+
+        createPostPage.clickOnSaveButton();
+
+        actions.waitForElementClickable("post.likePostButton");
+        latestPostPage.clickOnLikeButton();
+
+        actions.waitForElementClickable("post.dislikePostButton");
+        latestPostPage.clickOnDislikeButton();
+
+        actions.waitForElementPresent("post.dislikeAssertion");
+        actions.assertElementPresent("post.dislikeAssertion");
     }
 
     @Test

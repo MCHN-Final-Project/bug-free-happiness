@@ -15,4 +15,12 @@ public class LatestPostPage extends BasePage {
    public void clickOnExplorePostButton(String postContent){
         actions.clickElement("latestPost.explorePostButton", postContent);
    }
+
+   public void clickOnLikeButton(){
+        actions.clickElement("post.likePostButton");
+   }
+
+   public void clickOnDislikeButton(){
+        actions.clickElement("post.dislikePostButton");
+   }
 }
