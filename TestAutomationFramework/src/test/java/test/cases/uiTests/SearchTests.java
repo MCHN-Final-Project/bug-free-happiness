@@ -25,7 +25,7 @@ public class SearchTests extends BaseTest {
         profilePage.navigateToProfileEdit();
         profilePage.enterFirstName(userData.username);
         profilePage.enterLastName(lastName);
-        profilePage.enterBirthDay(20202000);
+        profilePage.enterBirthDay("profile.inputBirthDay");
         profilePage.enterBio();
         profilePage.updateProfile();
         profilePage.updateProfessionalCategory("Pilot");
