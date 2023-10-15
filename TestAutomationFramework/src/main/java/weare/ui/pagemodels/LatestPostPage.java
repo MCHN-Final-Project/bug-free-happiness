@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 public class LatestPostPage extends BasePage {
 
     public LatestPostPage(WebDriver driver) {
-        super(driver, "weAreSocialNetwork.latestPost", true, false);
+        super(driver, "weAreSocialNetwork.latestPost", true);
     }
 
     public void clickOnBrowsePublicPostsButton(){

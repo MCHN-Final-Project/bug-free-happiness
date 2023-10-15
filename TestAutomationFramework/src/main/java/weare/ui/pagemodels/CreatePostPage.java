@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 public class CreatePostPage extends BasePage {
 
     public CreatePostPage(WebDriver driver) {
-        super(driver, "weAreSocialNetwork.createPost", true, false);
+        super(driver, "weAreSocialNetwork.createPost", true);
     }
 
     public void clickOnPostVisibilityButton() {

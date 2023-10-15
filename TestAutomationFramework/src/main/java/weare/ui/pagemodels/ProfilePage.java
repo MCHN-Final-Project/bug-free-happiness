@@ -10,7 +10,7 @@ public class ProfilePage extends BasePage {
     UserActions actions = new UserActions();
 
     public ProfilePage(WebDriver driver) {
-        super(driver, "weAreSocialNetwork.homepage", false, false);
+        super(driver, "weAreSocialNetwork.homepage", false);
     }
 
     public void navigateToProfileEdit() {

@@ -12,7 +12,11 @@ public class AdminPage extends BasePage {
     UserActions actions = new UserActions();
 
     public AdminPage(WebDriver driver) {
-        super(driver, "weAreSocialNetwork.homepage", false, true);
+        super(driver, "weAreSocialNetwork.homepage", true);
+        userData = new UserData();
+        UserController userController = new UserController();
+        userModel = userController.createUser(userData.username, userData.password, userData.email, true);
+        driver.manage().addCookie(userModel.cookie);
     }
     public void navigateToUserList() {
         actions.clickElement("admin.userList");

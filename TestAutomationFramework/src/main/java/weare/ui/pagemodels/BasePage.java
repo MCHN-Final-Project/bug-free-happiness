@@ -16,20 +16,20 @@ public class BasePage {
     public static UserModel userModel;
     public static UserData userData;
 
-    public BasePage(WebDriver driver, String urlKey, boolean register, boolean isAdmin) {
+    public BasePage(WebDriver driver, String urlKey, boolean register) {
         if (register) {
             this.driver = driver;
             this.url = Utils.getConfigPropertyByKey(urlKey);
             actions = new UserActions();
             navigateToPage();
-        } else nonRegister(driver, urlKey, isAdmin);
+        } else nonRegister(driver, urlKey);
     }
 
-    public void nonRegister(WebDriver driver, String urlKey, boolean isAdmin) {
+    public void nonRegister(WebDriver driver, String urlKey) {
         this.driver = driver;
         UserController userController = new UserController();
         userData = new UserData();
-        userModel = userController.createUser(userData.username, userData.password, userData.email, isAdmin);
+        userModel = userController.createUser(userData.username, userData.password, userData.email, false);
         this.url = Utils.getConfigPropertyByKey(urlKey);
         navigateToPage();
         assertPageNavigated();

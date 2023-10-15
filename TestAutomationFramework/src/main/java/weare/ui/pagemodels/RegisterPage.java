@@ -14,7 +14,7 @@ public class RegisterPage extends BasePage {
     UserModelForUi user = new UserModelForUi();
 
     public RegisterPage(WebDriver driver) {
-        super(driver, "weAreSocialNetwork.register", true, false);
+        super(driver, "weAreSocialNetwork.register", true);
         navigateToPage();
         assertPageNavigated();
     }

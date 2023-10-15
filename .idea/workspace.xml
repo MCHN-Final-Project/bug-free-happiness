@@ -6,12 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="b8ade3cc-33df-4545-8155-099a4fe9017b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/api/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/api/controllers/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/AdminPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/AdminPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/BasePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/CommentPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/CommentPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/CreatePostPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/CreatePostPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/DeleteCommentPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/DeleteCommentPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/DeletePostPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/DeletePostPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/EditCommentPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/EditCommentPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/EditPostPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/EditPostPage.java" afterDir="false" />
@@ -22,6 +20,7 @@
       <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/RegisterPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/RegisterPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/SearchPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/main/java/weare/ui/pagemodels/SearchPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/uiTests/AdminTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/src/test/java/test/cases/uiTests/AdminTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAutomationFramework/target/test-classes/mappings/ui_map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/TestAutomationFramework/target/test-classes/mappings/ui_map.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,6 +185,7 @@
       <workItem from="1697313602596" duration="5033000" />
       <workItem from="1697320370892" duration="2454000" />
       <workItem from="1697322873187" duration="989000" />
+      <workItem from="1697372923526" duration="554000" />
     </task>
     <servers />
   </component>
