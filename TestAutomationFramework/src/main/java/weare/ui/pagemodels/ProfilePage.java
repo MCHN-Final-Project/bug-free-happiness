@@ -1,8 +1,11 @@
 package weare.ui.pagemodels;
 
 import api.controllers.BaseController;
+import api.controllers.ConnectionController;
+import api.controllers.helpers.SqlMethods;
 import com.telerikacademy.testframework.UserActions;
 import com.telerikacademy.testframework.Utils;
+import io.restassured.response.Response;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -59,5 +62,16 @@ public class ProfilePage extends BasePage {
 
     public void updateProfile() {
         actions.clickElement("profile.updateButton");
+    }
+
+    public void sendConnectionRequest(int targetUser) {
+        actions.getDriver()
+                .get(String.format(Utils.getConfigPropertyByKey("weAreSocialNetwork.profile"), targetUser));
+        actions.clickElement("connection.sendRequest");
+    }
+    public void acceptRequest() {
+        actions.clickElement("connection.newRequests");
+        actions.waitForElementClickable("connection.approveRequest");
+        actions.clickElement("connection.approveRequest");
     }
 }
