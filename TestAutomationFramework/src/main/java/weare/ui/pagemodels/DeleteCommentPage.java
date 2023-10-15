@@ -13,12 +13,6 @@ public class DeleteCommentPage extends BasePage {
 
     public DeleteCommentPage(WebDriver driver) {
         super(driver, "weAreSocialNetwork.deleteComment", false);
-        String username = baseController.getRandomUsername();
-        userController.createUser(username, baseController.getRandomPassword(),
-                baseController.getRandomEmail(), false);
-        userModelForUi = registerPage.assertUserExists(username);
-        navigateToPage();
-        assertPageNavigated();
     }
 
     public void clickOnDropDownMenu(){

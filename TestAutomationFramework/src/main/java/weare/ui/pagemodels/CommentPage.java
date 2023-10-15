@@ -15,20 +15,20 @@ public class CommentPage extends BasePage {
         actions.clickElement("comment.postCommentButton");
   }
 
-  public void clickOnShowCommentsButton(){
-        actions.clickElement("comment.showCommentsButton");
+  public void clickLikeOnButton(){
+        actions.clickElement("comment.likeButton");
   }
 
-  public void clickLikeOnButton(String commentContent){
-        actions.clickElement("comment.likeButton", commentContent);
+  public void clickDislikeButton(){
+        actions.clickElement("comment.dislikeButton");
   }
 
-  public void clickEditCommentButton(String commentContent) {
-        actions.clickElement("comment.editComment", commentContent);
+  public void clickEditCommentButton() {
+        actions.clickElement("comment.editCommentButton");
   }
 
-  public void clickDeleteCommentButton(String commentContent) {
-        actions.clickElement("comment.deleteComment", commentContent);
+  public void clickDeleteCommentButton() {
+        actions.clickElement("comment.deleteCommentButton");
   }
 
   public void clickOnEditPostButton(){

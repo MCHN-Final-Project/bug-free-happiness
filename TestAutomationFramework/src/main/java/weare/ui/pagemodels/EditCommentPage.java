@@ -9,7 +9,8 @@ public class EditCommentPage extends BasePage {
     }
 
     public void enterEditedCommentContent(String editedContent){
-        actions.typeValueInField("editComment.content", editedContent);
+        actions.waitForElementClickable("editComment.content");
+        actions.typeValueInField(editedContent,"editComment.content");
     }
 
     public void clickOnEditCommentButton(){
