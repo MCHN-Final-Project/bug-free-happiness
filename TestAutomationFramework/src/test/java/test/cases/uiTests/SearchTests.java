@@ -2,8 +2,8 @@ package test.cases.uiTests;
 
 import api.controllers.helpers.SqlMethods;
 import com.telerikacademy.testframework.UserActions;
+import com.telerikacademy.testframework.Utils;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.WebDriver;
 import weare.ui.pagemodels.ProfilePage;
 import weare.ui.pagemodels.SearchPage;
 
@@ -11,8 +11,11 @@ import java.util.NoSuchElementException;
 
 import static com.telerikacademy.testframework.Utils.getUIMappingByKey;
 import static java.lang.String.format;
+import static weare.ui.pagemodels.BasePage.userData;
+import static weare.ui.pagemodels.BasePage.userModel;
 
-public class SearchTests extends BaseTest {
+public class SearchTests {
+    public static UserActions actions = new UserActions();
 
     public static SearchPage searchPage = new SearchPage(actions.getDriver());
 
@@ -22,18 +25,20 @@ public class SearchTests extends BaseTest {
     public static void setUp() {
         lastName = userData.username + "son";
         ProfilePage profilePage = new ProfilePage(actions.getDriver());
+        actions.getDriver().get(String.format
+                (Utils.getConfigPropertyByKey("weAreSocialNetwork.profile"), userModel.id));
+        profilePage.assertPageNavigated();
         profilePage.navigateToProfileEdit();
         profilePage.enterFirstName(userData.username);
         profilePage.enterLastName(lastName);
         profilePage.enterBirthDay("profile.inputBirthDay");
-        profilePage.enterBio();
         profilePage.updateProfile();
-        profilePage.updateProfessionalCategory("Pilot");
+        profilePage.updateProfession("All", 6);
 
     }
 
     @BeforeEach
-    public void localSetup(){
+    public void localSetup() {
         searchPage.navigateToPage();
 
     }
@@ -54,15 +59,14 @@ public class SearchTests extends BaseTest {
     @DisplayName("Search for existing user by professional category successfully")
     public void searchForExistingUserByProfessionalCategorySuccessfully() {
 
-        searchPage.enterProfession("Pilot");
+        searchPage.enterProfession("Baker");
         searchPage.clickOnSearchButton();
 
         try {
-        actions.assertElementPresent(format(getUIMappingByKey("search.userCategory"), "Pilot"));
+            actions.assertElementPresent(format(getUIMappingByKey("search.userCategory"), "Baker"));
         } catch (NoSuchElementException e) {
             throw new RuntimeException("Search by user professional category unsuccessful");
         }
-
     }
 
     @Test
@@ -73,11 +77,10 @@ public class SearchTests extends BaseTest {
         searchPage.clickOnSearchButton();
 
         try {
-        actions.assertElementPresent(format(getUIMappingByKey("search.userName"), userData.username));
+            actions.assertElementPresent(format(getUIMappingByKey("search.userName"), userData.username));
         } catch (NoSuchElementException e) {
             throw new RuntimeException("Search for existing user by first name unsuccessful");
         }
-
     }
 
     @Test
@@ -88,7 +91,7 @@ public class SearchTests extends BaseTest {
         searchPage.clickOnSearchButton();
 
         try {
-            actions.assertElementPresent(format(getUIMappingByKey("search.userName"), userData.username+ " " + lastName));
+            actions.assertElementPresent(format(getUIMappingByKey("search.userName"), userData.username + " " + lastName));
         } catch (NoSuchElementException e) {
             throw new RuntimeException("Search for existing user by last name unsuccessful");
         }

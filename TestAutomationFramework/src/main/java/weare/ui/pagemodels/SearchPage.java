@@ -7,7 +7,7 @@ import java.util.TreeMap;
 public class SearchPage extends BasePage {
 
     public SearchPage(WebDriver driver) {
-        super(driver, "weAreSocialNetwork.homepage", true);
+        super(driver, "weAreSocialNetwork.homepage", false);
     }
 
     public void enterProfession(String profession) {
