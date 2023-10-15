@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 public class DeletePostPage extends BasePage{
     public DeletePostPage(WebDriver driver) {
-        super(driver, "weAreSocialNetwork.deletePost", true);
+        super(driver, "weAreSocialNetwork.deletePost", true, false);
     }
     public void clickOnDeleteButton() {
         actions.waitForElementClickable("deletePost.deletePostButton");

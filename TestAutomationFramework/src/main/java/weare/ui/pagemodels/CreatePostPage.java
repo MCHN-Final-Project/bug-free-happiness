@@ -7,7 +7,7 @@ public class CreatePostPage extends BasePage {
 
     BaseController baseController = new BaseController();
     public CreatePostPage(WebDriver driver) {
-        super(driver, "weAreSocialNetwork.createPost", true);
+        super(driver, "weAreSocialNetwork.createPost", true, false);
     }
     public void clickOnNewPostButton(){
         actions.clickElement("post.newPostButton");

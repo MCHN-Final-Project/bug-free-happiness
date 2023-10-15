@@ -9,19 +9,10 @@ import weare.ui.pagemodels.models.UserData;
 import static com.telerikacademy.testframework.Utils.getUIMappingByKey;
 
 public class AdminPage extends BasePage {
-    UserController userController = new UserController();
     UserActions actions = new UserActions();
 
     public AdminPage(WebDriver driver) {
-        super(driver, "weAreSocialNetwork.homepage", true);
-        userModel = userController.createUser
-                (userData.username, userData.password, userData.email, true);
-        driver.manage().addCookie(userModel.cookie);
-        navigateToPage();
-        assertPageNavigated();
-        System.out.println(userModel.username);
-        System.out.println(userModel.cookie);
-        System.out.println(driver.manage().getCookies());
+        super(driver, "weAreSocialNetwork.homepage", false, true);
     }
     public void navigateToUserList() {
         actions.clickElement("admin.userList");

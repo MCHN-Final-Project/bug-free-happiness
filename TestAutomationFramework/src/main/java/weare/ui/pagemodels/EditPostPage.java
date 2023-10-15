@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 public class EditPostPage extends BasePage{
 
     public EditPostPage(WebDriver driver) {
-        super(driver, "weAreSocialNetwork.editPost", true);
+        super(driver, "weAreSocialNetwork.editPost", true, false);
     }
 
     public void clickOnPostVisibilityButton() {

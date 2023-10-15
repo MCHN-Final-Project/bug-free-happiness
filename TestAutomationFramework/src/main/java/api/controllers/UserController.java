@@ -20,44 +20,43 @@ public class UserController extends BaseController {
 
     public UserModel createUser(String username, String password, String email, Boolean admin) {
         String adm = "";
-        if (admin)
-            adm = "admin";
+        if (admin) adm = "admin";
         String createUserBody = "{\n" +
-                "  \"authorities\": [\n" +
-                "    \"ROLE_USER\"\n" +
-                "  ],\n" +
-                "  \"category\": {\n" +
-                "    \"id\": 102,\n" +
-                "    \"name\": \"Actor\"\n" +
-                "  },\n" +
-                "  \"confirmPassword\": \"" + password + "\",\n" +
-                "  \"email\": \"" + email + "\",\n" +
-                "  \"password\": \"" + password + "\",\n" +
-                "  \"username\": \"" + adm + username + "\"\n" +
-                "}";
+                    "  \"authorities\": [\n" +
+                    "    \"ROLE_USER\"\n" +
+                    "  ],\n" +
+                    "  \"category\": {\n" +
+                    "    \"id\": 102,\n" +
+                    "    \"name\": \"Actor\"\n" +
+                    "  },\n" +
+                    "  \"confirmPassword\": \"" + password + "\",\n" +
+                    "  \"email\": \"" + email + "\",\n" +
+                    "  \"password\": \"" + password + "\",\n" +
+                    "  \"username\": \"" + adm + username + "\"\n" +
+                    "}";
 
-        Response response = getRestAssured()
-                .body(createUserBody)
-                .when()
-                .post("/api/users/")
-                .then().statusCode(200)
-                .extract()
-                .response();
+            Response response = getRestAssured()
+                    .body(createUserBody)
+                    .when()
+                    .post("/api/users/")
+                    .then().statusCode(200)
+                    .extract()
+                    .response();
 
-        String responseBody = response.asString();
+            String responseBody = response.asString();
 
-        Pattern pattern = Pattern.compile("User with name (\\w+) and id (\\d+)");
-        Matcher matcher = pattern.matcher(responseBody);
+            Pattern pattern = Pattern.compile("User with name (\\w+) and id (\\d+)");
+            Matcher matcher = pattern.matcher(responseBody);
 
-        String[] userInfo = new String[2];
+            String[] userInfo = new String[2];
 
-        if (matcher.find()) {
-            String name = matcher.group(1);
-            String id = matcher.group(2);
+            if (matcher.find()) {
+                String name = matcher.group(1);
+                String id = matcher.group(2);
 
-            userInfo[0] = name;
-            userInfo[1] = id;
-        } else {
+                userInfo[0] = name;
+                userInfo[1] = id;
+            } else {
             System.out.println("Pattern not found in the input string.");
         }
 
@@ -68,10 +67,9 @@ public class UserController extends BaseController {
             userModel = user.readValue(userData, UserModel.class);
         } catch (JsonProcessingException ignored) {
         }
-
         Cookies restAssuredCookies = getRestAssured()
                 .contentType(ContentType.URLENC)
-                .formParam("username", username)
+                .formParam("username", userModel.username)
                 .formParam("password", password)
                 .when()
                 .post(AUTHENTICATE_ENDPOINT)

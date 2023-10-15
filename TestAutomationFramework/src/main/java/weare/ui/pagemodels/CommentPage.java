@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 public class CommentPage extends BasePage {
 
     public CommentPage(WebDriver driver) {
-        super(driver, "weAreSocialNetwork.comment", true);
+        super(driver, "weAreSocialNetwork.comment", true, false);
     }
     public void enterCommentBody(String commentBody) {
         actions.typeValueInField(commentBody,"comment.content");

@@ -12,7 +12,7 @@ public class DeleteCommentPage extends BasePage {
     RegisterPage registerPage = new RegisterPage(actions.getDriver());
 
     public DeleteCommentPage(WebDriver driver) {
-        super(driver, "weAreSocialNetwork.deleteComment", false);
+        super(driver, "weAreSocialNetwork.deleteComment", false, false);
         String username = baseController.getRandomUsername();
         userController.createUser(username, baseController.getRandomPassword(),
                 baseController.getRandomEmail(), false);

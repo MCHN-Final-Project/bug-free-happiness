@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 public class EditCommentPage extends BasePage {
 
     public EditCommentPage(WebDriver driver) {
-        super(driver, "weAreSocialNetwork.editComment", false);
+        super(driver, "weAreSocialNetwork.editComment", false, false);
     }
 
     public void enterEditedCommentContent(String editedContent){

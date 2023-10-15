@@ -13,6 +13,8 @@ import org.openqa.selenium.WebElement;
 import weare.ui.pagemodels.AdminPage;
 import weare.ui.pagemodels.models.UserData;
 
+import static weare.ui.pagemodels.BasePage.userModel;
+
 public class AdminTests {
 
     UserActions actions = new UserActions();
@@ -22,7 +24,9 @@ public class AdminTests {
 
    @BeforeEach
    public void setUp(){
-
+       actions.getDriver().get(String.format
+               (Utils.getConfigPropertyByKey("weAreSocialNetwork.profile"), userModel.id));
+       adminPage.assertPageNavigated();
    }
 
 //    @BeforeAll
