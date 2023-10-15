@@ -62,7 +62,6 @@ public class AdminTests {
         actions.clickElement("admin.adminZone");
         adminPage.navigateToUserList();
         adminPage.chooseUserById(regularUser.id);
-
     }
 
     @Test
@@ -77,8 +76,6 @@ public class AdminTests {
         actions.clickElement("home.searchButton");
 
         actions.assertElementPresent(format(getUIMappingByKey("search.userName"), regularUser.username));
-
-
     }
 
     @Test
@@ -97,7 +94,6 @@ public class AdminTests {
         loginPage.login(regularUserData.username, regularUserData.password);
 
         actions.assertElementPresent("login.wrongUserOrPasswordMessage");
-
     }
 
     @Test

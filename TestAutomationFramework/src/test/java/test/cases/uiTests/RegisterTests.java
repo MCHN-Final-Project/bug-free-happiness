@@ -59,7 +59,6 @@ public class RegisterTests extends BaseTest {
         actions.clickElement("register.registerButton");
 
         actions.assertElementNotPresent("register.updateProfileLoginButton");
-
     }
 
     @Test
@@ -72,7 +71,6 @@ public class RegisterTests extends BaseTest {
         actions.clickElement("register.registerButton");
 
         actions.assertElementNotPresent("register.updateProfileLoginButton");
-
     }
 
     @Test
@@ -111,7 +109,6 @@ public class RegisterTests extends BaseTest {
         actions.clickElement("register.registerButton");
 
         actions.assertElementNotPresent("register.updateProfileLoginButton");
-
     }
 
     @Test
