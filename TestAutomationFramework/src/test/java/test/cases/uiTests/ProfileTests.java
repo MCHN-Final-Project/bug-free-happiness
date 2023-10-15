@@ -9,6 +9,7 @@ import com.telerikacademy.testframework.UserActions;
 import com.telerikacademy.testframework.Utils;
 import org.junit.jupiter.api.*;
 import weare.ui.pagemodels.ProfilePage;
+import weare.ui.pagemodels.models.UserData;
 
 import java.sql.Time;
 import java.time.LocalTime;
@@ -16,7 +17,7 @@ import java.time.LocalTime;
 import static weare.ui.pagemodels.BasePage.userData;
 import static weare.ui.pagemodels.BasePage.userModel;
 
-public class ProfilePageTests {
+public class ProfileTests {
     UserActions actions = new UserActions();
     UserController userController = new UserController();
     ProfilePage profilePage = new ProfilePage(actions.getDriver());
@@ -32,6 +33,7 @@ public class ProfilePageTests {
     public void cleanup() {
         SqlMethods.deleteUserById("user_id", userModel.id);
     }
+
     @AfterAll
     public static void quitBrowser() {
         UserActions.quitDriver();
@@ -107,5 +109,31 @@ public class ProfilePageTests {
         actions.clickElement("profile.updateSkills");
 
         actions.assertElementPresent("profile.skillCheck");
+    }
+
+    @Test
+    @DisplayName("Send and receive a friend request")
+    public void usersConnectedSuccessfully() {
+        UserData recCreate = new UserData();
+        UserModel recipient = userController
+                .createUser(recCreate.username, recCreate.password, recCreate.email, false);
+
+        profilePage.sendConnectionRequest(recipient.id);
+        actions.assertElementPresent("connection.verifySent");
+
+        actions.getDriver().manage().deleteAllCookies();
+        actions.getDriver().manage().addCookie(recipient.cookie);
+        actions.getDriver()
+                .get(String.format(Utils.getConfigPropertyByKey("weAreSocialNetwork.profile"), recipient.id));
+        profilePage.acceptRequest();
+        actions.waitForElementClickable("profile.backToProfile");
+        actions.clickElement("profile.backToProfile");
+
+        actions.waitForElementVisible("profile.friendCount");
+        actions.assertElementPresent("profile.friendCount");
+
+        SqlMethods.TruncateRequests();
+        SqlMethods.deleteConnectionById("user_a", userModel.id);
+        SqlMethods.deleteConnectionById("user_a", recipient.id);
     }
 }
