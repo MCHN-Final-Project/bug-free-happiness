@@ -211,7 +211,9 @@ public class UserActions {
         drop.selectByIndex(target);
     }
     public void selectDate(String key) {
-        ((JavascriptExecutor) driver).executeScript("document.getElementById('birthDayE').removeAttribute('readonly',0);"); // Enables the from date box
+        ((JavascriptExecutor) driver)
+                .executeScript("document.getElementById('birthDayE')" +
+                        ".removeAttribute('readonly',0);"); // Enables the from date box
 
         WebElement fromDateBox = driver.findElement(By.xpath(Utils.getUIMappingByKey(key)));
         fromDateBox.clear();
