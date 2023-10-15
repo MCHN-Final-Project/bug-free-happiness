@@ -11,21 +11,11 @@ public class SearchPage extends BasePage {
     }
 
     public void enterProfession(String profession) {
-//        try {
-//            Thread.sleep(3000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace(); // Handle the InterruptedException, if necessary
-//        }
         actions.waitForElementClickable("home.profession");
         actions.typeValueInField(profession, "home.profession");
     }
 
     public void enterUsersName(String username) {
-//        try {
-//            Thread.sleep(3000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace(); // Handle the InterruptedException, if necessary
-//        }
         actions.waitForElementClickable("home.username");
         actions.typeValueInField(username, "home.username");
     }

@@ -55,7 +55,6 @@ public class ProfilePage extends BasePage {
     }
     public void updateProfession (String input, int output) {
         actions.selectFromDropdown(Utils.getUIMappingByKey("profile.profession"), input, output);
-        actions.clickElement("profile.updateProf");
     }
 
     public void updateProfile() {

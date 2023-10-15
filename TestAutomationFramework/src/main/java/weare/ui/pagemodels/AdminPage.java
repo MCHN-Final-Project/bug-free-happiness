@@ -6,6 +6,8 @@ import com.telerikacademy.testframework.UserActions;
 import org.openqa.selenium.WebDriver;
 import weare.ui.pagemodels.models.UserData;
 
+import static com.telerikacademy.testframework.Utils.getUIMappingByKey;
+
 public class AdminPage extends BasePage {
     UserController userController = new UserController();
     UserActions actions = new UserActions();
@@ -34,5 +36,10 @@ public class AdminPage extends BasePage {
         actions.assertElementPresent("admin.enableProfile");
         actions.clickElement("admin.enableProfile");
         actions.assertElementPresent("admin.disableProfile");
+    }
+
+    public void chooseUserById(int id){
+        actions.waitForElementClickable(getUIMappingByKey("admin.seeUserProfile"), id);
+        actions.clickElement(getUIMappingByKey("admin.seeUserProfile"), id);
     }
 }

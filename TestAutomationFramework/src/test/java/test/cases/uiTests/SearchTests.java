@@ -35,13 +35,12 @@ public class SearchTests {
         profilePage.enterBirthDay("profile.inputBirthDay");
         profilePage.updateProfile();
         profilePage.updateProfession("All", 6);
-
+        actions.clickElement("profile.updateProf");
     }
 
     @BeforeEach
     public void localSetup() {
         searchPage.navigateToPage();
-
     }
 
     @AfterEach
