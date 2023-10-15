@@ -8,13 +8,14 @@ import io.restassured.http.Cookie;
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
 
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static api.controllers.helpers.Endpoints.AUTHENTICATE_ENDPOINT;
+import static api.controllers.helpers.JSONBodies.GET_ALL_USERS_BODY;
 
 public class UserController extends BaseController {
+
     UserModel userModel = new UserModel();
     ObjectMapper user = new ObjectMapper();
 
@@ -22,41 +23,41 @@ public class UserController extends BaseController {
         String adm = "";
         if (admin) adm = "admin";
         String createUserBody = "{\n" +
-                    "  \"authorities\": [\n" +
-                    "    \"ROLE_USER\"\n" +
-                    "  ],\n" +
-                    "  \"category\": {\n" +
-                    "    \"id\": 102,\n" +
-                    "    \"name\": \"Actor\"\n" +
-                    "  },\n" +
-                    "  \"confirmPassword\": \"" + password + "\",\n" +
-                    "  \"email\": \"" + email + "\",\n" +
-                    "  \"password\": \"" + password + "\",\n" +
-                    "  \"username\": \"" + adm + username + "\"\n" +
-                    "}";
+                "  \"authorities\": [\n" +
+                "    \"ROLE_USER\"\n" +
+                "  ],\n" +
+                "  \"category\": {\n" +
+                "    \"id\": 102,\n" +
+                "    \"name\": \"Actor\"\n" +
+                "  },\n" +
+                "  \"confirmPassword\": \"" + password + "\",\n" +
+                "  \"email\": \"" + email + "\",\n" +
+                "  \"password\": \"" + password + "\",\n" +
+                "  \"username\": \"" + adm + username + "\"\n" +
+                "}";
 
-            Response response = getRestAssured()
-                    .body(createUserBody)
-                    .when()
-                    .post("/api/users/")
-                    .then().statusCode(200)
-                    .extract()
-                    .response();
+        Response response = getRestAssured()
+                .body(createUserBody)
+                .when()
+                .post("/api/users/")
+                .then().statusCode(200)
+                .extract()
+                .response();
 
-            String responseBody = response.asString();
+        String responseBody = response.asString();
 
-            Pattern pattern = Pattern.compile("User with name (\\w+) and id (\\d+)");
-            Matcher matcher = pattern.matcher(responseBody);
+        Pattern pattern = Pattern.compile("User with name (\\w+) and id (\\d+)");
+        Matcher matcher = pattern.matcher(responseBody);
 
-            String[] userInfo = new String[2];
+        String[] userInfo = new String[2];
 
-            if (matcher.find()) {
-                String name = matcher.group(1);
-                String id = matcher.group(2);
+        if (matcher.find()) {
+            String name = matcher.group(1);
+            String id = matcher.group(2);
 
-                userInfo[0] = name;
-                userInfo[1] = id;
-            } else {
+            userInfo[0] = name;
+            userInfo[1] = id;
+        } else {
             System.out.println("Pattern not found in the input string.");
         }
 
@@ -94,18 +95,9 @@ public class UserController extends BaseController {
 
     public Response getAllUsers() {
 
-        String getAllUsersBody =
-                "{\n" +
-                        "  \"index\": 0,\n" +
-                        "  \"next\": true,\n" +
-                        "  \"searchParam1\": \"\",\n" +
-                        "  \"searchParam2\": \"\",\n" +
-                        "  \"size\": 100\n" +
-                        "}";
-
         return getRestAssured()
                 .when()
-                .body(getAllUsersBody)
+                .body(GET_ALL_USERS_BODY)
                 .post("/api/users")
                 .then().statusCode(200)
                 .extract().response();

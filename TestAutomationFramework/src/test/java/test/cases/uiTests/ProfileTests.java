@@ -133,7 +133,6 @@ public class ProfileTests {
         actions.assertElementPresent("profile.friendCount");
 
         SqlMethods.TruncateRequests();
-        SqlMethods.deleteConnectionById("user_a", userModel.id);
-        SqlMethods.deleteConnectionById("user_a", recipient.id);
+        SqlMethods.TruncateConnections();
     }
 }

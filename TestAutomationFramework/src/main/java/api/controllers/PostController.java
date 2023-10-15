@@ -6,24 +6,23 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.authentication.FormAuthConfig;
 import io.restassured.response.Response;
 
+import static api.controllers.helpers.JSONBodies.POST_BODY;
+import static api.controllers.helpers.JSONBodies.POST_REQUEST_BODY;
+
 public class PostController extends BaseController {
+
+
     UserController userController = new UserController();
     PostModel postModel = new PostModel();
     ObjectMapper post = new ObjectMapper();
 
     public PostModel createPublicPost(String randomContent, String randomPicture, String username, String password) {
 
-        String postBody = "{\n" +
-                "  \"content\": \"" + randomContent + "\",\n" +
-                "  \"picture\": \"" + randomPicture + "\",\n" +
-                "  \"public\": true\n" +
-                "}";
-
         Response response = getRestAssured()
                 .auth()
                 .form(username, password,
                         new FormAuthConfig("/authenticate", "username", "password"))
-                .body(postBody)
+                .body(String.format(POST_BODY, randomContent, randomPicture))
                 .when()
                 .post("/api/post/auth/creator")
                 .then().statusCode(200)
@@ -33,7 +32,8 @@ public class PostController extends BaseController {
 
         try {
             postModel = post.readValue(responseBody, PostModel.class);
-        } catch (JsonProcessingException ignored) {}
+        } catch (JsonProcessingException ignored) {
+        }
         return postModel;
 
     }
@@ -42,17 +42,11 @@ public class PostController extends BaseController {
         String randomContent = BaseController.faker.lorem().sentence();
         String randomPicture = BaseController.faker.internet().image();
 
-        String postBody = "{\n" +
-                "  \"content\": \"" + randomContent + "\",\n" +
-                "  \"picture\": \"" + randomPicture + "\",\n" +
-                "  \"public\": true\n" +
-                "}";
-
         getRestAssured()
                 .auth()
                 .form(username, password,
                         new FormAuthConfig("/authenticate", "username", "password"))
-                .body(postBody)
+                .body(String.format(POST_BODY, randomContent, randomPicture))
                 .when()
                 .put(String.format("/api/post/auth/editor?postId=%d", postId))
                 .then().statusCode(200);
@@ -80,19 +74,11 @@ public class PostController extends BaseController {
 
     public Response getAllUsersPosts(String username, String password) {
 
-        String requestBody = "{\n" +
-                "  \"index\": 0,\n" +
-                "  \"next\": true,\n" +
-                "  \"searchParam1\": \"\",\n" +
-                "  \"searchParam2\": \"\",\n" +
-                "  \"size\": 200\n" +
-                "}";
-
         return getRestAssured()
                 .auth()
                 .form(username, password,
                         new FormAuthConfig("/authenticate", "username", "password"))
-                .body(requestBody)
+                .body(POST_REQUEST_BODY)
                 .when()
                 .get("/api/users/" + getUserId(userController.getAllUsers()) + "/posts")
                 .then().statusCode(200)
@@ -103,7 +89,8 @@ public class PostController extends BaseController {
         getRestAssured()
                 .auth()
                 .form(username, password,
-                        new FormAuthConfig("/authenticate", "username", "password"))
+                        new FormAuthConfig("/authenticate",
+                                "username", "password"))
                 .queryParam("postId", getLatestPost(getAllPost()))
                 .when()
                 .delete("/api/post/auth/manager")

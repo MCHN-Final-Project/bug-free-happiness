@@ -91,12 +91,13 @@ public class LoginTests {
         actions.assertElementPresent("home.signInButton");
         actions.assertElementNotPresent("home.logoutButton");
     }
+
     @Test
     @DisplayName("Login in with a deleted user unsuccessfully")
     public void loginWithDeletedUserThrowsError() {
         UserController userController = new UserController();
         UserData userData = new UserData();
-        UserModel local = userController.createUser(userData.username, userData.password, userData.email,false);
+        UserModel local = userController.createUser(userData.username, userData.password, userData.email, false);
         SqlMethods.deleteUserById("user_id", local.id);
 
         loginPage.login(userData.username, userData.password);
@@ -105,6 +106,7 @@ public class LoginTests {
         actions.assertElementNotPresent(String.format(Utils.getUIMappingByKey("home.personalProfileAlt"),
                 local.id));
     }
+
     @Test
     @DisplayName("Regular user cannot access Admin panel when logged in")
     public void loggedInAsUserAdminPanelNotVisible() {
@@ -113,12 +115,13 @@ public class LoginTests {
         actions.assertElementNotPresent("admin.adminZone");
         actions.assertPageNotFound("weAreSocialNetwork.adminPage");
     }
+
     @Test
     @DisplayName("Admin user can access Admin panel when logged in")
     public void loggedInAsAdminAdminPanelVisible() {
         UserController userController = new UserController();
         UserData userData = new UserData();
-        UserModel local = userController.createUser(userData.username, userData.password, userData.email,true);
+        UserModel local = userController.createUser(userData.username, userData.password, userData.email, true);
 
         loginPage.login(local.username, userData.password);
         actions.assertElementPresent("admin.adminZone");

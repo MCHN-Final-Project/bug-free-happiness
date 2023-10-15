@@ -59,7 +59,7 @@ public class SkillsController extends BaseController {
         return getRestAssured()
                 .queryParam("skillId", skillId)
                 .when()
-                .get(GET_SKILL_BY_ID_ENDPOINT + "?" + SKILL_ID_PARAM)
+                .get(GET_SKILL_BY_ID_ENDPOINT + SKILL_ID_PARAM)
                 .then()
                 .statusCode(200).
                 extract().response();
@@ -72,7 +72,7 @@ public class SkillsController extends BaseController {
         getRestAssured()
                 .queryParam("skillId", skillId)
                 .when()
-                .put(EDIT_SKILL_TEXT_ENDPOINT + "?" + SKILL_PARAM + encodedSkillText + "&" + SKILL_ID_PARAM)
+                .put(EDIT_SKILL_TEXT_ENDPOINT + SKILL_PARAM + encodedSkillText + "&" + SKILL_ID_PARAM)
                 .then()
                 .statusCode(200)
                 .extract().response();
@@ -84,7 +84,7 @@ public class SkillsController extends BaseController {
         getRestAssured()
                 .queryParam("skillId", skillId)
                 .when()
-                .put(DELETE_SKILL_ENDPOINT + "?" + SKILL_ID_PARAM)
+                .put(DELETE_SKILL_ENDPOINT + SKILL_ID_PARAM)
                 .then()
                 .statusCode(200)
                 .extract().response();

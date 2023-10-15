@@ -29,4 +29,23 @@ public class JSONBodies {
             "    \"id\": %d,\n" +
             "    \"username\": \"%s\"\n" +
             "}";
+    public static final String POST_REQUEST_BODY = "{\n" +
+            "  \"index\": 0,\n" +
+            "  \"next\": true,\n" +
+            "  \"searchParam1\": \"\",\n" +
+            "  \"searchParam2\": \"\",\n" +
+            "  \"size\": 200\n" +
+            "}";
+    public static final String POST_BODY = "{\n" +
+            "  \"content\": \"" + "%s" + "\",\n" +
+            "  \"picture\": \"" + "%s" + "\",\n" +
+            "  \"public\": true\n" +
+            "}";
+    public static final String GET_ALL_USERS_BODY = "{\n" +
+            "  \"index\": 0,\n" +
+            "  \"next\": true,\n" +
+            "  \"searchParam1\": \"\",\n" +
+            "  \"searchParam2\": \"\",\n" +
+            "  \"size\": 100\n" +
+            "}";
 }

@@ -75,7 +75,7 @@ public class ConnectionController extends BaseController {
                 .queryParam("requestId", requestId)
                 .when()
                 .post(format(GET_USERS_REQUESTS_ENDPOINT, userId)
-                        + APPROVE_REQUEST_ENDPOINT + "?" + REQUEST_ID_PARAM + requestId)
+                        + APPROVE_REQUEST_ENDPOINT + REQUEST_ID_PARAM + requestId)
                 .then()
                 .statusCode(200)
                 .extract().response();

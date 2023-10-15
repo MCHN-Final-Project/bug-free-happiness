@@ -23,14 +23,15 @@ public class ConnectionControllerTests {
 
     @BeforeAll
     public static void setup() {
-        senderCred.username = baseController.getRandomUsername();
-        senderCred.password = baseController.getRandomPassword();
-        senderCred.email = baseController.getRandomEmail();
         sender = userController.createUser(senderCred.username, senderCred.password, senderCred.email, false);
-        receiverCred.username = baseController.getRandomUsername();
-        receiverCred.password = baseController.getRandomPassword();
-        receiverCred.email = baseController.getRandomEmail();
         receiver = userController.createUser(receiverCred.username, receiverCred.password, receiverCred.email, false);
+    }
+
+    @AfterAll
+    public static void cleanup() {
+        SqlMethods.TruncateConnections();
+        SqlMethods.deleteUserById("user_id", sender.id);
+        SqlMethods.deleteUserById("user_id", receiver.id);
     }
 
     @BeforeEach
@@ -46,15 +47,10 @@ public class ConnectionControllerTests {
     }
 
     @AfterEach
-    public void localCleanup(){
-        SqlMethods.deleteRequestById("id", requestId);
+    public void localCleanup() {
+        SqlMethods.TruncateRequests();
     }
 
-    @AfterAll
-    public static void cleanup() {
-        SqlMethods.deleteUserById("user_id", sender.id);
-        SqlMethods.deleteUserById("user_id", receiver.id);
-    }
 
     @Test
     @Tag("InitialSetup")
@@ -95,8 +91,5 @@ public class ConnectionControllerTests {
 
         connectionController.assertConnectionRequestIsApproved(response);
         connectionController.assertSenderAndReceiverAreCorrect(response, receiver.username, sender.username);
-
-        SqlMethods.deleteConnectionById("user_a", sender.id);
-        SqlMethods.deleteConnectionById("user_a", receiver.id);
     }
 }

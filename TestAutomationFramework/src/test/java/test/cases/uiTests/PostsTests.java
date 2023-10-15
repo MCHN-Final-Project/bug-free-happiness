@@ -4,31 +4,36 @@ import api.controllers.BaseController;
 import api.controllers.helpers.SqlMethods;
 import com.telerikacademy.testframework.UserActions;
 import com.telerikacademy.testframework.Utils;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import weare.ui.pagemodels.*;
 
-public class PostsTests extends BaseTest{
+public class PostsTests extends BaseTest {
     UserActions actions = new UserActions();
     CreatePostPage createPostPage = new CreatePostPage(actions.getDriver());
     BaseController baseController = new BaseController();
-    HomePage homePage= new HomePage(actions.getDriver());
+    HomePage homePage = new HomePage(actions.getDriver());
     CommentPage commentPage = new CommentPage(actions.getDriver());
     LatestPostPage latestPostPage = new LatestPostPage(actions.getDriver());
     EditPostPage editPostPage = new EditPostPage(actions.getDriver());
     DeletePostPage deletePostPage = new DeletePostPage(actions.getDriver());
 
     @BeforeEach
-    public void homeSetUp(){
+    public void homeSetUp() {
         homePage.navigateToPage();
     }
+
     @AfterAll
-    public static void cleanUp(){
+    public static void cleanUp() {
         UserActions.quitDriver();
         SqlMethods.deleteUserById("user_id", userModelForUi.userId);
     }
+
     @Test
     @DisplayName("Create public post successfully")
-    public void createPublicPostWithValidDataSuccessfully(){
+    public void createPublicPostWithValidDataSuccessfully() {
 
         homePage.clickOnAddNewPostButton();
 
@@ -51,7 +56,7 @@ public class PostsTests extends BaseTest{
 
     @Test
     @DisplayName("Create private post successfully")
-    public void createPrivatePostWithValidDataSuccessfully(){
+    public void createPrivatePostWithValidDataSuccessfully() {
         homePage.clickOnAddNewPostButton();
 
         actions.waitForElementClickable("post.clickPostVisibilityButton");
@@ -73,7 +78,7 @@ public class PostsTests extends BaseTest{
 
     @Test
     @DisplayName("Edit already created public post successfully")
-    public void editPostAsPublicWithValidDataSuccessfully(){
+    public void editPostAsPublicWithValidDataSuccessfully() {
 
         actions.waitForElementClickable("home.addNewPostButton");
         homePage.clickOnAddNewPostButton();
@@ -114,7 +119,7 @@ public class PostsTests extends BaseTest{
 
     @Test
     @DisplayName("Edit already created private post successfully")
-    public void editPostAsPrivateWithValidDataSuccessfully(){
+    public void editPostAsPrivateWithValidDataSuccessfully() {
 
         actions.waitForElementClickable("home.addNewPostButton");
         homePage.clickOnAddNewPostButton();
@@ -155,7 +160,7 @@ public class PostsTests extends BaseTest{
 
     @Test
     @DisplayName("Like post successfully")
-    public void LikePostSuccessfully(){
+    public void LikePostSuccessfully() {
 
         homePage.clickOnAddNewPostButton();
 
@@ -181,7 +186,7 @@ public class PostsTests extends BaseTest{
 
     @Test
     @DisplayName("Dislike post successfully")
-    public void DislikePostSuccessfully(){
+    public void DislikePostSuccessfully() {
 
         homePage.clickOnAddNewPostButton();
 
@@ -210,7 +215,7 @@ public class PostsTests extends BaseTest{
 
     @Test
     @DisplayName("Delete already created post successfully")
-    public void deletePostSuccessfully(){
+    public void deletePostSuccessfully() {
 
         actions.waitForElementClickable("home.addNewPostButton");
         homePage.clickOnAddNewPostButton();

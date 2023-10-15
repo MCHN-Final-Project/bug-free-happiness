@@ -54,7 +54,9 @@ public class CommentControllerTests {
     }
 
     @AfterAll
-    public static void cleanup(){SqlMethods.deleteUserById("user_id", user.id);}
+    public static void cleanup() {
+        SqlMethods.deleteUserById("user_id", user.id);
+    }
 
     @Test
     @Tag("NoSetup")
