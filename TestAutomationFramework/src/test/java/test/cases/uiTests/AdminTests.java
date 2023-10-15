@@ -68,6 +68,7 @@ public class AdminTests {
 
     @Test
     @Tag("PartialSetup")
+    @DisplayName("As admin edit user profile successfully")
     public void asAdminEditUserProfileSuccessfully() {
 
         actions.clickElement("profile.homeButton");
@@ -79,12 +80,13 @@ public class AdminTests {
         try {
             actions.assertElementPresent(format(getUIMappingByKey("search.userName"), regularUser.username));
         } catch (NoSuchElementException e) {
-            throw new RuntimeException("Search for existing user by first name unsuccessful");
+            throw new RuntimeException("Admin edited user profile unsuccessfully");
         }
 
     }
 
     @Test
+    @DisplayName("As admin disable user profile successfully")
     public void disableUserProfileSuccessfully() {
 
         List<WebElement> enableButton = getWebDriver().findElements(By.xpath(getUIMappingByKey("admin.enableProfile")));
@@ -101,11 +103,12 @@ public class AdminTests {
         try {
             actions.assertElementPresent("login.wrongUserOrPasswordMessage");
         } catch (NoSuchElementException e) {
-            throw new RuntimeException("Search user by different name successful");
+            throw new RuntimeException("Admin disabled user profile unsuccessfully");
         }
     }
 
     @Test
+    @DisplayName("As admin enable user profile successfully")
     public void enableUserProfileSuccessfully() {
 
         List<WebElement> disableButton = getWebDriver().findElements(By.xpath(getUIMappingByKey("admin.disableProfile")));
