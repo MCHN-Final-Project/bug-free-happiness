@@ -21,6 +21,7 @@ public class BasePage {
             this.driver = driver;
             this.url = Utils.getConfigPropertyByKey(urlKey);
             actions = new UserActions();
+            navigateToPage();
         } else nonRegister(driver, urlKey);
     }
 

@@ -11,16 +11,17 @@ import static com.telerikacademy.testframework.Utils.getUIMappingByKey;
 public class AdminPage extends BasePage {
     UserController userController = new UserController();
     UserActions actions = new UserActions();
-    public UserData userData = new UserData();
-    UserModel userModel;
+
     public AdminPage(WebDriver driver) {
-        super(driver, "weAreSocialNetwork.adminPage", false);
+        super(driver, "weAreSocialNetwork.homepage", true);
         userModel = userController.createUser
                 (userData.username, userData.password, userData.email, true);
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.login(userData.username, userData.password);
+        driver.manage().addCookie(userModel.cookie);
         navigateToPage();
         assertPageNavigated();
+        System.out.println(userModel.username);
+        System.out.println(userModel.cookie);
+        System.out.println(driver.manage().getCookies());
     }
     public void navigateToUserList() {
         actions.clickElement("admin.userList");
