@@ -4,13 +4,13 @@ import api.controllers.helpers.SqlMethods;
 import com.telerikacademy.testframework.UserActions;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
 import weare.ui.pagemodels.RegisterPage;
 import weare.ui.pagemodels.models.UserData;
 
 public class RegisterTests extends BaseTest {
-
+    UserActions actions = new UserActions();
     RegisterPage registerPage = new RegisterPage(actions.getDriver());
-
     @AfterAll
     public static void cleanup() {
         UserActions.quitDriver();

@@ -65,7 +65,7 @@ public class BaseController {
     }
 
     public String getRandomSentence() {
-        return faker.lorem().sentence(5);
+        return faker.lorem().sentence(25);
     }
 
     public String getRandomEmail() {

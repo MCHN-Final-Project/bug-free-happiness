@@ -78,7 +78,7 @@ public class PostController extends BaseController {
                 .extract().response();
     }
 
-    public void getAllUsersPosts(String username, String password) {
+    public Response getAllUsersPosts(String username, String password) {
 
         String requestBody = "{\n" +
                 "  \"index\": 0,\n" +
@@ -88,7 +88,7 @@ public class PostController extends BaseController {
                 "  \"size\": 200\n" +
                 "}";
 
-        getRestAssured()
+        return getRestAssured()
                 .auth()
                 .form(username, password,
                         new FormAuthConfig("/authenticate", "username", "password"))

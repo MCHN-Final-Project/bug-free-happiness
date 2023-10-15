@@ -26,5 +26,4 @@ public class HomePage extends BasePage {
     public void enterProfession(String profession) {actions.typeValueInField(profession, "home.profession");}
     public void enterUsersName(String username) {actions.typeValueInField(username, "home.username");}
     public void clickOnSearchButton() {actions.clickElement("home.searchButton");}
-
 }

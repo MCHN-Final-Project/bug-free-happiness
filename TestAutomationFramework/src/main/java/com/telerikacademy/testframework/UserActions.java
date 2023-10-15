@@ -1,13 +1,19 @@
 package com.telerikacademy.testframework;
 
 import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
 import java.time.Duration;
+import java.util.List;
 
 import static com.telerikacademy.testframework.Utils.*;
 import static java.lang.String.format;
@@ -202,22 +208,34 @@ public class UserActions {
                 "Landed URL is not as expected. Actual URL: " + driver.getCurrentUrl() + ". Expected URL: " + page);
         assertElementPresent("notFound.notFoundMessage");
     }
+    public void selectFromDropdown(String key, String start, int target) {
+        Select drop = new Select(driver.findElement(By.xpath(key)));
+        drop.selectByVisibleText(start);
+        drop.selectByIndex(target);
+    }
+    public void selectDate(String key) {
+        ((JavascriptExecutor) driver).executeScript("document.getElementById('birthDayE').removeAttribute('readonly',0);"); // Enables the from date box
 
-    public void pressKey(Keys key) {
-        Actions actions = new Actions(driver);
-        switch (key) {
-            case ENTER:
-                actions.sendKeys(Keys.ENTER).perform();
-                break;
-            case TAB:
-                actions.sendKeys(Keys.TAB).perform();
-                break;
-            case DELETE:
-                actions.sendKeys(Keys.DELETE).perform();
-                break;
-            case BACK_SPACE:
-                actions.sendKeys(Keys.BACK_SPACE).perform();
-                break;
-        }
+        WebElement fromDateBox = driver.findElement(By.xpath(Utils.getUIMappingByKey(key)));
+        fromDateBox.clear();
+        fromDateBox.sendKeys("12-12-1950");
+    }
+    public void selectValueFromDropdown(String value, String field, Object... fieldArguments){
+        Select dropdown = new Select(getWebElement(field,fieldArguments));
+        dropdown.selectByVisibleText(value);
+    }
+
+    public WebElement getWebElement(String key, Object... arguments) {
+        String locator = getLocatorValueByKey(key, arguments);
+        waitForElementVisible(locator);
+        WebElement element = driver.findElement(By.xpath(locator));
+        return element;
+    }
+
+    public void uploadImage(String locatorKey,String imagePath) {
+        File picture = new File(imagePath);
+        String absolutePath = picture.getAbsolutePath();
+        WebElement element = getWebElement(locatorKey);
+        element.sendKeys(absolutePath);
     }
 }
