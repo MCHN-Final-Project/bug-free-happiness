@@ -21,6 +21,7 @@ public class BasePage {
             this.driver = driver;
             this.url = Utils.getConfigPropertyByKey(urlKey);
             actions = new UserActions();
+            navigateToPage();
         } else nonRegister(driver, urlKey);
     }
 
@@ -40,9 +41,20 @@ public class BasePage {
         this.driver.get(url);
     }
 
+    public void navigateToPage(String urlKey) {
+        this.driver.get(Utils.getConfigPropertyByKey(urlKey));
+    }
+
     public void assertPageNavigated() {
         String currentUrl = driver.getCurrentUrl();
         Assertions.assertTrue(currentUrl.contains(url),
                 "Landed URL is not as expected. Actual URL: " + currentUrl + ". Expected URL: " + url);
     }
+
+    public void assertPageNavigated(String urlKey) {
+        String currentUrl = driver.getCurrentUrl();
+        Assertions.assertTrue(currentUrl.contains(Utils.getConfigPropertyByKey(urlKey)),
+                "Landed URL is not as expected. Actual URL: " + currentUrl + ". Expected URL: " + Utils.getConfigPropertyByKey(urlKey));
+    }
+
 }

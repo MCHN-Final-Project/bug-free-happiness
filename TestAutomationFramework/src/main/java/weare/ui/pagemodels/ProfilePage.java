@@ -21,8 +21,16 @@ public class ProfilePage extends BasePage {
         actions.typeValueInField(BaseController.faker.name().firstName(), "profile.inputFirstName");
     }
 
+    public void enterFirstName(String name) {
+        actions.typeValueInField(name, "profile.inputFirstName");
+    }
+
     public void enterLastName() {
         actions.typeValueInField(BaseController.faker.name().lastName(), "profile.inputLastName");
+    }
+
+    public void enterLastName(String name) {
+        actions.typeValueInField(name, "profile.inputLastName");
     }
 
     public void enterBirthDay(String key) {
