@@ -4,6 +4,7 @@ import api.controllers.BaseController;
 import api.controllers.helpers.SqlMethods;
 import com.telerikacademy.testframework.UserActions;
 import com.telerikacademy.testframework.Utils;
+import org.checkerframework.checker.units.qual.A;
 import org.junit.jupiter.api.*;
 import weare.ui.pagemodels.*;
 
@@ -15,7 +16,6 @@ public class CommentsTests extends BaseTest{
     HomePage homePage = new HomePage(actions.getDriver());
     CommentPage commentPage = new CommentPage(actions.getDriver());
     EditCommentPage editCommentPage = new EditCommentPage(actions.getDriver());
-
     DeleteCommentPage deleteCommentPage = new DeleteCommentPage(actions.getDriver());
 
     @BeforeEach
@@ -58,6 +58,7 @@ public class CommentsTests extends BaseTest{
         commentPage.clickOnPostCommentButton();
 
         actions.assertElementPresent(String.format(Utils.getUIMappingByKey("comment.commentExistingAssertion"), commentContent));
+
     }
 
     @Test
