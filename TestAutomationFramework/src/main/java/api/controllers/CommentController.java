@@ -35,13 +35,14 @@ public class CommentController extends BaseController {
         String responseBody = response.asString();
         try {
             commentModel = comment.readValue(responseBody, CommentModel.class);
-        } catch (JsonProcessingException ignored) {}
+        } catch (JsonProcessingException ignored) {
+        }
         return commentModel;
     }
 
     public Response likeComment(int commentId, String username, String password) {
 
-       return getRestAssured()
+        return getRestAssured()
                 .auth()
                 .form(username, password,
                         new FormAuthConfig("/authenticate", "username", "password"))
@@ -52,9 +53,9 @@ public class CommentController extends BaseController {
                 .extract().response();
     }
 
-    public Response editComment(int commentId, String username, String password) {
+    public void editComment(int commentId, String username, String password) {
 
-        return getRestAssured()
+        getRestAssured()
                 .auth()
                 .form(username, password,
                         new FormAuthConfig("/authenticate", "username", "password"))
@@ -98,9 +99,9 @@ public class CommentController extends BaseController {
                 .extract().response();
     }
 
-    public Response deleteComment(String username, String password) {
+    public void deleteComment(String username, String password) {
 
-        return getRestAssured()
+        getRestAssured()
                 .auth()
                 .form(username, password,
                         new FormAuthConfig("/authenticate", "username", "password"))

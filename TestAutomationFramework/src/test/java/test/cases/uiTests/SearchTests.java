@@ -19,7 +19,7 @@ public class SearchTests {
     public static SearchPage searchPage = new SearchPage(actions.getDriver());
 
     private static String lastName;
-
+    
     @BeforeAll
     public static void setUp() {
         lastName = userData.username + "son";

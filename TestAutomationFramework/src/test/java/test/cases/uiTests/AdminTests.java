@@ -29,7 +29,6 @@ public class AdminTests {
 
     @BeforeAll
     public static void setUpUser() {
-
         UserController userController = new UserController();
         regularUser = userController.createUser(regularUserData.username, regularUserData.password, regularUserData.email, false);
         lastName = regularUser.username + "son";
@@ -83,7 +82,7 @@ public class AdminTests {
     public void disableUserProfileSuccessfully() {
 
         List<WebElement> enableButton = getWebDriver().findElements(By.xpath(getUIMappingByKey("admin.enableProfile")));
-        if (enableButton.size() > 0) {
+        if (!enableButton.isEmpty()) {
             enableButton.get(0).click();
         }
 
@@ -101,7 +100,7 @@ public class AdminTests {
     public void enableUserProfileSuccessfully() {
 
         List<WebElement> disableButton = getWebDriver().findElements(By.xpath(getUIMappingByKey("admin.disableProfile")));
-        if (disableButton.size() > 0) {
+        if (!disableButton.isEmpty()) {
             disableButton.get(0).click();
         }
 

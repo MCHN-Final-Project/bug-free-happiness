@@ -1,6 +1,5 @@
 package api.controllers;
 
-import api.controllers.models.SkillModel;
 import com.github.javafaker.Faker;
 import com.google.gson.Gson;
 import com.telerikacademy.testframework.PropertiesManager;
@@ -12,15 +11,14 @@ import io.restassured.specification.RequestSpecification;
 import org.json.JSONArray;
 
 import static org.asynchttpclient.util.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BaseController {
     public static final String EDIT_CONTENT = "Good job";
     public static Faker faker = new Faker();
 
     public RequestSpecification getRestAssured() {
-        Gson deserializer = new Gson();
+
         return RestAssured
                 .given()
                 .contentType(ContentType.JSON)
@@ -41,22 +39,17 @@ public class BaseController {
 
     public String getLatestRegisteredUsername(Response response) {
         JSONArray jsonArray = new JSONArray(response.body().asString());
-        String username = jsonArray.getJSONObject(0).getString("username");
-
-        return username;
+        return jsonArray.getJSONObject(0).getString("username");
     }
 
     public int getLatestCommentId(Response response) {
         JSONArray jsonArray = new JSONArray(response.body().asString());
-        int commentId = jsonArray.getJSONObject(0).getInt("commentId");
-
-        return commentId;
+        return jsonArray.getJSONObject(0).getInt("commentId");
     }
 
     public int getUserId(Response response) {
         JSONArray jsonArray = new JSONArray(response.body().asString());
-        int userId = jsonArray.getJSONObject(0).getInt("userId");
-        return userId;
+        return jsonArray.getJSONObject(0).getInt("userId");
     }
 
     public int getRequestId(Response response) {
@@ -73,7 +66,7 @@ public class BaseController {
     }
 
     public String getRandomUsername() {
-        return faker.name().firstName();
+        return faker.name().firstName().concat(faker.color().name());
     }
 
     public String getRandomPassword() {
@@ -91,7 +84,7 @@ public class BaseController {
     }
 
     public void assertResponseIsArrayAndNotEmpty(Response response) {
-        assertTrue(response.getBody().jsonPath().getList("$").size() > 0,
+        assertFalse(response.getBody().jsonPath().getList("$").isEmpty(),
                 "The response is not an array, or the array is empty.");
     }
 

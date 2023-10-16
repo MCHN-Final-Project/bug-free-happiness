@@ -4,11 +4,13 @@ import api.controllers.BaseController;
 import api.controllers.helpers.SqlMethods;
 import com.telerikacademy.testframework.UserActions;
 import com.telerikacademy.testframework.Utils;
-import org.checkerframework.checker.units.qual.A;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import weare.ui.pagemodels.*;
 
-public class CommentsTests extends BaseTest{
+public class CommentsTests extends BaseTest {
     UserActions actions = new UserActions();
     CreatePostPage createPostPage = new CreatePostPage(actions.getDriver());
     BaseController baseController = new BaseController();
@@ -16,21 +18,23 @@ public class CommentsTests extends BaseTest{
     HomePage homePage = new HomePage(actions.getDriver());
     CommentPage commentPage = new CommentPage(actions.getDriver());
     EditCommentPage editCommentPage = new EditCommentPage(actions.getDriver());
+
     DeleteCommentPage deleteCommentPage = new DeleteCommentPage(actions.getDriver());
 
     @BeforeEach
-    public void homeSetUp(){
+    public void homeSetUp() {
         homePage.navigateToPage();
     }
+
     @AfterAll
-    public static void cleanUp(){
+    public static void cleanUp() {
         UserActions.quitDriver();
         SqlMethods.deleteUserById("user_id", userModelForUi.userId);
     }
 
     @Test
     @DisplayName("Create comment below already created post successfully")
-    public void createValidCommentBelowPostSuccessfully(){
+    public void createValidCommentBelowPostSuccessfully() {
 
         actions.waitForElementClickable("home.addNewPostButton");
         homePage.clickOnAddNewPostButton();
@@ -58,12 +62,11 @@ public class CommentsTests extends BaseTest{
         commentPage.clickOnPostCommentButton();
 
         actions.assertElementPresent(String.format(Utils.getUIMappingByKey("comment.commentExistingAssertion"), commentContent));
-
     }
 
     @Test
     @DisplayName("Edit already created comment successfully")
-    public void editValidCommentSuccessfully(){
+    public void editValidCommentSuccessfully() {
 
         actions.waitForElementClickable("home.addNewPostButton");
         homePage.clickOnAddNewPostButton();
@@ -107,9 +110,10 @@ public class CommentsTests extends BaseTest{
 
         actions.assertElementPresent(String.format(Utils.getUIMappingByKey("comment.editCommentAssertion"), editCommentContent));
     }
+
     @Test
     @DisplayName("Like already created comment successfully")
-    public void LikeCommentSuccessfully(){
+    public void LikeCommentSuccessfully() {
 
         actions.waitForElementClickable("home.addNewPostButton");
         homePage.clickOnAddNewPostButton();
@@ -148,7 +152,7 @@ public class CommentsTests extends BaseTest{
 
     @Test
     @DisplayName("Dislike already created comment successfully")
-    public void DislikeCommentSuccessfully(){
+    public void DislikeCommentSuccessfully() {
 
         actions.waitForElementClickable("home.addNewPostButton");
         homePage.clickOnAddNewPostButton();
@@ -190,7 +194,7 @@ public class CommentsTests extends BaseTest{
 
     @Test
     @DisplayName("Delete comment successfully")
-    public void deleteCommentSuccessfully(){
+    public void deleteCommentSuccessfully() {
 
         actions.waitForElementClickable("home.addNewPostButton");
         homePage.clickOnAddNewPostButton();

@@ -27,10 +27,6 @@ public class UserActions {
         this.driver = getWebDriver();
     }
 
-    public static void loadBrowser(String baseUrlKey) {
-        getWebDriver().get(getConfigPropertyByKey(baseUrlKey));
-    }
-
     public static void quitDriver() {
         tearDownWebDriver();
     }
@@ -43,36 +39,10 @@ public class UserActions {
         element.click();
     }
 
-    public void sendEnter(String key, Object... arguments) {
-        String locator = getLocatorValueByKey(key, arguments);
-
-        LOGGER.info("Sending Enter on " + key);
-        WebElement element = driver.findElement(By.xpath(locator));
-        element.submit();
-    }
-
-
     public void typeValueInField(String value, String field, Object... fieldArguments) {
         String locator = getLocatorValueByKey(field, fieldArguments);
         WebElement element = driver.findElement(By.xpath(locator));
         element.sendKeys(value);
-    }
-
-    public void dragAndDropElement(String fromElementLocator, String toElementLocator) {
-
-        String fromLocator = getLocatorValueByKey(fromElementLocator);
-        WebElement fromElement = driver.findElement(By.xpath(fromLocator));
-
-        String toLocator = getLocatorValueByKey(toElementLocator);
-        WebElement toElement = driver.findElement(By.xpath(toLocator));
-
-        Actions actions = new Actions(driver);
-
-        Action dragAndDrop = actions.clickAndHold(fromElement)
-                .moveToElement(toElement)
-                .release(toElement)
-                .build();
-        dragAndDrop.perform();
     }
 
     //############# WAITS #########
@@ -94,11 +64,7 @@ public class UserActions {
     }
 
     public void waitForElementPresent(String locator, Object... arguments) {
-        // TODO: Implement the method
-        // 1. Initialize Wait utility with default timeout from properties
         int defaultTimeout = Integer.parseInt(getConfigPropertyByKey("config.defaultTimeoutSeconds"));
-        // 2. Use the method that checks for Element present
-        // 3. Fail the test with meaningful error message in case the element is not present
         waitForElementPresenceUntilTimeout(locator, defaultTimeout, arguments);
     }
 
@@ -115,17 +81,6 @@ public class UserActions {
             test = false;
         }
         Assertions.assertFalse(test, "Test succeeded when expected to fail");
-    }
-
-    public void assertElementAttribute(String locator, String attributeName, String attributeValue) {
-        // TODO: Implement the method
-        // 1. Find Element using the locator value from Properties
-        String xpath = getLocatorValueByKey(locator);
-        WebElement element = driver.findElement(By.xpath(xpath));
-        // 2. Get the element attribute
-        String value = element.getAttribute(attributeName);
-        // 3. Assert equality with expected value
-        Assertions.assertEquals(format("Element with locator %s doesn't match", attributeName), getLocatorValueByKey(attributeValue), value);
     }
 
     private String getLocatorValueByKey(String locator) {
@@ -211,7 +166,9 @@ public class UserActions {
         drop.selectByIndex(target);
     }
     public void selectDate(String key) {
-        ((JavascriptExecutor) driver).executeScript("document.getElementById('birthDayE').removeAttribute('readonly',0);"); // Enables the from date box
+        ((JavascriptExecutor) driver)
+                .executeScript("document.getElementById('birthDayE')" +
+                        ".removeAttribute('readonly');");
 
         WebElement fromDateBox = driver.findElement(By.xpath(Utils.getUIMappingByKey(key)));
         fromDateBox.clear();
@@ -225,8 +182,7 @@ public class UserActions {
     public WebElement getWebElement(String key, Object... arguments) {
         String locator = getLocatorValueByKey(key, arguments);
         waitForElementVisible(locator);
-        WebElement element = driver.findElement(By.xpath(locator));
-        return element;
+        return driver.findElement(By.xpath(locator));
     }
 
     public void uploadImage(String locatorKey,String imagePath) {
