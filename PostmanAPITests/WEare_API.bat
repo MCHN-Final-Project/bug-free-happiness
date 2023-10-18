@@ -1,0 +1,1 @@
+newman run WEareAPItests.postman_collection.json -e LocalDocker.postman_environment.json -r htmlextra
