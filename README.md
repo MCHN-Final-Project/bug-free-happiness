@@ -53,5 +53,5 @@ VI. Resources
 
 VII. Authors
 Simona Diamandieva-Ilieva - [github](https://github.com/SimonaDiamandievaIlieva)
-Petar Hlebarov - [github]()
+Petar Hlebarov - [github](https://github.com/petarhlebaroff)
 Simeon Velinov - [github](https://github.com/SimeonVelinov/General)
