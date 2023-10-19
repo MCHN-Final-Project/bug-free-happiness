@@ -37,7 +37,11 @@ To set up the project locally for testing and development, follow these steps:
 5. Database Setup: 
 6. Run the Application: The application will be accessible at [http://localhost:8000](http://localhost:8000) in your web browser.
 7. Run Tests: To execute the project's test suite, you can run the tests using: 
-
+Running the API tests trough newman is done with the following command:
+```
+newman run https://api.postman.com/collections/28771591-340edd31-5097-49e7-9ddf-e252913a9dce?access_key=PMAT-01HCW6NXBDK0WQVYJ4TX02KKDK -r htmlextra --reporter-htmlextra-export report.html --reporter-htmlextra-title "API Test Report" --reporter-htmlextra-showEnvironmentData --reporter-htmlextra-showHeaders
+```
+Running the RESTAssured and Selenium tests is done trough the included .bat file.
 This command will run the automated tests and provide you with test results.
 
 Please ensure that you fulfill all the prerequisites and project-specific requirements as described in the project documentation. If you encounter any issues during setup, feel free to reach out to our team for assistance.
