@@ -66,7 +66,7 @@ public class BaseController {
     }
 
     public String getRandomUsername() {
-        return faker.name().firstName().concat(faker.color().name());
+        return faker.name().firstName().concat(faker.name().lastName());
     }
 
     public String getRandomPassword() {

@@ -52,7 +52,9 @@ public class AdminTests {
         adminPage.navigateToUserList();
         adminPage.chooseUserById(regularUser.id);
         actions.clickElement("profile.editButton");
+        adminPage.clearField("profile.inputFirstName");
         actions.typeValueInField(regularUser.username, "profile.inputFirstName");
+        adminPage.clearField("profile.inputLastName");
         actions.typeValueInField(lastName, "profile.inputLastName");
         actions.selectDate("profile.inputBirthDay");
         actions.clickElement("profile.updateButton");

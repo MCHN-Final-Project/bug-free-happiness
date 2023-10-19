@@ -1,8 +1,8 @@
 package weare.ui.pagemodels;
 
 import api.controllers.UserController;
-import api.controllers.models.UserModel;
 import com.telerikacademy.testframework.UserActions;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import weare.ui.pagemodels.models.UserData;
 
@@ -37,5 +37,12 @@ public class AdminPage extends BasePage {
     public void chooseUserById(int id){
         actions.waitForElementClickable(getUIMappingByKey("admin.seeUserProfile"), id);
         actions.clickElement(getUIMappingByKey("admin.seeUserProfile"), id);
+    }
+
+    public void clearField(String key) {
+        actions.clickElement(getUIMappingByKey(key));
+        for (int i = 0; i < 20; i++) {
+            actions.pressKey(Keys.BACK_SPACE);
+        }
     }
 }
