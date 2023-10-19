@@ -23,6 +23,7 @@ public class ProfileTests {
     ProfilePage profilePage = new ProfilePage(actions.getDriver());
 
     @BeforeEach
+    @Tag("TestSet:Q5FP-2/Q5FP-28")
     public void setup() {
         actions.getDriver().get(String.format
                 (Utils.getConfigPropertyByKey("weAreSocialNetwork.profile"), userModel.id));
@@ -81,7 +82,7 @@ public class ProfileTests {
                 (Utils.getUIMappingByKey("profile.nameChecker"),
                         userModel.firstName));
         actions.assertElementPresent(String.format
-                (Utils.getUIMappingByKey("profile.nameChecker"),
+                (Utils.getUIMappingByKey("profile.emailChecker"),
                         userModel.email));
     }
 

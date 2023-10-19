@@ -28,6 +28,7 @@ public class AdminTests {
     static String lastName;
 
     @BeforeAll
+    @Tag("TestSet:Q5FP-28/Q5FP-50/Q5FP-109")
     public static void setUpUser() {
         UserController userController = new UserController();
         regularUser = userController.createUser(regularUserData.username, regularUserData.password, regularUserData.email, false);

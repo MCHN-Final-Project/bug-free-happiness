@@ -2,10 +2,7 @@ package test.cases.uiTests;
 
 import api.controllers.helpers.SqlMethods;
 import com.telerikacademy.testframework.UserActions;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import weare.ui.pagemodels.RegisterPage;
 import weare.ui.pagemodels.models.UserData;
 
@@ -14,6 +11,7 @@ public class RegisterTests extends BaseTest {
     RegisterPage registerPage = new RegisterPage(actions.getDriver());
 
     @AfterAll
+    @Tag("TestSet:Q5FP-26")
     public static void cleanup() {
         UserActions.quitDriver();
         SqlMethods.deleteUserById("user_id", userModelForUi.userId);

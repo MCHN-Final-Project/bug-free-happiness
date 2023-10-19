@@ -18,6 +18,7 @@ public class LoginTests {
     static LoginPage loginPage = new LoginPage(actions.getDriver());
 
     @BeforeEach
+    @Tag("TestSet:Q5FP-24")
     public void setup() {
         loginPage.navigateToPage();
         loginPage.assertPageNavigated();

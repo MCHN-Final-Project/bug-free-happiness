@@ -21,6 +21,7 @@ public class SearchTests {
     private static String lastName;
     
     @BeforeAll
+    @Tag("TestSet:Q5FP-20")
     public static void setUp() {
         lastName = userData.username + "son";
         ProfilePage profilePage = new ProfilePage(actions.getDriver());

@@ -4,10 +4,7 @@ import api.controllers.BaseController;
 import api.controllers.helpers.SqlMethods;
 import com.telerikacademy.testframework.UserActions;
 import com.telerikacademy.testframework.Utils;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import weare.ui.pagemodels.*;
 
 public class PostsTests extends BaseTest {
@@ -21,6 +18,7 @@ public class PostsTests extends BaseTest {
     DeletePostPage deletePostPage = new DeletePostPage(actions.getDriver());
 
     @BeforeEach
+    @Tag("TestSet:Q5FP-42")
     public void homeSetUp() {
         homePage.navigateToPage();
     }
