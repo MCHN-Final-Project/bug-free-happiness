@@ -20,7 +20,9 @@ public class HomePage extends BasePage {
     }
     public void clickOnAboutUsButton(){actions.clickElement("home.aboutUsButton");}
     public void clickOnPersonalProfileButton(){actions.clickElement("home.personalProfileButton");}
-    public void clickOnAddNewPostButton(){actions.clickElement("home.addNewPostButton");}
+    public void clickOnAddNewPostButton(){
+        actions.waitForElementClickable("home.addNewPostButton");
+        actions.clickElement("home.addNewPostButton");}
     public void clickOnLogoutButton(){actions.clickElement("home.logoutButton");}
     public void clickOnWeAreButton(){actions.clickElement("home.weAreButton");}
     public void enterProfession(String profession) {actions.typeValueInField(profession, "home.profession");}
