@@ -30,7 +30,7 @@ Our test cases cover a wide range of scenarios, including positive and negative 
 V. Project Setup and test execution
 To set up the project locally for testing and development, follow these steps:
 
-1. Clone the docker images from the docker repo into a container with: docker pull -a simvelinov/final_project_docker. After pulling the images start the container. You are all set!
+1. Clone the docker images from the docker repo into a container with: ```docker pull -a simvelinov/final_project_docker```. After pulling the images start the container. You are all set!
 2. Clone the Project: Start by cloning the project repository to your local machine using the following command: git clone https://github.com/MCHN-Final-Project/bug-free-happiness.git
 3. Install Dependencies
 4. Configuration: Configure the project settings and environment variables, if applicable. 
