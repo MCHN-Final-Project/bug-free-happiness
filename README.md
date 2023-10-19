@@ -1,9 +1,10 @@
-                                    WEare Social Network - Final Project, Telerik Academy Alpha QA Track
-
+![](https://github.com/MCHN-Final-Project/bug-free-happiness/blob/main/logo/logo%20telerik.png)
 
                             
+
+## <div align="center">*Final End-To-End Testing Project - Alpha QA Track*</div>
+
 # <div align="center">WeAre Social Network</div>
-## <div align="center">Final Project - Telerik Academy Alpha QA Track</div>
 
 
 <h3>I. Project description</h3>
@@ -63,9 +64,9 @@ Please ensure that you fulfill all the prerequisites and project-specific requir
 
 <h3>VII. Authors</h3>
 
-- Simona Diamandieva-Ilieva - [github](https://github.com/SimonaDiamandievaIlieva)
+- *Simona Diamandieva-Ilieva* - [github](https://github.com/SimonaDiamandievaIlieva)
 
-- Petar Hlebarov - [github](https://github.com/petarhlebaroff)
+- *Petar Hlebarov* - [github](https://github.com/petarhlebaroff)
 
-- Simeon Velinov - [github](https://github.com/SimeonVelinov/General)
+- *Simeon Velinov* - [github](https://github.com/SimeonVelinov/General)
 
