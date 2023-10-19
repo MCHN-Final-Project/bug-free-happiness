@@ -1,4 +1,4 @@
-                            WEare Social Network - Final Project, Telerik Academy Alpha QA Track
+                                  WEare Social Network - Final Project, Telerik Academy Alpha QA Track
 
 
                             
@@ -58,6 +58,10 @@ Please ensure that you fulfill all the prerequisites and project-specific requir
 10. [Final Test Report]() 
 
 <h3>VII. Authors</h3>
-Simona Diamandieva-Ilieva - [github](https://github.com/SimonaDiamandievaIlieva)
-Petar Hlebarov - [github](https://github.com/petarhlebaroff)
-Simeon Velinov - [github](https://github.com/SimeonVelinov/General)
+
+- Simona Diamandieva-Ilieva - [github](https://github.com/SimonaDiamandievaIlieva)
+
+- Petar Hlebarov - [github](https://github.com/petarhlebaroff)
+
+- Simeon Velinov - [github](https://github.com/SimeonVelinov/General)
+
