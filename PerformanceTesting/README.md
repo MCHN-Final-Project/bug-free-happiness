@@ -1,7 +1,7 @@
 <h3>WeArePerformanceTestPlan</h3>
 
 
-Here is one way to reproduce the performance testing:
+Here is а way to reproduce the performance testing:
 
 1. Clone the docker images from the docker repo into a container with: docker pull -a simvelinov/final_project_docker. After pulling the images start the container. -> This will assure running the performance test against the required preset data in the app database.
 2. Copy the "WeArePerformanceTestPlan.jmx" file from this folder and paste it in your JMeter bin folder. 
