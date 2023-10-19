@@ -1,4 +1,4 @@
-WeArePerformanceTestPlan
+<h3>WeArePerformanceTestPlan</h3>
 
 
 Here is one way to reproduce the performance testing:
@@ -6,7 +6,9 @@ Here is one way to reproduce the performance testing:
 1. Clone the docker images from the docker repo into a container with: docker pull -a simvelinov/final_project_docker. After pulling the images start the container. -> This will assure running the performance test against the required preset data in the app database.
 2. Copy the "WeArePerformanceTestPlan.jmx" file from this folder and paste it in your JMeter bin folder. 
 3. To run the tests open cmd in your JMeter bin folder and write the command:
- jmeter.bat -n -t "*the path to your bin folder*\WeArePerformanceTesting.jmx" -l "*the path where you want to save the csv report*\WeAreJMReport.csv" -e -o "*the path where you want to save your html report*\WeArePerformanceReport"  
+ 
+ **jmeter.bat -n -t "*the path to your bin folder*\WeArePerformanceTesting.jmx" -l "*the path where you want to save the csv report*\WeAreJMReport.csv" -e -o "*the path where you want to save your html report*\WeArePerformanceReport"**  
+
 4. Press ENTER
 
 About the test plan: 
@@ -16,8 +18,8 @@ There are also separate Test cases for Performance, Load and Spike Testing of th
 
 You can enable/disable diffent scenarios and test cases in order to test different desired conditions. 
 
-Actual reports from some of the scenarios are added to the Performance Testing folder. 
-In order to visualize the reports you need to download the desired report folder on your machine first and then open the .html file in it.     
+**Actual reports from some of the scenarios are added to the Performance Testing folder.** 
+**In order to visualize the reports you need to download the desired report folder on your machine first and then open the .html file in it.**     
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 
