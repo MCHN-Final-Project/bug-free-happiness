@@ -45,7 +45,7 @@ Please ensure that you fulfill all the prerequisites and project-specific requir
 VI. Resources
 1. [Docker repo](https://hub.docker.com/repository/docker/simvelinov/final_project_docker/general)
 2. [Final project repo](https://github.com/MCHN-Final-Project/bug-free-happiness/tree/main)
-3. [Test Plan](https://drive.google.com/drive/folders/1dx9yin_QygG3MwIl6H1iyvthyyQu8oeH)
+3. [Test Plan](https://drive.google.com/file/d/15puq5XWKrBGZwFQJVNuef5pEOeFsSnUt/view?usp=sharing)
 4. [Initial/exploratory testing report](https://drive.google.com/drive/folders/1dx9yin_QygG3MwIl6H1iyvthyyQu8oeH)
 5. [Test Cases in Jira](https://simvel.atlassian.net/jira/software/c/projects/Q5FP/boards/6)
 6. [Logged bugs and issues in Jira](https://simvel.atlassian.net/jira/software/c/projects/Q5FP/boards/4)
