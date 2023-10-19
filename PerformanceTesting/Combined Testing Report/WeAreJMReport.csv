@@ -1,0 +1,591 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1697577875985,141,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",text,true,,27541,828,1,1,http://localhost:8081/,125,0,34
+1697577875985,130,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",,true,,412,626,1,1,http://localhost:8081/authenticate,125,0,34
+1697577876118,8,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",text,true,,27129,202,1,1,http://localhost:8081/,8,0,0
+1697577876873,116,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",text,true,,27541,852,2,3,http://localhost:8081/,108,0,1
+1697577876873,108,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",,true,,412,650,2,3,http://localhost:8081/authenticate,108,0,1
+1697577876981,8,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",text,true,,27129,202,2,3,http://localhost:8081/,8,0,0
+1697577876904,115,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27541,812,1,3,http://localhost:8081/,105,0,1
+1697577876904,105,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",,true,,412,610,1,3,http://localhost:8081/authenticate,105,0,1
+1697577877010,9,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27129,202,1,3,http://localhost:8081/,8,0,0
+1697577876137,844,Create a Post,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",text,true,,557,352,2,3,http://localhost:8081/api/post/auth/creator?name=gogo,844,0,0
+1697577877039,9,Comment on Post,500,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",text,false,Status code expected to be 200,483,381,2,3,http://localhost:8081/api/comment/auth/creator,9,0,0
+1697577877344,109,User Logs In,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",text,true,,27541,836,1,4,http://localhost:8081/,100,0,1
+1697577877344,100,User Logs In-0,302,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",,true,,412,634,1,4,http://localhost:8081/authenticate,100,0,1
+1697577877444,9,User Logs In-1,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",text,true,,27129,202,1,4,http://localhost:8081/,6,0,0
+1697577877050,516,Get All Posts,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",text,true,,164249,211,2,4,http://localhost:8081/api/post/,291,0,1
+1697577876995,712,Create a Post,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",text,true,,557,352,2,4,http://localhost:8081/api/post/auth/creator?name=gogo,712,0,0
+1697577877708,13,Comment on Post,500,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",text,false,Status code expected to be 200,483,381,2,4,http://localhost:8081/api/comment/auth/creator,11,0,0
+1697577877631,122,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",text,true,,27541,820,2,4,http://localhost:8081/,114,0,1
+1697577877631,114,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",,true,,412,618,2,4,http://localhost:8081/authenticate,114,0,1
+1697577877746,7,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",text,true,,27129,202,2,4,http://localhost:8081/,7,0,0
+1697577877022,872,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,557,352,1,5,http://localhost:8081/api/post/auth/creator?name=gogo,871,0,0
+1697577877895,127,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,false,Status code expected to be 200,483,381,1,5,http://localhost:8081/api/comment/auth/creator,127,0,0
+1697577877880,153,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",text,true,,27541,848,3,5,http://localhost:8081/,136,0,1
+1697577877880,136,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",,true,,412,646,3,5,http://localhost:8081/authenticate,136,0,1
+1697577878017,16,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",text,true,,27129,202,3,5,http://localhost:8081/,16,0,0
+1697577877456,827,Create a Post,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",text,true,,557,352,1,5,http://localhost:8081/api/post/auth/creator?name=gogo,827,0,0
+1697577878288,11,Comment on Post,500,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",text,false,Status code expected to be 200,483,381,1,5,http://localhost:8081/api/comment/auth/creator,10,0,0
+1697577877721,682,Get All Posts,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",text,true,,164460,211,3,5,http://localhost:8081/api/post/,388,0,1
+1697577878412,129,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",text,true,,27541,816,3,5,http://localhost:8081/,122,0,1
+1697577878412,122,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",,true,,412,614,3,5,http://localhost:8081/authenticate,122,0,1
+1697577878534,7,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",text,true,,27129,202,3,5,http://localhost:8081/,6,0,0
+1697577877755,848,Create a Post,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",text,true,,557,352,3,5,http://localhost:8081/api/post/auth/creator?name=gogo,848,0,0
+1697577878607,10,Comment on Post,500,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",text,false,Status code expected to be 200,483,381,3,5,http://localhost:8081/api/comment/auth/creator,9,0,0
+1697577878023,802,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,164666,211,1,5,http://localhost:8081/api/post/,441,0,1
+1697577878300,591,Get All Posts,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",text,true,,164871,211,1,6,http://localhost:8081/api/post/,342,0,0
+1697577878833,154,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27541,832,1,6,http://localhost:8081/,137,0,1
+1697577878833,137,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",,true,,412,630,1,6,http://localhost:8081/authenticate,137,0,1
+1697577878970,17,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27129,202,1,6,http://localhost:8081/,17,0,0
+1697577878871,153,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-3",text,true,,27541,816,4,6,http://localhost:8081/,145,0,1
+1697577878871,145,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-3",,true,,412,614,4,6,http://localhost:8081/authenticate,145,0,1
+1697577879016,8,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-3",text,true,,27129,202,4,6,http://localhost:8081/,6,0,0
+1697577878903,146,User Logs In,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",text,true,,27541,832,1,6,http://localhost:8081/,138,0,1
+1697577878903,138,User Logs In-0,302,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",,true,,412,630,1,6,http://localhost:8081/authenticate,138,0,1
+1697577879041,8,User Logs In-1,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",text,true,,27129,202,1,6,http://localhost:8081/,6,0,0
+1697577878040,1162,Create a Post,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",text,true,,557,352,4,6,http://localhost:8081/api/post/auth/creator?name=gogo,1162,0,0
+1697577879203,16,Comment on Post,500,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",text,false,Status code expected to be 200,483,381,4,6,http://localhost:8081/api/comment/auth/creator,16,0,0
+1697577878542,827,Create a Post,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",text,true,,557,352,4,6,http://localhost:8081/api/post/auth/creator?name=gogo,827,0,0
+1697577879370,9,Comment on Post,500,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",text,false,Status code expected to be 200,483,381,4,6,http://localhost:8081/api/comment/auth/creator,9,0,0
+1697577878618,1009,Get All Posts,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",text,true,,165076,211,4,6,http://localhost:8081/api/post/,564,0,1
+1697577879633,97,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",text,true,,27541,832,4,6,http://localhost:8081/,90,0,1
+1697577879633,90,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",,true,,412,630,4,6,http://localhost:8081/authenticate,90,0,1
+1697577879723,7,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",text,true,,27129,202,4,6,http://localhost:8081/,6,0,0
+1697577878989,806,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,557,352,1,6,http://localhost:8081/api/post/auth/creator?name=gogo,803,0,0
+1697577879796,11,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,false,Status code expected to be 200,483,381,1,6,http://localhost:8081/api/comment/auth/creator,11,0,0
+1697577879848,165,User Logs In,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-1",text,true,,27541,840,2,8,http://localhost:8081/,146,0,2
+1697577879848,146,User Logs In-0,302,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-1",,true,,412,638,2,8,http://localhost:8081/authenticate,146,0,2
+1697577879994,19,User Logs In-1,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-1",text,true,,27129,202,2,8,http://localhost:8081/,16,0,0
+1697577879872,159,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-2",text,true,,27541,840,5,8,http://localhost:8081/,148,0,1
+1697577879872,148,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-2",,true,,412,638,5,8,http://localhost:8081/authenticate,148,0,1
+1697577880020,11,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-2",text,true,,27129,202,5,8,http://localhost:8081/,9,0,0
+1697577879221,822,Get All Posts,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",text,true,,165688,211,5,8,http://localhost:8081/api/post/,513,0,1
+1697577880050,190,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",text,true,,27541,824,5,8,http://localhost:8081/,174,0,1
+1697577880050,174,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",,true,,412,622,5,8,http://localhost:8081/authenticate,174,0,1
+1697577880224,16,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",text,true,,27129,202,5,8,http://localhost:8081/,10,0,0
+1697577879051,1258,Create a Post,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",text,true,,557,352,2,8,http://localhost:8081/api/post/auth/creator?name=gogo,1258,0,0
+1697577880310,10,Comment on Post,500,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",text,false,Status code expected to be 200,483,381,2,8,http://localhost:8081/api/comment/auth/creator,10,0,0
+1697577879380,1049,Get All Posts,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",text,true,,165688,211,5,8,http://localhost:8081/api/post/,591,0,0
+1697577880437,117,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",text,true,,27541,844,5,8,http://localhost:8081/,110,0,1
+1697577880437,111,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",,true,,412,642,5,8,http://localhost:8081/authenticate,110,0,1
+1697577880548,6,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",text,true,,27129,202,5,8,http://localhost:8081/,6,0,0
+1697577879026,1547,Create a Post,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-3",text,true,,557,352,5,8,http://localhost:8081/api/post/auth/creator?name=gogo,1547,0,0
+1697577880574,10,Comment on Post,500,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-3",text,false,Status code expected to be 200,483,381,5,8,http://localhost:8081/api/comment/auth/creator,10,0,0
+1697577879808,1042,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,165894,211,1,8,http://localhost:8081/api/post/,640,0,1
+1697577880856,100,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27541,832,1,9,http://localhost:8081/,92,0,1
+1697577880856,92,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",,true,,412,630,1,9,http://localhost:8081/authenticate,92,0,1
+1697577880948,8,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27129,202,1,9,http://localhost:8081/,7,0,0
+1697577880871,108,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",text,true,,27541,820,6,9,http://localhost:8081/,99,0,1
+1697577880871,99,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",,true,,412,618,6,9,http://localhost:8081/authenticate,99,0,1
+1697577880970,9,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",text,true,,27129,202,6,9,http://localhost:8081/,7,0,0
+1697577880321,897,Get All Posts,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",text,true,,166505,211,2,9,http://localhost:8081/api/post/,462,0,1
+1697577879732,1597,Create a Post,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",text,true,,557,352,6,9,http://localhost:8081/api/post/auth/creator?name=gogo,1596,0,0
+1697577881226,110,User Logs In,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",text,true,,27541,836,2,9,http://localhost:8081/,100,0,2
+1697577881226,100,User Logs In-0,302,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",,true,,412,634,2,9,http://localhost:8081/authenticate,100,0,2
+1697577881326,10,User Logs In-1,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",text,true,,27129,202,2,9,http://localhost:8081/,9,0,0
+1697577881330,15,Comment on Post,500,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",text,false,Status code expected to be 200,483,381,6,9,http://localhost:8081/api/comment/auth/creator,15,0,0
+1697577880016,1529,Create a Post,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-1",text,true,,557,352,2,9,http://localhost:8081/api/post/auth/creator?name=gogo,1528,0,0
+1697577881546,10,Comment on Post,500,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-1",text,false,Status code expected to be 200,483,381,2,9,http://localhost:8081/api/comment/auth/creator,9,0,0
+1697577880034,1720,Create a Post,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-2",text,true,,557,352,6,9,http://localhost:8081/api/post/auth/creator?name=gogo,1719,0,0
+1697577881756,15,Comment on Post,500,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-2",text,false,Status code expected to be 200,483,381,6,9,http://localhost:8081/api/comment/auth/creator,15,0,0
+1697577880585,1223,Get All Posts,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-3",text,true,,166706,211,6,9,http://localhost:8081/api/post/,690,0,1
+1697577881817,97,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-3",text,true,,27541,816,6,9,http://localhost:8081/,91,0,1
+1697577881817,91,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-3",,true,,412,614,6,9,http://localhost:8081/authenticate,91,0,1
+1697577881909,5,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-3",text,true,,27129,202,6,9,http://localhost:8081/,4,0,0
+1697577880241,1894,Create a Post,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",text,true,,557,352,6,9,http://localhost:8081/api/post/auth/creator?name=gogo,1894,0,0
+1697577882136,10,Comment on Post,500,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",text,false,Status code expected to be 200,483,381,6,9,http://localhost:8081/api/comment/auth/creator,9,0,0
+1697577881348,1055,Get All Posts,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",text,true,,167317,211,6,9,http://localhost:8081/api/post/,648,0,1
+1697577881772,667,Get All Posts,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-2",text,true,,167323,211,6,9,http://localhost:8081/api/post/,424,0,1
+1697577882422,111,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",text,true,,27541,828,6,9,http://localhost:8081/,100,0,1
+1697577882422,100,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",,true,,412,626,6,9,http://localhost:8081/authenticate,100,0,1
+1697577882523,10,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",text,true,,27129,202,6,9,http://localhost:8081/,8,0,0
+1697577882445,114,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-2",text,true,,27541,812,6,9,http://localhost:8081/,106,0,3
+1697577882445,106,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-2",,true,,412,610,6,9,http://localhost:8081/authenticate,106,0,3
+1697577882551,8,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-2",text,true,,27129,202,6,9,http://localhost:8081/,5,0,0
+1697577880982,1614,Create a Post,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",text,true,,557,352,6,9,http://localhost:8081/api/post/auth/creator?name=gogo,1614,0,0
+1697577882597,20,Comment on Post,500,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",text,false,Status code expected to be 200,483,381,6,9,http://localhost:8081/api/comment/auth/creator,19,0,0
+1697577881556,1099,Get All Posts,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-1",text,true,,167323,211,2,9,http://localhost:8081/api/post/,607,0,1
+1697577882662,112,User Logs In,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-1",text,true,,27541,844,2,9,http://localhost:8081/,104,0,2
+1697577882662,104,User Logs In-0,302,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-1",,true,,412,642,2,9,http://localhost:8081/authenticate,104,0,2
+1697577882766,8,User Logs In-1,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-1",text,true,,27129,202,2,9,http://localhost:8081/,7,0,0
+1697577880556,2333,Create a Post,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",text,true,,557,352,6,9,http://localhost:8081/api/post/auth/creator?name=gogo,2333,0,0
+1697577882890,9,Comment on Post,500,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",text,false,Status code expected to be 200,483,381,6,9,http://localhost:8081/api/comment/auth/creator,9,0,0
+1697577880959,2243,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,557,352,1,9,http://localhost:8081/api/post/auth/creator?name=gogo,2243,0,0
+1697577883203,8,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,false,Status code expected to be 200,483,381,1,9,http://localhost:8081/api/comment/auth/creator,8,0,0
+1697577882146,1147,Get All Posts,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",text,true,,167528,211,6,9,http://localhost:8081/api/post/,672,0,1
+1697577883299,110,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",text,true,,27541,836,6,9,http://localhost:8081/,98,0,1
+1697577883299,98,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",,true,,412,634,6,9,http://localhost:8081/authenticate,98,0,1
+1697577883397,12,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",text,true,,27129,202,6,9,http://localhost:8081/,11,0,0
+1697577881337,2134,Create a Post,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",text,true,,557,352,2,9,http://localhost:8081/api/post/auth/creator?name=gogo,2134,0,0
+1697577883473,10,Comment on Post,500,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",text,false,Status code expected to be 200,483,381,2,9,http://localhost:8081/api/comment/auth/creator,10,0,0
+1697577882617,981,Get All Posts,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",text,true,,167941,211,6,9,http://localhost:8081/api/post/,620,0,1
+1697577883604,101,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",text,true,,27541,832,6,9,http://localhost:8081/,95,0,1
+1697577883604,95,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",,true,,412,630,6,9,http://localhost:8081/authenticate,95,0,1
+1697577883699,6,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",text,true,,27129,202,6,9,http://localhost:8081/,5,0,0
+1697577881918,1899,Create a Post,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-3",text,true,,557,352,6,9,http://localhost:8081/api/post/auth/creator?name=gogo,1899,0,0
+1697577883818,8,Comment on Post,500,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-3",text,false,Status code expected to be 200,483,381,6,9,http://localhost:8081/api/comment/auth/creator,8,0,0
+1697577882900,935,Get All Posts,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",text,true,,168139,211,6,9,http://localhost:8081/api/post/,664,0,1
+1697577883842,98,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",text,true,,27541,828,6,9,http://localhost:8081/,91,0,1
+1697577883842,91,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",,true,,412,626,6,9,http://localhost:8081/authenticate,91,0,1
+1697577883933,7,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",text,true,,27129,202,6,9,http://localhost:8081/,6,0,0
+1697577882534,1556,Create a Post,500,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",text,false,Expected status code was 200,598,352,6,9,http://localhost:8081/api/post/auth/creator?name=gogo,1556,0,0
+1697577884091,11,Comment on Post,500,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",text,false,Status code expected to be 200,483,381,6,9,http://localhost:8081/api/comment/auth/creator,10,0,1
+1697577882562,1546,Create a Post,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-2",text,true,,557,352,6,9,http://localhost:8081/api/post/auth/creator?name=gogo,1545,0,0
+1697577883215,890,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,168144,211,1,9,http://localhost:8081/api/post/,483,0,1
+1697577884110,12,Comment on Post,500,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-2",text,false,Status code expected to be 200,483,381,6,9,http://localhost:8081/api/comment/auth/creator,12,0,0
+1697577884112,150,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27541,836,1,9,http://localhost:8081/,141,0,1
+1697577884112,141,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",,true,,412,634,1,9,http://localhost:8081/authenticate,141,0,1
+1697577884253,9,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27129,202,1,9,http://localhost:8081/,6,0,0
+1697577882776,1679,Create a Post,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-1",text,true,,557,352,2,9,http://localhost:8081/api/post/auth/creator?name=gogo,1678,0,0
+1697577884456,23,Comment on Post,500,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-1",text,false,Status code expected to be 200,483,381,2,9,http://localhost:8081/api/comment/auth/creator,23,0,0
+1697577883484,1140,Get All Posts,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",text,true,,168347,211,2,9,http://localhost:8081/api/post/,663,0,0
+1697577883410,1288,Create a Post,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",text,true,,557,352,6,9,http://localhost:8081/api/post/auth/creator?name=gogo,1288,0,0
+1697577884700,12,Comment on Post,500,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",text,false,Status code expected to be 200,483,381,6,9,http://localhost:8081/api/comment/auth/creator,12,0,0
+1697577884631,111,User Logs In,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",text,true,,27541,844,2,9,http://localhost:8081/,100,0,1
+1697577884631,100,User Logs In-0,302,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",,true,,412,642,2,9,http://localhost:8081/authenticate,100,0,1
+1697577884731,11,User Logs In-1,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",text,true,,27129,202,2,9,http://localhost:8081/,9,0,0
+1697577883827,1282,Get All Posts,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-3",text,true,,168554,211,6,9,http://localhost:8081/api/post/,663,0,1
+1697577885115,109,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-3",text,true,,27541,820,6,9,http://localhost:8081/,99,0,2
+1697577885115,99,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-3",,true,,412,618,6,9,http://localhost:8081/authenticate,99,0,2
+1697577885214,10,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-3",text,true,,27129,202,6,9,http://localhost:8081/,7,0,0
+1697577884123,1189,Get All Posts,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-2",text,true,,168759,211,6,9,http://localhost:8081/api/post/,702,0,0
+1697577885319,126,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-2",text,true,,27541,844,6,9,http://localhost:8081/,110,0,1
+1697577885319,110,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-2",,true,,412,642,6,9,http://localhost:8081/authenticate,110,0,1
+1697577885429,16,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-2",text,true,,27129,202,6,9,http://localhost:8081/,15,0,0
+1697577884102,1447,Get All Posts,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",text,true,,168759,211,6,9,http://localhost:8081/api/post/,788,0,1
+1697577885556,105,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",text,true,,27541,820,6,9,http://localhost:8081/,96,0,1
+1697577885556,96,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",,true,,412,618,6,9,http://localhost:8081/authenticate,96,0,1
+1697577885653,8,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",text,true,,27129,202,6,9,http://localhost:8081/,8,0,0
+1697577884713,976,Get All Posts,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",text,true,,168966,211,6,9,http://localhost:8081/api/post/,519,0,0
+1697577884480,1258,Get All Posts,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-1",text,true,,168964,211,2,9,http://localhost:8081/api/post/,774,0,1
+1697577885696,123,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",text,true,,27541,836,6,9,http://localhost:8081/,116,0,1
+1697577885696,116,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",,true,,412,634,6,9,http://localhost:8081/authenticate,116,0,1
+1697577885812,7,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",text,true,,27129,202,6,9,http://localhost:8081/,6,0,0
+1697577885752,106,User Logs In,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-1",text,true,,27541,836,2,9,http://localhost:8081/,98,0,1
+1697577885752,98,User Logs In-0,302,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-1",,true,,412,634,2,9,http://localhost:8081/authenticate,98,0,1
+1697577885850,8,User Logs In-1,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-1",text,true,,27129,202,2,9,http://localhost:8081/,7,0,0
+1697577883706,2178,Create a Post,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",text,true,,557,352,6,9,http://localhost:8081/api/post/auth/creator?name=gogo,2177,0,0
+1697577885885,11,Comment on Post,500,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",text,false,Status code expected to be 200,483,381,6,9,http://localhost:8081/api/comment/auth/creator,11,0,0
+1697577883941,2208,Create a Post,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",text,true,,557,352,6,9,http://localhost:8081/api/post/auth/creator?name=gogo,2208,0,0
+1697577886150,19,Comment on Post,500,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",text,false,Status code expected to be 200,483,381,6,9,http://localhost:8081/api/comment/auth/creator,18,0,0
+1697577884743,1617,Create a Post,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",text,true,,557,352,2,9,http://localhost:8081/api/post/auth/creator?name=gogo,1617,0,0
+1697577886361,8,Comment on Post,500,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",text,false,Status code expected to be 200,483,381,2,9,http://localhost:8081/api/comment/auth/creator,8,0,0
+1697577884263,2439,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,557,352,1,9,http://localhost:8081/api/post/auth/creator?name=gogo,2438,0,0
+1697577886703,9,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,false,Status code expected to be 200,483,381,1,9,http://localhost:8081/api/comment/auth/creator,8,0,0
+1697577885897,885,Get All Posts,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",text,true,,170186,211,6,9,http://localhost:8081/api/post/,400,0,1
+1697577885446,1447,Create a Post,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-2",text,true,,557,352,6,9,http://localhost:8081/api/post/auth/creator?name=gogo,1447,0,0
+1697577886894,10,Comment on Post,500,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-2",text,false,Status code expected to be 200,483,381,6,9,http://localhost:8081/api/comment/auth/creator,10,0,0
+1697577886788,124,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",text,true,,27541,832,6,9,http://localhost:8081/,103,0,1
+1697577886788,103,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",,true,,412,630,6,9,http://localhost:8081/authenticate,103,0,1
+1697577886891,21,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",text,true,,27129,202,6,9,http://localhost:8081/,20,0,0
+1697577885225,1876,Create a Post,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-3",text,true,,557,352,6,9,http://localhost:8081/api/post/auth/creator?name=gogo,1876,0,0
+1697577887102,9,Comment on Post,500,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-3",text,false,Status code expected to be 200,483,381,6,9,http://localhost:8081/api/comment/auth/creator,8,0,0
+1697577886370,793,Get All Posts,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",text,true,,170192,211,2,9,http://localhost:8081/api/post/,427,0,1
+1697577887169,103,User Logs In,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",text,true,,27541,824,2,9,http://localhost:8081/,94,0,5
+1697577887169,94,User Logs In-0,302,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",,true,,412,622,2,9,http://localhost:8081/authenticate,94,0,5
+1697577887267,5,User Logs In-1,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",text,true,,27129,202,2,9,http://localhost:8081/,4,0,0
+1697577885662,1690,Create a Post,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",text,true,,557,352,6,9,http://localhost:8081/api/post/auth/creator?name=gogo,1689,0,0
+1697577887353,12,Comment on Post,500,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",text,false,Status code expected to be 200,483,381,6,9,http://localhost:8081/api/comment/auth/creator,11,0,0
+1697577885821,1898,Create a Post,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",text,true,,557,352,6,9,http://localhost:8081/api/post/auth/creator?name=gogo,1898,0,0
+1697577886169,1553,Get All Posts,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",text,true,,170188,211,6,9,http://localhost:8081/api/post/,847,0,1
+1697577887720,16,Comment on Post,500,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",text,false,Status code expected to be 200,483,381,6,9,http://localhost:8081/api/comment/auth/creator,16,0,0
+1697577886712,1132,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,170190,211,1,9,http://localhost:8081/api/post/,646,0,1
+1697577887728,128,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",text,true,,27541,852,6,9,http://localhost:8081/,113,0,1
+1697577887728,113,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",,true,,412,650,6,9,http://localhost:8081/authenticate,113,0,1
+1697577887841,15,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",text,true,,27129,202,6,9,http://localhost:8081/,15,0,0
+1697577886905,952,Get All Posts,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-2",text,true,,170195,211,6,9,http://localhost:8081/api/post/,465,0,1
+1697577885859,2056,Create a Post,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-1",text,true,,557,352,2,9,http://localhost:8081/api/post/auth/creator?name=gogo,2053,0,0
+1697577887915,34,Comment on Post,500,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-1",text,false,Status code expected to be 200,483,381,2,9,http://localhost:8081/api/comment/auth/creator,34,0,0
+1697577887854,134,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27541,820,1,9,http://localhost:8081/,124,0,1
+1697577887854,124,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",,true,,412,618,1,9,http://localhost:8081/authenticate,124,0,1
+1697577887978,10,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27129,202,1,9,http://localhost:8081/,8,0,0
+1697577887863,131,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-2",text,true,,27541,840,6,9,http://localhost:8081/,112,0,1
+1697577887863,112,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-2",,true,,412,638,6,9,http://localhost:8081/authenticate,112,0,1
+1697577887975,19,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-2",text,true,,27129,202,6,9,http://localhost:8081/,13,0,0
+1697577887111,1139,Get All Posts,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-3",text,true,,170398,211,6,9,http://localhost:8081/api/post/,644,0,1
+1697577886914,1398,Create a Post,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",text,true,,557,352,6,9,http://localhost:8081/api/post/auth/creator?name=gogo,1398,0,0
+1697577888313,38,Comment on Post,500,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",text,false,Status code expected to be 200,483,381,6,9,http://localhost:8081/api/comment/auth/creator,38,0,0
+1697577888256,111,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-3",text,true,,27541,816,6,9,http://localhost:8081/,103,0,1
+1697577888256,103,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-3",,true,,412,614,6,9,http://localhost:8081/authenticate,103,0,1
+1697577888359,8,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-3",text,true,,27129,202,6,9,http://localhost:8081/,6,0,0
+1697577887274,1310,Create a Post,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",text,true,,557,352,2,9,http://localhost:8081/api/post/auth/creator?name=gogo,1310,0,0
+1697577888585,10,Comment on Post,500,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",text,false,Status code expected to be 200,483,381,2,9,http://localhost:8081/api/comment/auth/creator,10,0,0
+1697577887366,1577,Get All Posts,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",text,true,,170604,211,6,9,http://localhost:8081/api/post/,1026,0,0
+1697577888949,120,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",text,true,,27541,836,6,9,http://localhost:8081/,93,0,1
+1697577888949,93,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",,true,,412,634,6,9,http://localhost:8081/authenticate,93,0,1
+1697577889042,27,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",text,true,,27129,202,6,9,http://localhost:8081/,23,0,0
+1697577887857,1388,Create a Post,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",text,true,,557,352,6,9,http://localhost:8081/api/post/auth/creator?name=gogo,1387,0,0
+1697577889245,12,Comment on Post,500,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",text,false,Status code expected to be 200,483,381,6,9,http://localhost:8081/api/comment/auth/creator,12,0,0
+1697577887736,1517,Get All Posts,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",text,true,,170604,211,6,9,http://localhost:8081/api/post/,969,0,1
+1697577887949,1328,Get All Posts,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-1",text,true,,170809,211,2,9,http://localhost:8081/api/post/,678,0,1
+1697577889259,109,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",text,true,,27541,840,6,9,http://localhost:8081/,99,0,1
+1697577889259,99,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",,true,,412,638,6,9,http://localhost:8081/authenticate,99,0,1
+1697577889359,9,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",text,true,,27129,202,6,9,http://localhost:8081/,7,0,0
+1697577889283,111,User Logs In,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-1",text,true,,27541,848,2,9,http://localhost:8081/,100,0,1
+1697577889283,100,User Logs In-0,302,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-1",,true,,412,646,2,9,http://localhost:8081/authenticate,100,0,1
+1697577889384,10,User Logs In-1,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-1",text,true,,27129,202,2,9,http://localhost:8081/,9,0,0
+1697577887990,1518,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,557,352,1,9,http://localhost:8081/api/post/auth/creator?name=gogo,1518,0,0
+1697577889509,12,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,false,Status code expected to be 200,483,381,1,9,http://localhost:8081/api/comment/auth/creator,11,0,0
+1697577888351,1260,Get All Posts,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",text,true,,171217,211,6,9,http://localhost:8081/api/post/,875,0,1
+1697577889617,97,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",text,true,,27541,812,6,9,http://localhost:8081/,91,0,2
+1697577889617,91,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",,true,,412,610,6,9,http://localhost:8081/authenticate,91,0,2
+1697577889708,6,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",text,true,,27129,202,6,9,http://localhost:8081/,5,0,0
+1697577888368,1403,Create a Post,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-3",text,true,,557,352,6,9,http://localhost:8081/api/post/auth/creator?name=gogo,1402,0,0
+1697577889772,8,Comment on Post,500,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-3",text,false,Status code expected to be 200,483,381,6,9,http://localhost:8081/api/comment/auth/creator,7,0,0
+1697577887995,2003,Create a Post,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-2",text,true,,557,352,6,9,http://localhost:8081/api/post/auth/creator?name=gogo,2003,0,0
+1697577889999,8,Comment on Post,500,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-2",text,false,Status code expected to be 200,483,381,6,9,http://localhost:8081/api/comment/auth/creator,8,0,0
+1697577888596,1500,Get All Posts,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",text,true,,171422,211,2,9,http://localhost:8081/api/post/,815,0,1
+1697577890103,104,User Logs In,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",text,true,,27541,836,2,10,http://localhost:8081/,95,0,1
+1697577890103,95,User Logs In-0,302,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",,true,,412,634,2,10,http://localhost:8081/authenticate,95,0,1
+1697577890198,9,User Logs In-1,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",text,true,,27129,202,2,10,http://localhost:8081/,6,0,0
+1697577890105,118,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-11",text,true,,27541,824,2,10,http://localhost:8081/,107,0,1
+1697577890105,107,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-11",,true,,412,622,2,10,http://localhost:8081/authenticate,107,0,1
+1697577890212,11,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-11",text,true,,27129,202,2,10,http://localhost:8081/,9,0,0
+1697577889070,1597,Create a Post,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",text,true,,557,352,6,12,http://localhost:8081/api/post/auth/creator?name=gogo,1597,0,0
+1697577889257,1542,Get All Posts,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",text,true,,171627,211,6,13,http://localhost:8081/api/post/,765,0,1
+1697577890668,174,Comment on Post,500,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",text,false,Status code expected to be 200,483,381,6,13,http://localhost:8081/api/comment/auth/creator,174,0,0
+1697577890307,611,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-10",text,true,,27541,824,6,14,http://localhost:8081/,559,0,5
+1697577890307,559,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-10",,true,,412,622,6,14,http://localhost:8081/authenticate,559,0,5
+1697577890866,52,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-10",text,true,,27129,202,6,14,http://localhost:8081/,51,0,0
+1697577890503,423,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-9",text,true,,27541,852,6,14,http://localhost:8081/,381,0,6
+1697577890503,381,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-9",,true,,412,650,6,14,http://localhost:8081/authenticate,381,0,6
+1697577890884,42,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-9",text,true,,27129,202,6,14,http://localhost:8081/,41,0,0
+1697577889781,1147,Get All Posts,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-3",text,true,,172242,211,6,14,http://localhost:8081/api/post/,622,0,0
+1697577890806,136,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",text,true,,27541,816,6,14,http://localhost:8081/,108,0,1
+1697577890806,108,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",,true,,412,614,6,14,http://localhost:8081/authenticate,108,0,1
+1697577890915,27,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",text,true,,27129,202,6,14,http://localhost:8081/,23,0,0
+1697577889521,1450,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,172037,211,6,14,http://localhost:8081/api/post/,779,0,1
+1697577889395,1873,Create a Post,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-1",text,true,,557,352,2,15,http://localhost:8081/api/post/auth/creator?name=gogo,1872,0,0
+1697577890906,386,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-7",text,true,,27541,836,7,15,http://localhost:8081/,184,0,1
+1697577890906,184,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-7",,true,,412,634,7,15,http://localhost:8081/authenticate,184,0,1
+1697577891090,202,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-7",text,true,,27129,202,7,15,http://localhost:8081/,201,0,0
+1697577890707,607,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-8",text,true,,27541,832,8,16,http://localhost:8081/,276,0,2
+1697577890707,276,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-8",,true,,412,630,8,16,http://localhost:8081/authenticate,276,0,2
+1697577890983,331,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-8",text,true,,27129,202,8,16,http://localhost:8081/,331,0,0
+1697577891269,92,Comment on Post,500,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-1",text,false,Status code expected to be 200,483,381,2,16,http://localhost:8081/api/comment/auth/creator,92,0,0
+1697577890938,444,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-3",text,true,,27541,844,6,16,http://localhost:8081/,172,0,1
+1697577890938,172,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-3",,true,,412,642,6,16,http://localhost:8081/authenticate,172,0,1
+1697577891111,271,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-3",text,true,,27129,202,6,16,http://localhost:8081/,270,0,0
+1697577890008,1603,Get All Posts,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-2",text,true,,172240,211,6,17,http://localhost:8081/api/post/,1162,0,1
+1697577889369,2474,Create a Post,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",text,true,,557,352,6,18,http://localhost:8081/api/post/auth/creator?name=gogo,2474,0,0
+1697577889716,2447,Create a Post,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",text,true,,557,352,6,19,http://localhost:8081/api/post/auth/creator?name=gogo,2446,0,0
+1697577890981,1188,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27541,836,11,19,http://localhost:8081/,426,0,1
+1697577890981,426,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",,true,,412,634,11,19,http://localhost:8081/authenticate,426,0,1
+1697577891408,761,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27129,202,11,19,http://localhost:8081/,760,0,0
+1697577891104,1071,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-6",text,true,,27541,836,11,19,http://localhost:8081/,306,0,1
+1697577891104,306,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-6",,true,,412,634,11,19,http://localhost:8081/authenticate,306,0,1
+1697577891410,765,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-6",text,true,,27129,202,11,19,http://localhost:8081/,765,0,0
+1697577891844,433,Comment on Post,500,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",text,false,Status code expected to be 200,483,381,6,19,http://localhost:8081/api/comment/auth/creator,433,0,0
+1697577892164,123,Comment on Post,500,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",text,false,Status code expected to be 200,483,381,6,19,http://localhost:8081/api/comment/auth/creator,122,0,0
+1697577890230,2136,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-11",text,true,,557,352,11,19,http://localhost:8081/api/post/auth/creator?name=gogo,2136,0,0
+1697577890843,1546,Get All Posts,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-6",text,true,,172657,211,6,18,http://localhost:8081/api/post/,980,0,1
+1697577890212,2389,Create a Post,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-2",text,true,,557,352,2,17,http://localhost:8081/api/post/auth/creator?name=gogo,2389,0,0
+1697577891361,1235,Get All Posts,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-1",text,true,,173473,211,2,17,http://localhost:8081/api/post/,759,0,1
+1697577891308,1304,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-5",text,true,,27541,852,10,16,http://localhost:8081/,396,0,1
+1697577891308,396,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-5",,true,,412,650,10,16,http://localhost:8081/authenticate,396,0,1
+1697577891704,908,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-5",text,true,,27129,202,10,16,http://localhost:8081/,907,0,0
+1697577890927,1966,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-9",text,true,,557,352,10,16,http://localhost:8081/api/post/auth/creator?name=gogo,1966,0,0
+1697577891708,1194,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-3",text,true,,27541,836,9,15,http://localhost:8081/,585,0,1
+1697577891708,585,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-3",,true,,412,634,9,15,http://localhost:8081/authenticate,585,0,1
+1697577892293,609,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-3",text,true,,27129,202,9,15,http://localhost:8081/,608,0,0
+1697577891621,1292,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-2",text,true,,27541,836,5,15,http://localhost:8081/,679,0,1
+1697577891621,679,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-2",,true,,412,634,5,15,http://localhost:8081/authenticate,679,0,1
+1697577892300,613,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-2",text,true,,27129,202,5,15,http://localhost:8081/,612,0,0
+1697577891508,1408,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-4",text,true,,27541,820,9,15,http://localhost:8081/,765,0,1
+1697577891508,765,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-4",,true,,412,618,9,15,http://localhost:8081/authenticate,765,0,1
+1697577892273,643,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-4",text,true,,27129,202,9,15,http://localhost:8081/,643,0,0
+1697577890943,2337,Create a Post,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-5",text,true,,557,352,5,15,http://localhost:8081/api/post/auth/creator?name=gogo,2337,0,0
+1697577890919,2584,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-10",text,true,,557,352,9,14,http://localhost:8081/api/post/auth/creator?name=gogo,2584,0,0
+1697577892278,1301,Get All Posts,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",text,true,,174289,211,4,13,http://localhost:8081/api/post/,801,0,1
+1697577891294,2366,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-7",text,true,,557,352,8,13,http://localhost:8081/api/post/auth/creator?name=gogo,2365,0,0
+1697577891908,1762,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-2",text,true,,27541,840,7,12,http://localhost:8081/,798,0,1
+1697577891908,799,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-2",,true,,412,638,7,12,http://localhost:8081/authenticate,798,0,1
+1697577892707,963,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-2",text,true,,27129,202,7,12,http://localhost:8081/,963,0,0
+1697577892611,1065,User Logs In,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-1",text,true,,27541,836,1,12,http://localhost:8081/,776,0,1
+1697577892611,776,User Logs In-0,302,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-1",,true,,412,634,1,12,http://localhost:8081/authenticate,776,0,1
+1697577893388,288,User Logs In-1,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-1",text,true,,27129,202,1,12,http://localhost:8081/,286,0,0
+1697577892287,1404,Get All Posts,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",text,true,,174289,211,4,12,http://localhost:8081/api/post/,1042,0,1
+1697577891316,2623,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-8",text,true,,557,352,7,12,http://localhost:8081/api/post/auth/creator?name=gogo,2622,0,0
+1697577893589,358,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",text,true,,27541,844,4,11,http://localhost:8081/,224,0,1
+1697577893589,224,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",,true,,412,642,4,11,http://localhost:8081/authenticate,224,0,1
+1697577893814,133,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-4",text,true,,27129,202,4,11,http://localhost:8081/,132,0,0
+1697577893700,346,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",text,true,,27541,836,3,10,http://localhost:8081/,340,0,1
+1697577893700,340,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",,true,,412,634,3,10,http://localhost:8081/authenticate,340,0,1
+1697577894040,6,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",text,true,,27129,202,3,10,http://localhost:8081/,4,0,0
+1697577891383,2761,Create a Post,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-3",text,true,,557,352,3,10,http://localhost:8081/api/post/auth/creator?name=gogo,2761,0,0
+1697577894145,18,Comment on Post,500,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-3",text,false,Status code expected to be 200,483,381,3,10,http://localhost:8081/api/comment/auth/creator,18,0,0
+1697577892170,2239,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,557,352,6,10,http://localhost:8081/api/post/auth/creator?name=gogo,2239,0,0
+1697577894411,8,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,false,Status code expected to be 200,483,381,6,10,http://localhost:8081/api/comment/auth/creator,8,0,0
+1697577892181,2492,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-6",text,true,,557,352,6,10,http://localhost:8081/api/post/auth/creator?name=gogo,2492,0,0
+1697577892613,2199,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-5",text,true,,557,352,5,9,http://localhost:8081/api/post/auth/creator?name=gogo,2198,0,0
+1697577892904,2050,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-3",text,true,,557,352,4,8,http://localhost:8081/api/post/auth/creator?name=gogo,2050,0,0
+1697577894167,803,Get All Posts,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-3",text,true,,175720,211,3,7,http://localhost:8081/api/post/,513,0,0
+1697577893672,1469,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-2",text,true,,557,352,3,6,http://localhost:8081/api/post/auth/creator?name=gogo,1469,0,0
+1697577894420,769,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,175723,211,2,5,http://localhost:8081/api/post/,491,0,0
+1697577892915,2343,Create a Post,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-2",text,true,,557,352,2,5,http://localhost:8081/api/post/auth/creator?name=gogo,2343,0,0
+1697577895259,8,Comment on Post,500,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-2",text,false,Status code expected to be 200,483,381,2,5,http://localhost:8081/api/comment/auth/creator,7,0,0
+1697577895198,100,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27541,832,2,5,http://localhost:8081/,91,0,1
+1697577895198,91,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",,true,,412,630,2,5,http://localhost:8081/authenticate,91,0,1
+1697577895289,9,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27129,202,2,5,http://localhost:8081/,6,0,0
+1697577892917,2506,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-4",text,true,,557,352,2,5,http://localhost:8081/api/post/auth/creator?name=gogo,2506,0,0
+1697577893678,1972,Create a Post,200,,"Log, Create, Comment, Read Content - Performance Test - WeAre Net 1-1",text,true,,557,352,1,4,http://localhost:8081/api/post/auth/creator?name=gogo,1972,0,0
+1697577894047,1759,Create a Post,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",text,true,,557,352,2,3,http://localhost:8081/api/post/auth/creator?name=gogo,1759,0,0
+1697577895807,11,Comment on Post,500,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",text,false,Status code expected to be 200,483,381,2,3,http://localhost:8081/api/comment/auth/creator,10,0,0
+1697577895267,633,Get All Posts,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-2",text,true,,175730,211,2,3,http://localhost:8081/api/post/,356,0,1
+1697577895299,800,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,557,352,1,2,http://localhost:8081/api/post/auth/creator?name=gogo,799,0,0
+1697577896100,9,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,false,Status code expected to be 200,483,381,1,2,http://localhost:8081/api/comment/auth/creator,8,0,0
+1697577895818,560,Get All Posts,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",text,true,,175941,211,1,2,http://localhost:8081/api/post/,316,0,1
+1697577896388,106,User Logs In,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",text,true,,27541,824,1,2,http://localhost:8081/,97,0,1
+1697577896388,97,User Logs In-0,302,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",,true,,412,622,1,2,http://localhost:8081/authenticate,97,0,1
+1697577896486,8,User Logs In-1,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",text,true,,27129,202,1,2,http://localhost:8081/,6,0,0
+1697577896109,591,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,175944,211,1,2,http://localhost:8081/api/post/,314,0,1
+1697577896710,101,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27541,832,1,2,http://localhost:8081/,94,0,1
+1697577896710,94,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",,true,,412,630,1,2,http://localhost:8081/authenticate,94,0,1
+1697577896804,7,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27129,202,1,2,http://localhost:8081/,7,0,0
+1697577896495,787,Create a Post,200,,"Log, Create, Comment, Read Content - Load Test - WeAre Net  2-1",text,true,,557,352,1,2,http://localhost:8081/api/post/auth/creator?name=gogo,787,0,0
+1697577896813,763,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,557,352,1,1,http://localhost:8081/api/post/auth/creator?name=gogo,763,0,0
+1697577897577,9,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,false,Status code expected to be 200,483,381,1,1,http://localhost:8081/api/comment/auth/creator,9,0,0
+1697577897587,690,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,176353,211,1,1,http://localhost:8081/api/post/,370,0,1
+1697577898287,89,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27541,828,1,1,http://localhost:8081/,82,0,2
+1697577898287,82,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",,true,,412,626,1,1,http://localhost:8081/authenticate,82,0,2
+1697577898369,7,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27129,202,1,1,http://localhost:8081/,7,0,0
+1697577898378,841,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,557,352,1,1,http://localhost:8081/api/post/auth/creator?name=gogo,841,0,0
+1697577899220,11,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,false,Status code expected to be 200,483,381,1,1,http://localhost:8081/api/comment/auth/creator,11,0,0
+1697577899233,695,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,176558,211,1,1,http://localhost:8081/api/post/,362,0,1
+1697577899938,93,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27541,816,1,1,http://localhost:8081/,83,0,1
+1697577899938,83,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",,true,,412,614,1,1,http://localhost:8081/authenticate,83,0,1
+1697577900022,9,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27129,202,1,1,http://localhost:8081/,9,0,0
+1697577900036,807,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,557,352,1,1,http://localhost:8081/api/post/auth/creator?name=gogo,807,0,0
+1697577900844,12,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,false,Status code expected to be 200,483,381,1,1,http://localhost:8081/api/comment/auth/creator,11,0,0
+1697577900856,691,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,176762,211,1,1,http://localhost:8081/api/post/,375,0,1
+1697577901556,92,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27541,812,1,1,http://localhost:8081/,84,0,2
+1697577901556,84,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",,true,,412,610,1,1,http://localhost:8081/authenticate,84,0,2
+1697577901640,8,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27129,202,1,1,http://localhost:8081/,8,0,0
+1697577901649,814,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,557,352,1,1,http://localhost:8081/api/post/auth/creator?name=gogo,814,0,0
+1697577902464,10,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,false,Status code expected to be 200,483,381,1,1,http://localhost:8081/api/comment/auth/creator,10,0,0
+1697577902475,673,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,176967,211,1,1,http://localhost:8081/api/post/,350,0,0
+1697577903157,96,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27541,832,1,1,http://localhost:8081/,88,0,1
+1697577903157,88,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",,true,,412,630,1,1,http://localhost:8081/authenticate,88,0,1
+1697577903246,7,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27129,202,1,1,http://localhost:8081/,7,0,0
+1697577903254,799,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,557,352,1,1,http://localhost:8081/api/post/auth/creator?name=gogo,799,0,0
+1697577904054,12,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,false,Status code expected to be 200,483,381,1,1,http://localhost:8081/api/comment/auth/creator,12,0,0
+1697577904067,683,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,177172,211,1,1,http://localhost:8081/api/post/,365,0,1
+1697577904760,90,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27541,812,1,1,http://localhost:8081/,81,0,1
+1697577904760,81,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",,true,,412,610,1,1,http://localhost:8081/authenticate,81,0,1
+1697577904841,9,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27129,202,1,1,http://localhost:8081/,8,0,0
+1697577905107,101,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-21",text,true,,27541,848,2,2,http://localhost:8081/,94,0,2
+1697577905107,94,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-21",,true,,412,646,2,2,http://localhost:8081/authenticate,94,0,2
+1697577905201,7,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-21",text,true,,27129,202,2,2,http://localhost:8081/,7,0,0
+1697577905304,96,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-20",text,true,,27541,816,3,3,http://localhost:8081/,86,0,1
+1697577905304,86,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-20",,true,,412,614,3,3,http://localhost:8081/authenticate,86,0,1
+1697577905390,10,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-20",text,true,,27129,202,3,3,http://localhost:8081/,8,0,0
+1697577905503,95,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-19",text,true,,27541,816,4,4,http://localhost:8081/,89,0,1
+1697577905503,89,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-19",,true,,412,614,4,4,http://localhost:8081/authenticate,89,0,1
+1697577905592,6,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-19",text,true,,27129,202,4,4,http://localhost:8081/,5,0,0
+1697577904851,884,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,557,352,5,5,http://localhost:8081/api/post/auth/creator?name=gogo,883,0,0
+1697577905704,97,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-18",text,true,,27541,844,5,5,http://localhost:8081/,89,0,1
+1697577905704,89,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-18",,true,,412,642,5,5,http://localhost:8081/authenticate,89,0,1
+1697577905794,7,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-18",text,true,,27129,202,5,5,http://localhost:8081/,6,0,0
+1697577905736,69,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,false,Status code expected to be 200,483,381,5,5,http://localhost:8081/api/comment/auth/creator,68,0,0
+1697577905905,103,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-17",text,true,,27541,816,6,6,http://localhost:8081/,97,0,1
+1697577905905,97,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-17",,true,,412,614,6,6,http://localhost:8081/authenticate,97,0,1
+1697577906003,5,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-17",text,true,,27129,202,6,6,http://localhost:8081/,4,0,0
+1697577905209,854,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-21",text,true,,557,352,6,6,http://localhost:8081/api/post/auth/creator?name=gogo,854,0,0
+1697577906064,8,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-21",text,false,Status code expected to be 200,483,381,6,6,http://localhost:8081/api/comment/auth/creator,7,0,0
+1697577906104,96,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-16",text,true,,27541,832,7,7,http://localhost:8081/,90,0,1
+1697577906104,90,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-16",,true,,412,630,7,7,http://localhost:8081/authenticate,90,0,1
+1697577906194,6,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-16",text,true,,27129,202,7,7,http://localhost:8081/,5,0,0
+1697577905401,943,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-20",text,true,,557,352,8,8,http://localhost:8081/api/post/auth/creator?name=gogo,942,0,0
+1697577906345,19,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-20",text,false,Status code expected to be 200,483,381,8,8,http://localhost:8081/api/comment/auth/creator,19,0,0
+1697577906308,116,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-15",text,true,,27541,812,8,8,http://localhost:8081/,107,0,2
+1697577906308,107,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-15",,true,,412,610,8,8,http://localhost:8081/authenticate,107,0,2
+1697577906415,9,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-15",text,true,,27129,202,8,8,http://localhost:8081/,8,0,0
+1697577906504,147,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-14",text,true,,27541,832,9,9,http://localhost:8081/,128,0,1
+1697577906504,128,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-14",,true,,412,630,9,9,http://localhost:8081/authenticate,128,0,1
+1697577906632,19,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-14",text,true,,27129,202,9,9,http://localhost:8081/,18,0,0
+1697577905600,1171,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-19",text,true,,557,352,10,10,http://localhost:8081/api/post/auth/creator?name=gogo,1171,0,0
+1697577906772,12,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-19",text,false,Status code expected to be 200,483,381,10,10,http://localhost:8081/api/comment/auth/creator,12,0,0
+1697577906703,116,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-13",text,true,,27541,828,10,10,http://localhost:8081/,107,0,1
+1697577906703,107,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-13",,true,,412,626,10,10,http://localhost:8081/authenticate,107,0,1
+1697577906810,9,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-13",text,true,,27129,202,10,10,http://localhost:8081/,8,0,0
+1697577905805,1144,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,178187,211,11,11,http://localhost:8081/api/post/,505,0,1
+1697577906906,228,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-12",text,true,,27541,836,11,11,http://localhost:8081/,215,0,1
+1697577906906,215,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-12",,true,,412,634,11,11,http://localhost:8081/authenticate,215,0,1
+1697577907121,13,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-12",text,true,,27129,202,11,11,http://localhost:8081/,12,0,0
+1697577906959,183,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27541,840,11,11,http://localhost:8081/,168,0,1
+1697577906959,168,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",,true,,412,638,11,11,http://localhost:8081/authenticate,168,0,1
+1697577907127,15,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27129,202,11,11,http://localhost:8081/,14,0,0
+1697577905804,1667,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-18",text,true,,557,352,11,11,http://localhost:8081/api/post/auth/creator?name=gogo,1666,0,0
+1697577906072,1483,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-21",text,true,,178394,211,11,11,http://localhost:8081/api/post/,825,0,1
+1697577907472,98,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-18",text,false,Status code expected to be 200,483,381,10,10,http://localhost:8081/api/comment/auth/creator,97,0,0
+1697577906013,1843,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-17",text,true,,557,352,10,10,http://localhost:8081/api/post/auth/creator?name=gogo,1843,0,0
+1697577907857,14,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-17",text,false,Status code expected to be 200,483,381,10,10,http://localhost:8081/api/comment/auth/creator,14,0,0
+1697577906365,1544,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-20",text,true,,178600,211,10,10,http://localhost:8081/api/post/,882,0,0
+1697577906201,1994,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-16",text,true,,557,352,9,9,http://localhost:8081/api/post/auth/creator?name=gogo,1993,0,0
+1697577906785,1484,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-19",text,true,,179007,211,8,8,http://localhost:8081/api/post/,941,0,0
+1697577906425,1970,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-15",text,true,,557,352,7,7,http://localhost:8081/api/post/auth/creator?name=gogo,1969,0,0
+1697577907570,943,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-18",text,true,,179618,211,6,6,http://localhost:8081/api/post/,655,0,1
+1697577906653,1882,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-14",text,true,,557,352,5,5,http://localhost:8081/api/post/auth/creator?name=gogo,1882,0,0
+1697577907871,810,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-17",text,true,,179619,211,4,4,http://localhost:8081/api/post/,530,0,1
+1697577906820,1873,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-13",text,true,,557,352,3,3,http://localhost:8081/api/post/auth/creator?name=gogo,1873,0,0
+1697577908693,8,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-13",text,false,Status code expected to be 200,483,381,3,3,http://localhost:8081/api/comment/auth/creator,8,0,0
+1697577907136,1701,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-12",text,true,,557,352,2,2,http://localhost:8081/api/post/auth/creator?name=gogo,1701,0,0
+1697577908838,11,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-12",text,false,Status code expected to be 200,483,381,2,2,http://localhost:8081/api/comment/auth/creator,11,0,0
+1697577907143,1874,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,557,352,2,2,http://localhost:8081/api/post/auth/creator?name=gogo,1874,0,0
+1697577909018,10,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,false,Status code expected to be 200,483,381,2,2,http://localhost:8081/api/comment/auth/creator,10,0,0
+1697577908849,635,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-12",text,true,,179628,211,2,2,http://localhost:8081/api/post/,363,0,1
+1697577909029,614,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,179630,211,1,1,http://localhost:8081/api/post/,345,0,0
+1697577909652,91,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27541,812,1,1,http://localhost:8081/,82,0,2
+1697577909652,82,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",,true,,412,610,1,1,http://localhost:8081/authenticate,82,0,2
+1697577909735,8,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27129,202,1,1,http://localhost:8081/,8,0,0
+1697577909744,821,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,557,352,1,1,http://localhost:8081/api/post/auth/creator?name=gogo,821,0,0
+1697577910565,9,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,false,Status code expected to be 200,483,381,1,1,http://localhost:8081/api/comment/auth/creator,9,0,0
+1697577910575,595,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,179835,211,1,1,http://localhost:8081/api/post/,324,0,1
+1697577911180,89,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27541,812,1,1,http://localhost:8081/,80,0,1
+1697577911180,80,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",,true,,412,610,1,1,http://localhost:8081/authenticate,80,0,1
+1697577911261,8,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27129,202,1,1,http://localhost:8081/,7,0,0
+1697577911270,896,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,557,352,1,1,http://localhost:8081/api/post/auth/creator?name=gogo,896,0,0
+1697577912166,11,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,false,Status code expected to be 200,483,381,1,1,http://localhost:8081/api/comment/auth/creator,11,0,0
+1697577912177,651,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,180040,211,1,1,http://localhost:8081/api/post/,361,0,1
+1697577912838,89,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27541,852,1,1,http://localhost:8081/,81,0,2
+1697577912838,81,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",,true,,412,650,1,1,http://localhost:8081/authenticate,81,0,2
+1697577912919,8,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27129,202,1,1,http://localhost:8081/,7,0,0
+1697577912928,927,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,557,352,1,1,http://localhost:8081/api/post/auth/creator?name=gogo,927,0,0
+1697577913856,9,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,false,Status code expected to be 200,483,381,1,1,http://localhost:8081/api/comment/auth/creator,9,0,0
+1697577913866,620,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,180244,211,1,1,http://localhost:8081/api/post/,340,0,0
+1697577914496,96,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27541,844,1,1,http://localhost:8081/,88,0,1
+1697577914496,88,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",,true,,412,642,1,1,http://localhost:8081/authenticate,88,0,1
+1697577914584,8,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27129,202,1,1,http://localhost:8081/,7,0,0
+1697577914593,815,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,557,352,1,1,http://localhost:8081/api/post/auth/creator?name=gogo,815,0,0
+1697577915409,11,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,false,Status code expected to be 200,483,381,1,1,http://localhost:8081/api/comment/auth/creator,11,0,0
+1697577915421,754,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,180450,211,1,1,http://localhost:8081/api/post/,402,0,0
+1697577916187,91,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27541,840,1,1,http://localhost:8081/,84,0,1
+1697577916187,84,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",,true,,412,638,1,1,http://localhost:8081/authenticate,84,0,1
+1697577916272,6,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27129,202,1,1,http://localhost:8081/,6,0,0
+1697577916280,926,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,557,352,1,1,http://localhost:8081/api/post/auth/creator?name=gogo,926,0,0
+1697577917207,11,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,false,Status code expected to be 200,483,381,1,1,http://localhost:8081/api/comment/auth/creator,11,0,0
+1697577917219,685,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,180654,211,1,1,http://localhost:8081/api/post/,367,0,1
+1697577917912,90,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27541,844,1,1,http://localhost:8081/,82,0,2
+1697577917912,82,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",,true,,412,642,1,1,http://localhost:8081/authenticate,82,0,2
+1697577917994,8,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27129,202,1,1,http://localhost:8081/,8,0,0
+1697577918004,800,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,557,352,1,1,http://localhost:8081/api/post/auth/creator?name=gogo,800,0,0
+1697577918805,12,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,false,Status code expected to be 200,483,381,1,1,http://localhost:8081/api/comment/auth/creator,12,0,0
+1697577918818,628,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,180864,211,1,1,http://localhost:8081/api/post/,356,0,0
+1697577919454,93,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27541,812,1,1,http://localhost:8081/,85,0,2
+1697577919454,85,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",,true,,412,610,1,1,http://localhost:8081/authenticate,85,0,2
+1697577919539,8,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27129,202,1,1,http://localhost:8081/,8,0,0
+1697577920105,108,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-31",text,true,,27541,812,2,2,http://localhost:8081/,101,0,1
+1697577920105,101,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-31",,true,,412,610,2,2,http://localhost:8081/authenticate,101,0,1
+1697577920206,7,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-31",text,true,,27129,202,2,2,http://localhost:8081/,7,0,0
+1697577920304,112,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-30",text,true,,27541,816,3,3,http://localhost:8081/,105,0,1
+1697577920304,105,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-30",,true,,412,614,3,3,http://localhost:8081/authenticate,105,0,1
+1697577920410,6,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-30",text,true,,27129,202,3,3,http://localhost:8081/,5,0,0
+1697577919549,922,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,557,352,3,3,http://localhost:8081/api/post/auth/creator?name=gogo,921,0,0
+1697577920471,11,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,false,Status code expected to be 200,483,381,3,3,http://localhost:8081/api/comment/auth/creator,10,0,0
+1697577920505,97,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-29",text,true,,27541,816,4,4,http://localhost:8081/,89,0,1
+1697577920505,89,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-29",,true,,412,614,4,4,http://localhost:8081/authenticate,89,0,1
+1697577920594,8,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-29",text,true,,27129,202,4,4,http://localhost:8081/,6,0,0
+1697577920704,102,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-28",text,true,,27541,836,5,5,http://localhost:8081/,92,0,1
+1697577920704,92,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-28",,true,,412,634,5,5,http://localhost:8081/authenticate,92,0,1
+1697577920797,9,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-28",text,true,,27129,202,5,5,http://localhost:8081/,8,0,0
+1697577920904,100,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-27",text,true,,27541,852,6,6,http://localhost:8081/,91,0,1
+1697577920904,91,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-27",,true,,412,650,6,6,http://localhost:8081/authenticate,91,0,1
+1697577920995,9,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-27",text,true,,27129,202,6,6,http://localhost:8081/,6,0,0
+1697577920215,820,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-31",text,true,,557,352,6,6,http://localhost:8081/api/post/auth/creator?name=gogo,820,0,0
+1697577921035,37,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-31",text,false,Status code expected to be 200,483,381,6,6,http://localhost:8081/api/comment/auth/creator,37,0,0
+1697577920482,663,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,181477,211,7,7,http://localhost:8081/api/post/,312,0,1
+1697577921103,168,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-26",text,true,,27541,844,7,7,http://localhost:8081/,141,0,1
+1697577921103,141,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-26",,true,,412,642,7,7,http://localhost:8081/authenticate,141,0,1
+1697577921245,26,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-26",text,true,,27129,202,7,7,http://localhost:8081/,24,0,0
+1697577921158,154,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27541,844,8,8,http://localhost:8081/,142,0,1
+1697577921158,142,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",,true,,412,642,8,8,http://localhost:8081/authenticate,142,0,1
+1697577921300,12,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27129,202,8,8,http://localhost:8081/,12,0,0
+1697577920417,964,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-30",text,true,,557,352,8,8,http://localhost:8081/api/post/auth/creator?name=gogo,964,0,0
+1697577921381,11,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-30",text,false,Status code expected to be 200,483,381,8,8,http://localhost:8081/api/comment/auth/creator,11,0,0
+1697577921304,115,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-25",text,true,,27541,836,8,8,http://localhost:8081/,99,0,1
+1697577921304,99,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-25",,true,,412,634,8,8,http://localhost:8081/authenticate,99,0,1
+1697577921403,16,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-25",text,true,,27129,202,8,8,http://localhost:8081/,16,0,0
+1697577921504,107,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-24",text,true,,27541,840,9,9,http://localhost:8081/,93,0,1
+1697577921504,93,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-24",,true,,412,638,9,9,http://localhost:8081/authenticate,93,0,1
+1697577921597,14,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-24",text,true,,27129,202,9,9,http://localhost:8081/,13,0,0
+1697577921704,110,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-23",text,true,,27541,852,10,10,http://localhost:8081/,102,0,2
+1697577921704,102,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-23",,true,,412,650,10,10,http://localhost:8081/authenticate,102,0,2
+1697577921806,8,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-23",text,true,,27129,202,10,10,http://localhost:8081/,7,0,0
+1697577920606,1358,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-29",text,true,,557,352,11,11,http://localhost:8081/api/post/auth/creator?name=gogo,1358,0,0
+1697577921964,97,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-29",text,false,Status code expected to be 200,483,381,11,11,http://localhost:8081/api/comment/auth/creator,97,0,0
+1697577921910,158,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-22",text,true,,27541,836,11,11,http://localhost:8081/,141,0,1
+1697577921910,141,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-22",,true,,412,634,11,11,http://localhost:8081/authenticate,141,0,1
+1697577922051,17,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-22",text,true,,27129,202,11,11,http://localhost:8081/,14,0,0
+1697577921071,1332,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-31",text,true,,182087,211,11,11,http://localhost:8081/api/post/,582,0,1
+1697577920807,1670,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-28",text,true,,557,352,10,10,http://localhost:8081/api/post/auth/creator?name=gogo,1670,0,0
+1697577922477,17,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-28",text,false,Status code expected to be 200,483,381,10,10,http://localhost:8081/api/comment/auth/creator,17,0,0
+1697577921393,1280,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-30",text,true,,182495,211,10,10,http://localhost:8081/api/post/,700,0,0
+1697577921007,1874,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-27",text,true,,557,352,9,9,http://localhost:8081/api/post/auth/creator?name=gogo,1874,0,0
+1697577922881,7,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-27",text,false,Status code expected to be 200,483,381,9,9,http://localhost:8081/api/comment/auth/creator,7,0,0
+1697577921313,1795,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,557,352,9,9,http://localhost:8081/api/post/auth/creator?name=gogo,1795,0,0
+1697577923109,14,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,false,Status code expected to be 200,483,381,9,9,http://localhost:8081/api/comment/auth/creator,13,0,0
+1697577922062,1115,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-29",text,true,,183106,211,9,9,http://localhost:8081/api/post/,628,0,0
+1697577921272,2029,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-26",text,true,,557,352,8,8,http://localhost:8081/api/post/auth/creator?name=gogo,2029,0,0
+1697577921420,2048,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-25",text,true,,557,352,7,7,http://localhost:8081/api/post/auth/creator?name=gogo,2048,0,0
+1697577922495,968,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-28",text,true,,183311,211,7,7,http://localhost:8081/api/post/,701,0,1
+1697577921815,1868,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-23",text,true,,557,352,5,5,http://localhost:8081/api/post/auth/creator?name=gogo,1868,0,0
+1697577923684,10,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-23",text,false,Status code expected to be 200,483,381,5,5,http://localhost:8081/api/comment/auth/creator,9,0,0
+1697577922889,895,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-27",text,true,,183313,211,5,5,http://localhost:8081/api/post/,603,0,1
+1697577921613,2209,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-24",text,true,,557,352,4,4,http://localhost:8081/api/post/auth/creator?name=gogo,2209,0,0
+1697577922070,1903,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-22",text,true,,557,352,3,3,http://localhost:8081/api/post/auth/creator?name=gogo,1903,0,0
+1697577923123,882,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,183317,211,2,2,http://localhost:8081/api/post/,533,0,1
+1697577924016,97,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27541,848,2,2,http://localhost:8081/,92,0,0
+1697577924016,92,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",,true,,412,646,2,2,http://localhost:8081/authenticate,92,0,0
+1697577924108,5,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27129,202,2,2,http://localhost:8081/,4,0,0
+1697577923694,645,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-23",text,true,,183322,211,2,2,http://localhost:8081/api/post/,368,0,1
+1697577924114,837,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,557,352,1,1,http://localhost:8081/api/post/auth/creator?name=gogo,837,0,0
+1697577924951,11,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,false,Status code expected to be 200,483,381,1,1,http://localhost:8081/api/comment/auth/creator,10,0,0
+1697577924962,719,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,183528,211,1,1,http://localhost:8081/api/post/,381,0,1
+1697577925689,90,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27541,820,1,1,http://localhost:8081/,82,0,2
+1697577925689,82,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",,true,,412,618,1,1,http://localhost:8081/authenticate,82,0,2
+1697577925771,8,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27129,202,1,1,http://localhost:8081/,8,0,0
+1697577925781,836,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,557,352,1,1,http://localhost:8081/api/post/auth/creator?name=gogo,836,0,0
+1697577926617,12,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,false,Status code expected to be 200,483,381,1,1,http://localhost:8081/api/comment/auth/creator,11,0,0
+1697577926629,687,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,183733,211,1,1,http://localhost:8081/api/post/,366,0,1
+1697577927326,89,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27541,828,1,1,http://localhost:8081/,82,0,2
+1697577927326,82,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",,true,,412,626,1,1,http://localhost:8081/authenticate,82,0,2
+1697577927408,7,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27129,202,1,1,http://localhost:8081/,6,0,0
+1697577927416,851,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,557,352,1,1,http://localhost:8081/api/post/auth/creator?name=gogo,851,0,0
+1697577928268,14,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,false,Status code expected to be 200,483,381,1,1,http://localhost:8081/api/comment/auth/creator,14,0,0
+1697577928282,709,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,183938,211,1,1,http://localhost:8081/api/post/,386,0,1
+1697577929000,86,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27541,840,1,1,http://localhost:8081/,79,0,1
+1697577929000,79,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",,true,,412,638,1,1,http://localhost:8081/authenticate,79,0,1
+1697577929079,7,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27129,202,1,1,http://localhost:8081/,7,0,0
+1697577929087,808,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,557,352,1,1,http://localhost:8081/api/post/auth/creator?name=gogo,808,0,0
+1697577929896,11,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,false,Status code expected to be 200,483,381,1,1,http://localhost:8081/api/comment/auth/creator,10,0,0
+1697577929908,745,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,184143,211,1,1,http://localhost:8081/api/post/,384,0,0
+1697577930669,90,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27541,848,1,1,http://localhost:8081/,83,0,2
+1697577930669,83,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",,true,,412,646,1,1,http://localhost:8081/authenticate,83,0,2
+1697577930753,6,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27129,202,1,1,http://localhost:8081/,6,0,0
+1697577930760,834,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,557,352,1,1,http://localhost:8081/api/post/auth/creator?name=gogo,834,0,0
+1697577931595,13,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,false,Status code expected to be 200,483,381,1,1,http://localhost:8081/api/comment/auth/creator,13,0,0
+1697577931609,669,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,184348,211,1,1,http://localhost:8081/api/post/,331,0,0
+1697577932287,92,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27541,824,1,1,http://localhost:8081/,84,0,2
+1697577932287,84,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",,true,,412,622,1,1,http://localhost:8081/authenticate,84,0,2
+1697577932371,8,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27129,202,1,1,http://localhost:8081/,7,0,0
+1697577932379,889,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,557,352,1,1,http://localhost:8081/api/post/auth/creator?name=gogo,889,0,0
+1697577933269,21,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,false,Status code expected to be 200,483,381,1,1,http://localhost:8081/api/comment/auth/creator,21,0,0
+1697577933292,678,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,184553,211,1,1,http://localhost:8081/api/post/,383,0,1
+1697577933980,89,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27541,844,1,1,http://localhost:8081/,81,0,1
+1697577933980,81,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",,true,,412,642,1,1,http://localhost:8081/authenticate,81,0,1
+1697577934061,8,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27129,202,1,1,http://localhost:8081/,8,0,0
+1697577934070,925,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,557,352,1,1,http://localhost:8081/api/post/auth/creator?name=gogo,925,0,0
+1697577934996,9,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,false,Status code expected to be 200,483,381,1,1,http://localhost:8081/api/comment/auth/creator,9,0,0
+1697577935005,700,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,184758,211,1,1,http://localhost:8081/api/post/,358,0,1
+1697577935715,90,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27541,840,1,1,http://localhost:8081/,83,0,1
+1697577935715,83,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",,true,,412,638,1,1,http://localhost:8081/authenticate,83,0,1
+1697577935798,7,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27129,202,1,1,http://localhost:8081/,7,0,0
+1697577935806,883,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,557,352,1,1,http://localhost:8081/api/post/auth/creator?name=gogo,882,0,0
+1697577936690,11,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,false,Status code expected to be 200,483,381,1,1,http://localhost:8081/api/comment/auth/creator,11,0,0
+1697577936702,664,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,184964,211,1,1,http://localhost:8081/api/post/,362,0,1
+1697577937377,93,User Logs In,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27541,852,1,1,http://localhost:8081/,84,0,1
+1697577937377,84,User Logs In-0,302,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",,true,,412,650,1,1,http://localhost:8081/authenticate,84,0,1
+1697577937461,9,User Logs In-1,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,27129,202,1,1,http://localhost:8081/,8,0,0
+1697577937471,902,Create a Post,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,557,352,1,1,http://localhost:8081/api/post/auth/creator?name=gogo,902,0,0
+1697577938374,17,Comment on Post,500,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,false,Status code expected to be 200,483,381,1,1,http://localhost:8081/api/comment/auth/creator,17,0,0
+1697577938392,658,Get All Posts,200,,"Log, Create, Comment, Read Content - Spike Test - WeAre Net  3-1",text,true,,185170,211,1,1,http://localhost:8081/api/post/,359,0,0
