@@ -47,25 +47,18 @@ Please ensure that you fulfill all the prerequisites and project-specific requir
 
 <h3>VI. Resources</h3>
 
-[Docker repo](https://hub.docker.com/repository/docker/simvelinov/final_project_docker/general)
+-  [Docker repo](https://hub.docker.com/repository/docker/simvelinov/final_project_docker/general)
+-  [Final project repo](https://github.com/MCHN-Final-Project/bug-free-happiness/tree/main)
+-  [Test Plan](https://drive.google.com/file/d/15puq5XWKrBGZwFQJVNuef5pEOeFsSnUt/view?usp=sharing)
+-  [Initial/exploratory testing report](https://drive.google.com/file/d/1vYETJy5eL2VHwcle3cVUmDyQXMj6f1XT/view?usp=sharing)
+-  [Test Cases in Jira](https://simvel.atlassian.net/jira/software/c/projects/Q5FP/boards/6)
+-  [Logged bugs and issues in Jira](https://simvel.atlassian.net/jira/software/c/projects/Q5FP/boards/4)
+-  [Newman report](https://drive.google.com/file/d/1taeWlZz4rAszB3xgrqydSJ97RNLk5rrX/view?usp=sharing)
+-  [Performance Testing report](https://drive.google.com/file/d/1gJTNUmRoOp7jWBWo-V6Ax-DcMHRXaX_4/view?usp=sharing)
+-  [Automation Tests report](https://drive.google.com/file/d/1SsgADR_gCjW9W1M4PdwrOlXzWiFjYeEo/view?usp=sharing)
+-  [Final Test Report]()
 
-[Final project repo](https://github.com/MCHN-Final-Project/bug-free-happiness/tree/main)
 
-[Test Plan](https://drive.google.com/file/d/15puq5XWKrBGZwFQJVNuef5pEOeFsSnUt/view?usp=sharing)
-
-[Initial/exploratory testing report](https://drive.google.com/file/d/1vYETJy5eL2VHwcle3cVUmDyQXMj6f1XT/view?usp=sharing)
-
-[Test Cases in Jira](https://simvel.atlassian.net/jira/software/c/projects/Q5FP/boards/6)
-
-[Logged bugs and issues in Jira](https://simvel.atlassian.net/jira/software/c/projects/Q5FP/boards/4)
-
-[Newman report](https://drive.google.com/file/d/1taeWlZz4rAszB3xgrqydSJ97RNLk5rrX/view?usp=sharing) 
-
-[Performance Testing report](https://drive.google.com/file/d/1gJTNUmRoOp7jWBWo-V6Ax-DcMHRXaX_4/view?usp=sharing)
-
-[Automation Tests report](https://drive.google.com/file/d/1SsgADR_gCjW9W1M4PdwrOlXzWiFjYeEo/view?usp=sharing)
-
-[Final Test Report]() 
 
 <h3>VII. Authors</h3>
 
