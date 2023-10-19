@@ -46,16 +46,26 @@ To set up the project locally for testing and development, follow these steps:
 Please ensure that you fulfill all the prerequisites and project-specific requirements as described in the project documentation. If you encounter any issues during setup, feel free to reach out to our team for assistance.
 
 <h3>VI. Resources</h3>
-1. [Docker repo](https://hub.docker.com/repository/docker/simvelinov/final_project_docker/general)
-2. [Final project repo](https://github.com/MCHN-Final-Project/bug-free-happiness/tree/main)
-3. [Test Plan](https://drive.google.com/file/d/15puq5XWKrBGZwFQJVNuef5pEOeFsSnUt/view?usp=sharing)
-4. [Initial/exploratory testing report](https://drive.google.com/file/d/1vYETJy5eL2VHwcle3cVUmDyQXMj6f1XT/view?usp=sharing)
-5. [Test Cases in Jira](https://simvel.atlassian.net/jira/software/c/projects/Q5FP/boards/6)
-6. [Logged bugs and issues in Jira](https://simvel.atlassian.net/jira/software/c/projects/Q5FP/boards/4)
-7. [Newman report](https://drive.google.com/file/d/1taeWlZz4rAszB3xgrqydSJ97RNLk5rrX/view?usp=sharing) 
-8. [Performance Testing report](https://drive.google.com/file/d/1gJTNUmRoOp7jWBWo-V6Ax-DcMHRXaX_4/view?usp=sharing)
-9. [Automation Tests report](https://drive.google.com/file/d/1SsgADR_gCjW9W1M4PdwrOlXzWiFjYeEo/view?usp=sharing)
-10. [Final Test Report]() 
+
+[Docker repo](https://hub.docker.com/repository/docker/simvelinov/final_project_docker/general)
+
+[Final project repo](https://github.com/MCHN-Final-Project/bug-free-happiness/tree/main)
+
+[Test Plan](https://drive.google.com/file/d/15puq5XWKrBGZwFQJVNuef5pEOeFsSnUt/view?usp=sharing)
+
+[Initial/exploratory testing report](https://drive.google.com/file/d/1vYETJy5eL2VHwcle3cVUmDyQXMj6f1XT/view?usp=sharing)
+
+[Test Cases in Jira](https://simvel.atlassian.net/jira/software/c/projects/Q5FP/boards/6)
+
+[Logged bugs and issues in Jira](https://simvel.atlassian.net/jira/software/c/projects/Q5FP/boards/4)
+
+[Newman report](https://drive.google.com/file/d/1taeWlZz4rAszB3xgrqydSJ97RNLk5rrX/view?usp=sharing) 
+
+[Performance Testing report](https://drive.google.com/file/d/1gJTNUmRoOp7jWBWo-V6Ax-DcMHRXaX_4/view?usp=sharing)
+
+[Automation Tests report](https://drive.google.com/file/d/1SsgADR_gCjW9W1M4PdwrOlXzWiFjYeEo/view?usp=sharing)
+
+[Final Test Report]() 
 
 <h3>VII. Authors</h3>
 
