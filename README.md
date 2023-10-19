@@ -1,10 +1,16 @@
-                                     WEare Social Network - Final Project, Telerik Academy Alpha QA Track
+                            WEare Social Network - Final Project, Telerik Academy Alpha QA Track
 
-I. Project description
+
+                            
+# <div align="center">WeAre Social Network</div>
+## <div align="center">Final Project - Telerik Academy Alpha QA Track</div>
+
+
+<h3>I. Project description</h3>
 
 WEare Social Network presents an innovative avenue for the pursuit of one's aspirations, where the synergy of offerings and desires flourishes harmoniously. Within this digital ecosystem, a vibrant tapestry of connections forms, weaving a rich social fabric. By extending a helping hand, individuals forge new bonds, expand their knowledge horizons, catalyze their career trajectories, and, most profoundly, imbue the community with their unique essence.
 
-II. Used technologies 
+<h3>II. Used technologies</h3> 
 
 Our project utilizes a stack of various technologies and tools, including:
 
@@ -17,17 +23,17 @@ Our project utilizes a stack of various technologies and tools, including:
 
 These technologies were instrumental in the successful development and testing of our project.
 
-III. Achievements
+<h3>III. Achievements</h3>
 
 - Manual Testing: Our team has diligently conducted extensive manual testing of the project, covering all critical functionalities. This includes testing user registration, login, and various user interactions to identify usability and user experience issues.
 
 - Automated Testing: We have successfully implemented automated testing using industry-standard testing tools and frameworks. This includes testing API endpoints, UI interactions, and performance under various scenarios.
 
-IV. Test Coverage
+<h3>IV. Test Coverage</h3>
 
 Our test cases cover a wide range of scenarios, including positive and negative test cases, boundary testing, and load testing. We have designed test suites to validate different aspects of the project, ensuring it meets the highest quality standards.
 
-V. Project Setup and test execution
+<h3>V. Project Setup and test execution</h3>
 To set up the project locally for testing and development, follow these steps:
 
 1. Clone the docker images from the docker repo into a container with: ```docker pull -a simvelinov/final_project_docker```. After pulling the images start the container. You are all set!
@@ -39,7 +45,7 @@ To set up the project locally for testing and development, follow these steps:
    
 Please ensure that you fulfill all the prerequisites and project-specific requirements as described in the project documentation. If you encounter any issues during setup, feel free to reach out to our team for assistance.
 
-VI. Resources
+<h3>VI. Resources</h3>
 1. [Docker repo](https://hub.docker.com/repository/docker/simvelinov/final_project_docker/general)
 2. [Final project repo](https://github.com/MCHN-Final-Project/bug-free-happiness/tree/main)
 3. [Test Plan](https://drive.google.com/file/d/15puq5XWKrBGZwFQJVNuef5pEOeFsSnUt/view?usp=sharing)
@@ -51,7 +57,7 @@ VI. Resources
 9. [Automation Tests report](https://drive.google.com/file/d/1SsgADR_gCjW9W1M4PdwrOlXzWiFjYeEo/view?usp=sharing)
 10. [Final Test Report]() 
 
-VII. Authors
+<h3>VII. Authors</h3>
 Simona Diamandieva-Ilieva - [github](https://github.com/SimonaDiamandievaIlieva)
 Petar Hlebarov - [github](https://github.com/petarhlebaroff)
 Simeon Velinov - [github](https://github.com/SimeonVelinov/General)
