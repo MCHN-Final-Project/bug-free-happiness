@@ -32,18 +32,11 @@ To set up the project locally for testing and development, follow these steps:
 
 1. Clone the docker images from the docker repo into a container with: ```docker pull -a simvelinov/final_project_docker```. After pulling the images start the container. You are all set!
 2. Clone the Project: Start by cloning the project repository to your local machine using the following command: git clone https://github.com/MCHN-Final-Project/bug-free-happiness.git
-3. Install Dependencies
-4. Configuration: Configure the project settings and environment variables, if applicable. 
-5. Database Setup: 
-6. Run the Application: The application will be accessible at [http://localhost:8000](http://localhost:8000) in your web browser.
-7. Run Tests: To execute the project's test suite, you can run the tests using: 
-Running the API tests trough newman is done with the following command:
-```
-newman run https://api.postman.com/collections/28771591-340edd31-5097-49e7-9ddf-e252913a9dce?access_key=PMAT-01HCW6NXBDK0WQVYJ4TX02KKDK -r htmlextra --reporter-htmlextra-export report.html --reporter-htmlextra-title "API Test Report" --reporter-htmlextra-showEnvironmentData --reporter-htmlextra-showHeaders
-```
-Running the RESTAssured and Selenium tests is done trough the included .bat file.
-This command will run the automated tests and provide you with test results.
-
+3. Configuration: Configure the project settings and environment variables, if applicable. 
+4. Run the Application: The application will be accessible at [http://localhost:8000](http://localhost:8000) in your web browser.
+7. Run Tests: Running the RESTAssured and Selenium tests is done through the included WEare_AutomationTests.bat file.
+8. Run Tests: Runnig the Postman colletion tests is done through the included WeAre_API.bat file.
+   
 Please ensure that you fulfill all the prerequisites and project-specific requirements as described in the project documentation. If you encounter any issues during setup, feel free to reach out to our team for assistance.
 
 VI. Resources
