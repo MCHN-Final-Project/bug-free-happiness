@@ -4,7 +4,7 @@
 
 ## <div align="center">*Final End-To-End Testing Project - Alpha QA Track*</div>
 
-# <div align="center">WeAre Social Network</div>
+# <div align="center">"WeAre Social Network"</div>
 
 
 <h3>I. Project description</h3>
