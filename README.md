@@ -1,4 +1,4 @@
-                                  WEare Social Network - Final Project, Telerik Academy Alpha QA Track
+                                    WEare Social Network - Final Project, Telerik Academy Alpha QA Track
 
 
                             
