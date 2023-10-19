@@ -53,6 +53,7 @@ Please ensure that you fulfill all the prerequisites and project-specific requir
 -  [Initial/exploratory testing report](https://drive.google.com/file/d/1vYETJy5eL2VHwcle3cVUmDyQXMj6f1XT/view?usp=sharing)
 -  [Test Cases in Jira](https://simvel.atlassian.net/jira/software/c/projects/Q5FP/boards/6)
 -  [Logged bugs and issues in Jira](https://simvel.atlassian.net/jira/software/c/projects/Q5FP/boards/4)
+-  [Jira report](https://simvel.atlassian.net/plugins/servlet/ac/com.xpandit.plugins.xray/testplans-metrics-report-page?project.key=Q5FP&project.id=10003&ac.reportId=6531726a0ee9a29463d4d6fb)
 -  [Newman report](https://drive.google.com/file/d/1taeWlZz4rAszB3xgrqydSJ97RNLk5rrX/view?usp=sharing)
 -  [Performance Testing report](https://drive.google.com/file/d/1gJTNUmRoOp7jWBWo-V6Ax-DcMHRXaX_4/view?usp=sharing)
 -  [Automation Tests report](https://drive.google.com/file/d/1SsgADR_gCjW9W1M4PdwrOlXzWiFjYeEo/view?usp=sharing)
