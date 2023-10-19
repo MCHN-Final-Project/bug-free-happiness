@@ -49,9 +49,10 @@ VI. Resources
 4. [Initial/exploratory testing report](https://drive.google.com/file/d/1vYETJy5eL2VHwcle3cVUmDyQXMj6f1XT/view?usp=sharing)
 5. [Test Cases in Jira](https://simvel.atlassian.net/jira/software/c/projects/Q5FP/boards/6)
 6. [Logged bugs and issues in Jira](https://simvel.atlassian.net/jira/software/c/projects/Q5FP/boards/4)
-7. [Newman report]() 
-8. [Performance Testing report]() 
-9. [Final Test Report]() 
+7. [Newman report](https://drive.google.com/file/d/1taeWlZz4rAszB3xgrqydSJ97RNLk5rrX/view?usp=sharing) 
+8. [Performance Testing report]()
+9. [Automation Tests report](https://drive.google.com/file/d/1SsgADR_gCjW9W1M4PdwrOlXzWiFjYeEo/view?usp=sharing)
+10. [Final Test Report]() 
 
 VII. Authors
 Simona Diamandieva-Ilieva - [github](https://github.com/SimonaDiamandievaIlieva)
