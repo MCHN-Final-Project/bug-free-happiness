@@ -4,9 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class CustomWebDriverManager {
 
@@ -28,10 +26,11 @@ public class CustomWebDriverManager {
             return driver;
         }
 
-        public static WebDriver setupBrowser() {
-            WebDriver chromeDriver = new ChromeDriver();
-            chromeDriver.manage().window().maximize();
-            return chromeDriver;
+        private WebDriver setupBrowser() {
+            WebDriver driver = new ChromeDriver();
+            driver.manage().window().maximize();
+            this.driver = driver;
+            return driver;
         }
     }
 }
