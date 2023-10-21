@@ -20,7 +20,7 @@ public class AdminPage extends BasePage {
     }
     public void navigateToUserList() {
         actions.clickElement("admin.userList");
-        actions.assertElementPresent("admin.loadMoreUsers");
+        actions.assertElementPresent("admin.seeProfileButton");
     }
     public void disableUser() {
         actions.assertElementPresent("admin.disableProfile");
