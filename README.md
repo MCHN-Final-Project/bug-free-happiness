@@ -1,4 +1,4 @@
-![](https://github.com/MCHN-Final-Project/bug-free-happiness/blob/main/logo/logo%20telerik.png)
+![](https://i0.wp.com/www.kaldata.com/wp-content/uploads/2018/06/Telerik_Academy_Logo2x.png?fit=802%2C212&ssl=1)
 
                             
 
